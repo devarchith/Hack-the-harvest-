@@ -25,9 +25,11 @@ with tempfile.TemporaryDirectory() as tmp:
     print(df.groupby(["year", "sensor"]).agg(rows=("date", "size"), usable=("usable", "mean"),
                                              red=("red", "median"), nir=("nir", "median"),
                                              ndvi=("ndvi", "median"), ndti=("ndti", "median")).round(3))
-    u = df[df["usable"]]
-    assert u["ndvi"].between(-1, 1).all() and u["red"].between(-0.05, 1).all(), "values out of range"
-    s2 = u[u["sensor"] == "S2"]
+    seen = df[df["n_valid"] > 0]
+    assert seen["ndvi"].between(-1, 1).all() and seen["red"].between(0, 1).all(), "values out of range"
+    scenes = df.loc[df["sensor"] == "S2", "items"].map(lambda s: [i.rpartition("_")[0] for i in s.split(";")])
+    assert scenes.map(lambda s: len(s) == len(set(s))).all(), "a day mixes two copies of one S2 scene"
+    s2 = df[df["usable"] & (df["sensor"] == "S2")]
     print("S2 baselines by year:", s2.groupby("year")["baseline"].unique().to_dict())
     print("columns:", list(df.columns))
 print("smoke test passed")

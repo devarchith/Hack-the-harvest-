@@ -1,23 +1,12 @@
-"""Shared data loader: per-field satellite time series from public STAC catalogs.
+"""Per-field satellite time series from Microsoft Planetary Computer.
 
-Two layers:
+fetch_series() searches Sentinel-2 and Landsat, masks clouds per pixel, converts to surface reflectance,
+computes indices and writes one row per field, date and sensor to data/series_<tag>.parquet, with a
+provenance JSON beside it. load_series() reads the parquet back. Columns are listed in README.md.
 
-* fetch_series(fields, years, ...) runs once, by whoever owns data. It searches Microsoft Planetary
-  Computer, masks clouds per pixel, puts reflectance on one scale, computes indices and writes one row per
-  field, date and sensor to data/series_<tag>.parquet, plus a provenance JSON beside it.
-* load_series(...) is for everyone else: it reads that parquet in seconds.
+Labels never pass through fetch or load; barc_labels() is for validation only.
 
-Labels never pass through fetch or load. barc_labels() exists for the validation notebook only.
-
-Output columns (proposal, Sat Nov 14; add columns freely, but do not rename existing ones):
-    field_id, year, date, sensor, platform, items, baseline,
-    n_pix, n_valid, valid_frac, usable,
-    blue, green, red, nir, swir1, swir2, re1, nir_narrow      (median surface reflectance, 0-1)
-    ndvi, ndvi_p25, ndvi_p75, ndti, ndmi, ndre               (medians over valid pixels)
-re1, nir_narrow and ndre exist for Sentinel-2 only (NaN for Landsat). Rows with no valid pixel are kept
-with n_valid = 0 so cloud gaps stay visible.
-
-Command line (from the repository root):
+Usage (from the repository root):
     python preprocessing/loader.py --gpkg PATH/BARC_Corn.2021-2023.gpkg --years 2021 2022 2023
 """
 
@@ -47,7 +36,7 @@ from shapely.geometry import box
 PC_STAC = "https://planetarycomputer.microsoft.com/api/stac/v1"
 BARC_LAYER = "barc_silage_grain_corn20212023"
 BARC_LABEL_COLUMNS = {"Corn_2021": 2021, "Corn_2022": 2022, "Corn_2023": 2023}
-LOADER_VERSION = "0.1.0"
+LOADER_VERSION = "0.1.1"
 
 # Per sensor: collection, asset keys mapped to common names, resolution and cloud rule.
 SENSORS = {
@@ -102,6 +91,18 @@ def _season_windows(years, months):
 
 def _solar_day(item, lon):
     return (item.datetime + timedelta(hours=lon / 15.0)).date().isoformat()
+
+
+def _newest_copies(items):
+    """Planetary Computer lists some Sentinel-2 scenes twice: as first processed and as reprocessed later
+    (IDs differ only in the last, processing-time part). Keep the newest copy, so one day never mixes two
+    processing baselines and therefore two scalings."""
+    newest = {}
+    for it in items:
+        scene, _, processed = it.id.rpartition("_")
+        if scene not in newest or processed > newest[scene][0]:
+            newest[scene] = (processed, it)
+    return [it for _, it in newest.values()]
 
 
 def _to_reflectance(sensor, arr, baseline):
@@ -170,8 +171,8 @@ def _process_day(sensor, items, gbox, pixels, lon, retries=3):
     platform = items[0].properties.get("platform", "")
     bands = {name: _to_reflectance(sensor, ds[asset].values[0], baseline).ravel()
              for asset, name in cfg["bands"].items()}
-    valid = (_valid_mask(sensor, ds[cfg["qa"]].values[0]).ravel() & np.isfinite(bands["red"])
-             & np.isfinite(bands["nir"]))
+    # Very dark pixels can come out of atmospheric correction slightly below zero, which pushes NDVI past 1.
+    valid = _valid_mask(sensor, ds[cfg["qa"]].values[0]).ravel() & (bands["red"] > 0) & (bands["nir"] > 0)
     ndvi = _nd(bands["nir"], bands["red"])
     idx = {"ndvi": ndvi, "ndti": _nd(bands["swir1"], bands["swir2"]), "ndmi": _nd(bands["nir"], bands["swir1"])}
     if "re1" in bands:
@@ -224,8 +225,12 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
                     query["eo:cloud_cover"] = {"lt": max_scene_cloud}
                 items = list(catalog.search(collections=[cfg["collection"]], bbox=bbox_ll,
                                             datetime=f"{start}/{end}", query=query or None).items())
+                n_found = len(items)
+                if sensor == "s2":
+                    items = _newest_copies(items)
                 prov_queries.append({"sensor": sensor, "collection": cfg["collection"], "bbox": bbox_ll,
-                                     "datetime": f"{start}/{end}", "query": query, "n_items": len(items)})
+                                     "datetime": f"{start}/{end}", "query": query, "n_items": n_found,
+                                     "n_older_copies_dropped": n_found - len(items)})
                 by_day = {}
                 for it in items:
                     by_day.setdefault(_solar_day(it, lon), []).append(it)
@@ -265,7 +270,9 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
         "loader_version": LOADER_VERSION, "catalog": PC_STAC, "years": list(years), "months": list(months),
         "sensors": {s: {k: v for k, v in SENSORS[s].items()} for s in sensors},
         "cloud_rule": {"s2_scl_keep": SCL_KEEP, "landsat_qa_drop_bits": LANDSAT_QA_DROP_BITS,
-                       "max_scene_cloud": max_scene_cloud, "usable_frac": usable_frac},
+                       "max_scene_cloud": max_scene_cloud, "usable_frac": usable_frac,
+                       "pixel_rule": "red > 0 and nir > 0"},
+        "duplicates": "Sentinel-2: newest processing of each scene kept, older copies dropped",
         "scaling": {"s2": "(DN - 1000)/10000 if processing baseline >= 04.00 else DN/10000; DN 0 = nodata",
                     "landsat": "DN * 2.75e-5 - 0.2; DN 0 = nodata"},
         "crs": str(target_crs), "buffer_m": buffer_m, "fields": int(len(fields)),
