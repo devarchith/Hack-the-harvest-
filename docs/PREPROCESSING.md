@@ -43,6 +43,19 @@ Each item is a checkbox.
 - [ ] A data card: every source URL, collection name, query dates, bands, cloud rule, CRS and processing step
   (the challenge's Data Rules require this).
 
+## Tested on the real BARC file (Sat 12:20 PM)
+
+`python preprocessing/loader.py --gpkg 04_Evaluation/BARC_Corn.2021-2023.gpkg --years 2022 --months 8 11 --weather`
+on a laptop: 3,451 rows, all 83 fields, 62% of readings usable, 164 s. On the pod it should be faster.
+
+- Usable dates per field, Aug to Nov 2022: 16 to 32 (median 22). Smallest field: 105 Sentinel-2 pixels after
+  the 10 m inward buffer; median 412.
+- Median NDVI over all fields, labels not used: Aug 0.84, Sep about 0.64, Oct about 0.40, Nov about 0.38.
+- **Cross-sensor offset:** on 153 field-days with both sensors, Sentinel-2 NDVI is about 0.05 lower than
+  Landsat's (median). Compute timing features per sensor or correct for it; do not mix raw values.
+- One Landsat scene (LC08_L2SP_015033_20220804) has an unreadable QA file on Planetary Computer. It is
+  recorded under `failures` in the provenance file and skipped.
+
 ## Indices
 
 | Index | Sentinel-2 | Landsat 8/9 | Meaning |
