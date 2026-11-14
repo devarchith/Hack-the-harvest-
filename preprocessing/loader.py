@@ -27,6 +27,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import planetary_computer
+from odc.geo import xy_
 from odc.geo.geobox import GeoBox
 from odc.stac import configure_rio, load
 from pystac_client import Client
@@ -36,7 +37,7 @@ from shapely.geometry import box
 PC_STAC = "https://planetarycomputer.microsoft.com/api/stac/v1"
 BARC_LAYER = "barc_silage_grain_corn20212023"
 BARC_LABEL_COLUMNS = {"Corn_2021": 2021, "Corn_2022": 2022, "Corn_2023": 2023}
-LOADER_VERSION = "0.1.1"
+LOADER_VERSION = "0.1.2"
 
 # Per sensor: collection, asset keys mapped to common names, resolution and cloud rule.
 SENSORS = {
@@ -46,6 +47,7 @@ SENSORS = {
                   "B8A": "nir_narrow", "B11": "swir1", "B12": "swir2"},
         "qa": "SCL",
         "resolution": 10,
+        "grid_anchor": 0.0,  # native pixel edges at multiples of 10 m in UTM
         "query": {},
     },
     "landsat": {
@@ -54,6 +56,7 @@ SENSORS = {
                   "swir16": "swir1", "swir22": "swir2"},
         "qa": "qa_pixel",
         "resolution": 30,
+        "grid_anchor": 0.5,  # native pixel edges at 15 m past multiples of 30 m; a 0 anchor shifts fields 15 m
         "query": {"platform": {"in": ["landsat-8", "landsat-9"]}},
     },
 }
@@ -198,7 +201,8 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
                  out_dir="data", tag="barc", id_col="field_id", buffer_m=10.0, cell_m=20000,
                  max_scene_cloud=95, workers=32, usable_frac=0.6, crs="auto") -> pd.DataFrame:
     """Build the per-field time series and write data/series_<tag>.parquet plus provenance JSON."""
-    configure_rio(cloud_defaults=True)
+    # Without a timeout a stalled blob read blocks its thread forever and the run never finishes.
+    configure_rio(cloud_defaults=True, GDAL_HTTP_TIMEOUT=60, GDAL_HTTP_MAX_RETRY=3, GDAL_HTTP_RETRY_DELAY=2)
     fields = fields.to_crs(4326)
     target_crs = fields.estimate_utm_crs() if crs == "auto" else crs
     proj = fields.to_crs(target_crs)
@@ -214,7 +218,8 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
             minx, miny, maxx, maxy = cell.total_bounds
             pad = 3 * res
             gbox = GeoBox.from_bbox((minx - pad, miny - pad, maxx + pad, maxy + pad),
-                                    crs=target_crs, resolution=res)
+                                    crs=target_crs, resolution=res,
+                                    anchor=xy_(cfg["grid_anchor"], cfg["grid_anchor"]))
             pixels, fb = _field_pixels(cell.geometry, cell[id_col], gbox, buffer_m)
             fallback_total += fb
             bbox_ll = tuple(gpd.GeoSeries([box(minx, miny, maxx, maxy)], crs=target_crs)
