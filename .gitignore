@@ -1,0 +1,19 @@
+# Secrets
+.env
+*.key
+*.pem
+
+# Data and large outputs
+data/
+*.tif
+*.tiff
+*.nc
+*.zarr/
+*.gpkg
+*.zip
+
+# Python and Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.keeboh/
