@@ -55,6 +55,29 @@ medians are saved, any new measure can be computed later without downloading aga
 
 Weather table: `data/weather_<tag>.parquet`, with columns `field_id`, `date`, `prcp_mm`, `tmax_c`, `tmin_c`.
 
+## Radar: `data/s1_<tag>.parquet`
+
+`fetch_s1()` builds the same kind of table from Sentinel-1 radar (RTC product: gamma0, terrain corrected, 10 m),
+also from Microsoft Planetary Computer. Radar sees through cloud. One row per field, date and pass.
+
+| Column | Meaning |
+|---|---|
+| `field_id`, `year`, `date`, `sensor` (`S1`), `platform`, `items` | As in the optical table |
+| `orbit_state`, `relative_orbit` | Pass direction and track. Over BARC: ascending, tracks 4 and 106, which view the fields at different angles |
+| `n_pix`, `n_valid`, `valid_frac`, `usable` | Pixels in the field, pixels with data, their share, whether at least 60% has data |
+| `vv_db`, `vh_db` | Field mean backscatter, averaged in linear power and then converted to dB |
+| `vh_vv_db`, `rvi` | VH/VV ratio in dB; radar vegetation index 4·VH / (VV + VH) |
+
+Each scene is read as a window on its own 10 m grid (no resampling). Scenes that only clip the edge of the
+area give rows with `n_valid = 0`. Searches, settings and failures are saved to `s1_<tag>.provenance.json`.
+
+```bash
+python preprocessing/loader.py --gpkg 04_Evaluation/BARC_Corn.2021-2023.gpkg --years 2021 2022 2023 --months 6 11 --s1-only --workers 8
+```
+
+Run on Sun Nov 15 2026: 274 passes, 6,263 rows, 64% usable, no failures, 18 minutes on a laptop.
+A median of 13 usable passes per field and year (June to November).
+
 ## How to run
 
 ```bash
@@ -105,5 +128,6 @@ The answers (Grain/Silage) are never in these tables. `barc_labels()` reads them
 |---|---|
 | Sentinel-2 Level-2A | https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a |
 | Landsat Collection 2 Level-2 | https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2 |
+| Sentinel-1 RTC | https://planetarycomputer.microsoft.com/dataset/sentinel-1-rtc |
 | Daymet daily weather | https://daymet.ornl.gov/ |
 | BARC fields | Dulaney et al. (2024), https://doi.org/10.1002/agg2.20474, and Kraatz et al. (2023), https://doi.org/10.3390/s23208595 |
