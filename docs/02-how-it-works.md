@@ -2,6 +2,30 @@
 
 **The model reads a year of satellite images for each small patch of corn, scores each patch from 0 to 1 for silage, and learns beyond Maryland from one cheap signal: the Census of Agriculture's silage share for each county.**
 
+## The method in plain words
+
+1. **Start with a model that already reads satellite imagery.** Presto was pretrained on pixel time series. It has never been told about silage.
+2. **Teach it silage and grain on one farm.** It is shown the 81 labeled Maryland field-years and corrected whenever it calls a field wrong. This is the Maryland-only model: 41 of 44 right on the Maryland test years.
+3. **Find where that breaks.** Outside Maryland it misses most silage: it finds 149 of 1,045 silage fields in Québec, and its county estimates are off by 0.248 on average. A likely reason is that it leans on habits of this one farm, such as fields greening up again after the silage cut ([VALIDATION.md](../VALIDATION.md)).
+4. **Add a signal that exists everywhere.** The Census says what fraction of each county's corn is silage. During training the model also looks at corn blocks in 163 counties and is corrected whenever its average for a county is far from that fraction. It is never told which block is silage. This is the county-share model: the same 41 of 44 in Maryland, 841 of 1,045 silage fields found in Québec, and a county gap of 0.139.
+
+## Where the county numbers come from
+
+- **Source.** The Census of Agriculture, run by USDA NASS every five years (2012, 2017 and 2022 are in `02_QuickStats/`). It publishes, per county, the harvested acres of corn for grain and of corn for silage.
+- **Silage share.** Silage acres divided by grain plus silage acres. Lancaster, Pennsylvania in 2022: 35,988 silage and 95,549 grain acres, so 0.274.
+- **Training target.** The 2022 share of each of the 163 sampled counties.
+- **Scoring.** A county's estimate is compared with its 2022 share. The gap is the absolute difference, averaged over counties.
+- **Last Census reused.** The comparison that needs no model: take the county's 2017 share as the guess for 2022.
+
+| Word | Meaning |
+|---|---|
+| Field-year | One field in one year |
+| Block | A 90 m square that the corn map says is all corn; stands in for a field where there are no field outlines |
+| Out of fold | Scored by a model that never trained on that county's state |
+| w | How strongly the county signal counts next to the Maryland field labels |
+
+## The pipeline
+
 ```mermaid
 flowchart LR
     A["Public data: Sentinel-2, Sentinel-1, corn map"] --> B["Monthly time series per 10 m pixel, Jan to Dec"]
