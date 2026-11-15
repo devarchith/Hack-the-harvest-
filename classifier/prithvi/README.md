@@ -8,7 +8,7 @@ field-years to tell silage corn from grain corn, scored against the 5-feature lo
 
 | Step | Script | Runs on | Output |
 |---|---|---|---|
-| 1. Labeled field-years with polygons | `prithvi_field_years.py` | any machine with the repo `data/` folder | `field_years.csv` (127 rows) |
+| 1. Labeled field-years with polygons and label checks | `prithvi_field_years.py` | any machine with the repo `data/` folder | `field_years.csv` (127 rows) |
 | 2. 30 m six-band image stacks, June-November, 2017-2023 | `prithvi_chips.py` | CPU, network | `<chips>/<year>.npz`, `<chips>/<year>.provenance.json` |
 | 3. Split, train, choose on validation, test once | `prithvi_train.py` | NVIDIA GPU | `results/prithvi/` |
 | 4. Frozen embeddings scored with the team's shared evaluator | `prithvi_evaluate.sh` (runs `prithvi_embed.py`, `evaluate.py`, `prithvi_select.py`) | NVIDIA GPU, then CPU | `results/evaluate/` |
@@ -32,6 +32,8 @@ It downloads the Prithvi checkpoints from Hugging Face (`ibm-nasa-geospatial/Pri
 - **Labels:** 83 field-years from the BARC farm records 2017-2020 (Kraatz 2023, Zenodo 8087301, CC BY 4.0) and
   the 44 labeled field-years of the 2021-2023 evaluation file. 96 Grain, 31 Silage, 64 distinct fields.
   Unlabeled field-years are not used. How far the farm-record labels can be trusted: `../labels/README.md`.
+  `field_years.csv` carries two columns from those checks (`../labels/outline_check.py`): `label_basis`
+  (`harvest record`, `planting record only`, or `official`) and `outline_fit` (`ok`, `misfit`, or `official`).
 - **Imagery:** Sentinel-2 L2A and Landsat 8/9 Collection 2 Level-2 from Microsoft Planetary Computer, the same
   collections, cloud rules and reflectance scaling as `preprocessing/loader.py`. Both are put on one 30 m grid
   (EPSG:32618, Landsat pixel edges) in Prithvi's band order: blue, green, red, narrow NIR, SWIR 1, SWIR 2.
@@ -87,6 +89,26 @@ on every split, including train 2017-2020, test on the 44 official 2021-2023 lab
 - **Result:** correct of 45 at p >= 0.5: baseline 29, 8 frames 31, 4 frames 35, all Grain 35. Per year, per label
   basis, McNemar tests and the checks are in `results/fresh/summary.md`.
 
+## Runs without the least certain labels (not run yet)
+
+`--exclude` drops farm-record field-years before the split. The run in `results/prithvi/` used all 127 field-years.
+
+```bash
+$PY classifier/prithvi/prithvi_train.py --chips /home/keeboh/work/prithvi/chips \
+  --out classifier/prithvi/results/prithvi_no_misfit --exclude outline-misfit
+$PY classifier/prithvi/prithvi_train.py --chips /home/keeboh/work/prithvi/chips \
+  --out classifier/prithvi/results/prithvi_no_misfit_no_planting_silage --exclude outline-misfit planting-only-silage
+```
+
+| `--exclude` | Field-years left out | Field-years left |
+|---|---|---|
+| (none) | 0 | 127 (96 Grain, 31 Silage) |
+| `outline-misfit` | 10 Grain whose outline does not fit the field in that year | 117 (86 Grain, 31 Silage) |
+| `outline-misfit planting-only-silage` | also 12 Silage that rest on a planting record only | 105 (86 Grain, 19 Silage) |
+
+The chips do not need rebuilding. The splits differ from the full run, so compare each run with its own baseline
+column, not test rows one by one. `summary.md` states what was left out.
+
 ## Outputs (`results/prithvi/`)
 
 - `summary.md`: test results per seed against the baseline, McNemar test, top validation candidates, input check.
@@ -94,12 +116,16 @@ on every split, including train 2017-2020, test on the 44 official 2021-2023 lab
 - `test_predictions.csv`: test-part probabilities for the chosen candidate and the baseline.
 - `splits.csv`: which part each field-year was in, per seed. `run.json`: versions, GPU, checkpoint and input hashes.
   The run was made when this folder was `research/pretrained_classifier/`, so `run.json` records those paths.
+  It also predates the `label_basis` and `outline_fit` columns, so its `field_years.csv` hash is of the 14-column file.
 
 ## Caveats
 
 - One farm (BARC, Maryland). About 20 test field-years per seed, so one field-year is about 5 percentage points.
 - 56 of the 83 farm-record labels rest on a planting record only (what was planned), 12 of them Silage. A model
   fitted on the official labels agrees with 6 of those 12 (`../labels/README.md`).
+- 10 farm-record Grain field-years use an outline that does not fit the field in that year: the recorded acres differ
+  from the outline by more than 20-25%, and in four 2017 cases the record covers 2-7 acres of a 27-41 acre outline
+  (`../labels/README.md`). They are in the run in `results/prithvi/`.
 - 5 official Grain field-years look like soybeans in the USDA Cropland Data Layer (field_id 251 and 286 in 2022;
   230, 231 and 397 in 2023).
 - 14 of the 40 fine-tuning runs kept epoch 39 or 40, so the 40-epoch limit may have stopped them early.

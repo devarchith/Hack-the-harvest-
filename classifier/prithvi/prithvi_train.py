@@ -11,6 +11,11 @@ scored once, for the chosen candidate. The hand-feature logistic regression from
 (5 features, same settings) is fitted on the same training part and scored on the same test part. The whole
 procedure is repeated for each --seeds value, because a 19-field-year test part moves a lot between splits.
 
+--exclude leaves out the least certain farm-record field-years before the split (columns outline_fit and label_basis
+of field_years.csv, see classifier/labels/README.md), to test whether a result depends on them:
+  outline-misfit         the outline does not fit the field in that year
+  planting-only-silage   Silage labels that rest on a planting record only
+
 Input per field-year: a 48 x 48 pixel (1.44 km) chip at 30 m centred on the field (prithvi_chips.py), four frames
 that are per-pixel medians of the cloud-free readings in four windows (Jul 1-31, Aug 10-Sep 5, Sep 6-Oct 5,
 Oct 6-Nov 15), normalised with Prithvi's own band means and standard deviations, plus the year and mid-window
@@ -54,6 +59,18 @@ REPOS = {"tiny": "ibm-nasa-geospatial/Prithvi-EO-2.0-tiny-TL", "100M": "ibm-nasa
 CHIP, RES, NODATA = 48, 30.0, -32768
 CRS = "EPSG:32618"
 C_GRID = (0.001, 0.01, 0.1, 1.0)
+EXCLUDE = {"outline-misfit": lambda d: d.outline_fit == "misfit",
+           "planting-only-silage": lambda d: (d.label_basis == "planting record only") & (d.label == "Silage")}
+
+
+def exclude(fy, names):
+    """The table without the named groups (index 0..N-1, as the rest of the script expects) and a count per group."""
+    drop, counts = pd.Series(False, index=fy.index), {}
+    for n in names:
+        m = EXCLUDE[n](fy)
+        counts[n] = int((m & ~drop).sum())
+        drop |= m
+    return fy[~drop].reset_index(drop=True), counts
 
 
 def sha256(path):
@@ -315,13 +332,16 @@ def main(argv=None):
     ap.add_argument("--modes", nargs="+", default=["frozen", "finetune"], choices=["frozen", "finetune"])
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2, 3, 4])
     ap.add_argument("--epochs", type=int, default=40)
+    ap.add_argument("--exclude", nargs="*", default=[], choices=list(EXCLUDE),
+                    help="farm-record field-years to leave out; write each such run to its own --out")
     a = ap.parse_args(argv)
     t0 = time.time()
     device = "cuda"
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    fy = pd.read_csv(a.field_years)
+    fy, excluded = exclude(pd.read_csv(a.field_years), a.exclude)
+    print(f"{len(fy)} field-years; excluded: {excluded or 'none'}", flush=True)
     y = (fy.label == "Silage").to_numpy(int)
     X, M, TC, LC = field_inputs(fy, a.chips)
     checks = input_checks(fy, X, M)
@@ -418,6 +438,8 @@ def main(argv=None):
              f"test {min(n_te)}-{max(n_te)} field-years per seed). Each seed chooses its candidate on validation log "
              "loss; the test part is scored once for that candidate and for the hand-feature logistic baseline fitted "
              "on the same training part. Correct counts use a 0.5 cut.", "",
+             "Field-years left out before the split (`--exclude`): " +
+             (", ".join(f"{k} {v}" for k, v in excluded.items()) or "none") + ".", "",
              "## Test results by split seed", "", md_table(res), "",
              f"Summed over seeds: Prithvi {int(res['Prithvi correct'].sum())} vs baseline "
              f"{int(res['baseline correct'].sum())} correct of {int(res['test field-years'].sum())} test field-years "

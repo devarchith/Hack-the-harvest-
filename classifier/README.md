@@ -29,7 +29,7 @@ Presto embeddings do worse than Prithvi's through the shared evaluator on two of
 Neither pretrained model beats the 5-feature model significantly. Fine-tuned Presto, chosen on 2017-2020 only, gets 41
 of 44 on the official test (right where the 5-feature model is wrong 4 times, the reverse twice, McNemar p = 0.69).
 Both do worse than the 5-feature model on Central Farm when trained on the other farms. The Presto numbers are in
-`classifier/presto/results/` (branch `presto-classifier`): `presto/` and `standard_test/` for the fine-tuned model,
+`classifier/presto/results/`: `presto/` and `standard_test/` for the fine-tuned model,
 `shared_evaluator_frozen/` for its frozen embeddings through `evaluate.py`.
 
 ## Results so far
