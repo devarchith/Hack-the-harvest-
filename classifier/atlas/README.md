@@ -44,3 +44,8 @@ python classifier/atlas/build_atlas.py
 ```
 
 The build stops if a block or field outline does not sit on the longitude and latitude stored for it.
+
+## Demo images
+
+`demo/` holds screenshots of each view and `atlas_demo.gif`, a short walk through them: the US map, one county's
+blocks, block outlines on the imagery, the Maryland test fields, and Québec with each model.

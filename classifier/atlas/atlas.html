@@ -176,9 +176,9 @@ function drawCounties() {
   layers.counties.clearLayers(); countyShapes = {};
   D.counties.forEach(c => {
     if (st.state && c.state !== st.state) return;
-    const sel = c.fips === st.fips, col = countyColor(c);
+    const sel = c.fips === st.fips, col = countyColor(c), far = map.getZoom() < 9;
     const tip = `<b>${esc(c.name)}, ${esc(c.state)}</b><br>Model ${pct(modelShare(c))} silage &middot; 2022 Census ${pct(c.census)}`;
-    const poly = L.polygon(c.geom, {color: sel ? "#111" : "#55606b", weight: sel ? 2.5 : 0.8, fillColor: col, fillOpacity: sel ? 0 : 0.9});
+    const poly = L.polygon(c.geom, {color: sel ? "#111" : "#55606b", weight: sel ? 2.5 : 0.8, fillColor: col, fillOpacity: sel || !far ? 0 : 0.9});
     const dot = L.circleMarker([c.lat, c.lon], {radius: c.test ? 6.5 : 5, color: c.test ? "#111" : "#fff", weight: c.test ? 2 : 1, fillColor: col, fillOpacity: sel ? 0 : 1});
     [poly, dot].forEach(l => { l.bindTooltip(tip, {sticky: true}); l.on("click", () => selectCounty(c.fips)); l.addTo(layers.counties); });
     countyShapes[c.fips] = poly;
@@ -219,9 +219,11 @@ function background() {
   const far = map.getZoom() < 9;
   statesLayer.setStyle({fillOpacity: far ? 1 : 0, color: far ? "#8794a1" : "#ffffff", weight: far ? 1 : 0.6});
 }
-let wasClose = false;
+let wasClose = false, wasFar = true;
 map.on("zoomend", () => {
   background();
+  const far = map.getZoom() < 9;
+  if (far !== wasFar) { wasFar = far; if (st.view === "us") drawCounties(); }
   const close = map.getZoom() >= 14;
   if (close !== wasClose) { wasClose = close; drawBlocks(); }
 });
