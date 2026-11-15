@@ -1,0 +1,204 @@
+idn,year,label,sources,basis,harvest_date,harvest_machine,outline_in_eval_gpkg
+1-30_1-30,2017,Grain,zenodo,planting record only,,,False
+APU_1-98,2018,Grain,zenodo,planting record only,,,True
+APU_1-98,2020,Silage,zenodo,planting record only,,,True
+APU_18,2018,Grain,zenodo,planting record only,,,True
+APU_4,2020,Grain,zenodo,planting record only,,,False
+APU_5,2016,Grain,reports,planting record only,,,True
+APU_5,2020,Grain,reports+zenodo,planting record only,,,True
+APU_5,2024,Grain,reports,planting record only,,,True
+APU_7,2014,Grain,reports,planting record only,,,True
+APU_7,2015,Grain,reports,harvest record,2015-09-14,Combine,True
+APU_7,2018,Grain,reports+zenodo,harvest record,2018-10-02,Combine,True
+APU_7,2020,Silage,reports+zenodo,harvest record,2020-09-08,Chopper,True
+CentralFarm_1-1,2016,Grain,reports,planting record only,,,True
+CentralFarm_1-1,2020,Grain,reports+zenodo,planting record only,,,True
+CentralFarm_1-1,2024,Grain,reports,planting record only,,,True
+CentralFarm_1-11,2020,Silage,zenodo,harvest record,2020-09-06,,True
+CentralFarm_1-13,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-13,2020,Grain,zenodo,planting record only,,,False
+CentralFarm_1-14A,2015,Grain,reports,harvest record,2015-09-18,Combine,False
+CentralFarm_1-14A,2017,Silage,reports+zenodo,planting record only,,,False
+CentralFarm_1-14A,2020,Grain,reports+zenodo,planting record only,,,False
+CentralFarm_1-14B,2014,Silage,reports,planting record only,,,True
+CentralFarm_1-14B,2018,Silage,reports+zenodo,harvest record,2018-09-04,Chopper,True
+CentralFarm_1-14B,2019,Grain,reports+zenodo,harvest record,2019-09-10,Combine,True
+CentralFarm_1-14B,2024,Grain,reports,planting record only,,,True
+CentralFarm_1-14C,2015,Grain,reports,harvest record,2015-09-18,Combine,True
+CentralFarm_1-14C,2017,Silage,reports+zenodo,planting record only,,,True
+CentralFarm_1-14C,2020,Grain,reports+zenodo,planting record only,,,True
+CentralFarm_1-14D,2018,Silage,zenodo,planting record only,,,True
+CentralFarm_1-14D,2019,Grain,zenodo,planting record only,,,True
+CentralFarm_1-14E,2017,Silage,zenodo,planting record only,,,False
+CentralFarm_1-15,2017,Silage,reports+zenodo,planting record only,,,True
+CentralFarm_1-20B,2019,Grain,zenodo,harvest record,2019-09-16,,True
+CentralFarm_1-20C,2019,Grain,zenodo,harvest record,2019-09-20,,False
+CentralFarm_1-21,2020,Silage,zenodo,harvest record,2020-09-06,,False
+CentralFarm_1-2A,2014,Grain,reports,planting record only,,,False
+CentralFarm_1-2A,2019,Grain,zenodo,planting record only,,,False
+CentralFarm_1-2A,2020,Silage,reports,harvest record,2020-09-06,Chopper,False
+CentralFarm_1-2B,2015,Silage,reports,planting record only,,,False
+CentralFarm_1-2C,2019,Silage,reports+zenodo,planting record only,,,False
+CentralFarm_1-2D,2015,Silage,reports,planting record only,,,False
+CentralFarm_1-30,2015,Grain,reports,harvest record,2015-09-15,Combine,False
+CentralFarm_1-30,2017,Grain,reports,planting record only,,,False
+CentralFarm_1-32,2015,Grain,reports,harvest record,2015-09-29,Combine,True
+CentralFarm_1-32,2016,Grain,reports,planting record only,,,True
+CentralFarm_1-32,2019,Silage,reports+zenodo,harvest record,2019-08-16,Chopper,True
+CentralFarm_1-33,2020,Grain,zenodo,planting record only,,,True
+CentralFarm_1-37,2014,Silage,reports,planting record only,,,True
+CentralFarm_1-37,2016,Silage,reports,planting record only,,,True
+CentralFarm_1-7,2020,Silage,reports+zenodo,harvest record,2020-09-05,Chopper,False
+CentralFarm_1-7A,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7B,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_1-7C,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7D,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7E,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7F,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7G,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7H,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7I,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-7J,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9,2019,Silage,reports+zenodo,harvest record,2019-08-17,Chopper,False
+CentralFarm_1-9,2024,Silage,reports,planting record only,,,False
+CentralFarm_1-9A,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_1-9B,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9C,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9D,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9E,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9F,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_1-9G,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-13,2018,Grain,reports+zenodo,planting record only,,,True
+CentralFarm_2-13,2019,Silage,reports+zenodo,harvest record,2019-08-19,Chopper,True
+CentralFarm_2-32A,2015,Grain,reports,harvest record,2015-09-29,Combine,True
+CentralFarm_2-32A,2017,Grain,reports+zenodo,planting record only,,,True
+CentralFarm_2-32A,2019,Grain,reports+zenodo,harvest record,2019-09-10,Combine,True
+CentralFarm_2-32B,2014,Silage,reports,planting record only,,,True
+CentralFarm_2-32B,2018,Grain,reports+zenodo,harvest record,2018-10-17,Combine,True
+CentralFarm_2-32B,2024,Silage,reports,planting record only,,,True
+CentralFarm_2-32C,2015,Silage,reports,planting record only,,,True
+CentralFarm_2-32C,2019,Grain,reports+zenodo,planting record only,,,True
+CentralFarm_2-39A,2018,Grain,zenodo,planting record only,,,False
+CentralFarm_2-43,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_2-51,2018,Grain,zenodo,planting record only,,,True
+CentralFarm_2-66,2018,Grain,zenodo,planting record only,,,True
+CentralFarm_2-67,2018,Grain,zenodo,planting record only,,,False
+CentralFarm_2-68A,2018,Grain,zenodo,planting record only,,,False
+CentralFarm_2-68B,2015,Grain,reports,planting record only,,,True
+CentralFarm_2-68B,2018,Grain,reports+zenodo,harvest record,2018-10-04,Combine,True
+CentralFarm_2-68B,2024,Grain,reports,planting record only,,,True
+CentralFarm_2-71,2019,Grain,reports+zenodo,harvest record,2019-09-22,Combine,False
+CentralFarm_2-71,2020,Grain,reports+zenodo,planting record only,,,False
+CentralFarm_2-71A,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_2-71B,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-71F,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-71H,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-72,2018,Silage,reports+zenodo,harvest record,2018-08-29,Chopper,False
+CentralFarm_2-72,2024,Silage,reports,planting record only,,,False
+CentralFarm_2-72A,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_2-72D,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-72E,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_2-72H,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_4-16,2017,Grain,zenodo,planting record only,,,True
+CentralFarm_4-16,2020,Silage,zenodo,harvest record,2020-09-08,,True
+CentralFarm_4-25,2018,Silage,reports+zenodo,harvest record,2018-08-30,Chopper,True
+CentralFarm_4-25B,2017,Grain,zenodo,planting record only,,,False
+CentralFarm_4-7,2014,Silage,reports,planting record only,,,True
+CentralFarm_4-7,2017,Grain,reports+zenodo,harvest record,2017-10-24,Combine,True
+CentralFarm_4-7,2020,Silage,reports+zenodo,harvest record,2020-09-05,Chopper,True
+CentralFarm_4-8A,2017,Grain,zenodo,planting record only,,,False
+EastFarm_5-11,2018,Grain,zenodo,planting record only,,,False
+EastFarm_5-1112,2016,Silage,reports,planting record only,,,False
+EastFarm_5-1112,2018,Grain,reports,harvest record,2018-10-06,Combine,False
+EastFarm_5-12,2014,Silage,reports,planting record only,,,True
+EastFarm_5-12,2016,Grain,reports,planting record only,,,True
+EastFarm_5-12,2018,Grain,reports+zenodo,harvest record,2018-10-06,Combine,True
+EastFarm_5-21,2014,Grain,reports,planting record only,,,True
+EastFarm_5-21,2015,Silage,reports,planting record only,,,True
+EastFarm_5-21,2020,Grain,reports+zenodo,planting record only,,,True
+EastFarm_5-23,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_5-2A,2017,Silage,zenodo,planting record only,,,True
+EastFarm_5-2A,2019,Grain,zenodo,harvest record,2019-09-20,,True
+EastFarm_5-2B,2017,Silage,zenodo,planting record only,,,True
+EastFarm_5-2B,2019,Silage,zenodo,planting record only,,,True
+EastFarm_5-3,2020,Grain,zenodo,planting record only,,,False
+EastFarm_5-3A,2014,Grain,reports,planting record only,,,True
+EastFarm_5-3A,2015,Grain,reports,planting record only,,,True
+EastFarm_5-3A,2016,Grain,reports,planting record only,,,True
+EastFarm_5-3A,2017,Grain,reports+zenodo,harvest record,2017-11-17,Combine,True
+EastFarm_5-3A,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_5-3A,2024,Grain,reports,planting record only,,,True
+EastFarm_5-3B,2014,Grain,reports,planting record only,,,True
+EastFarm_5-3B,2015,Grain,reports,planting record only,,,True
+EastFarm_5-3B,2016,Grain,reports,planting record only,,,True
+EastFarm_5-3B,2017,Grain,reports+zenodo,harvest record,2017-11-17,Combine,True
+EastFarm_5-3B,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_5-3B,2024,Grain,reports,planting record only,,,True
+EastFarm_5-3C,2014,Grain,reports,planting record only,,,True
+EastFarm_5-3C,2015,Grain,reports,planting record only,,,True
+EastFarm_5-3C,2016,Grain,reports,planting record only,,,True
+EastFarm_5-3C,2017,Grain,reports+zenodo,harvest record,2017-11-17,Combine,True
+EastFarm_5-3C,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_5-3C1,2014,Grain,reports,planting record only,,,False
+EastFarm_5-3C1,2015,Grain,reports,planting record only,,,False
+EastFarm_5-3C1,2016,Grain,reports,planting record only,,,False
+EastFarm_5-3C1,2017,Grain,reports,harvest record,2017-11-17,Combine,False
+EastFarm_5-3C1,2019,Grain,reports,harvest record,2019-09-20,Combine,False
+EastFarm_5-3C1,2024,Grain,reports,planting record only,,,False
+EastFarm_5-3C2,2014,Grain,reports,planting record only,,,False
+EastFarm_5-3C2,2015,Grain,reports,planting record only,,,False
+EastFarm_5-3C2,2016,Grain,reports,planting record only,,,False
+EastFarm_5-3C2,2017,Grain,reports,harvest record,2017-11-17,Combine,False
+EastFarm_5-3C2,2019,Grain,reports,harvest record,2019-09-20,Combine,False
+EastFarm_5-3D,2014,Grain,reports,planting record only,,,True
+EastFarm_5-3D,2015,Grain,reports,planting record only,,,True
+EastFarm_5-3D,2016,Grain,reports,planting record only,,,True
+EastFarm_5-3D,2017,Grain,reports+zenodo,harvest record,2017-11-17,Combine,True
+EastFarm_5-3D,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_5-3E,2017,Grain,zenodo,planting record only,,,False
+EastFarm_5-3E,2019,Grain,zenodo,harvest record,2019-09-20,,False
+EastFarm_5-3F,2017,Grain,zenodo,planting record only,,,True
+EastFarm_5-3F,2019,Grain,zenodo,harvest record,2019-09-20,,True
+EastFarm_5-3G,2019,Grain,zenodo,harvest record,2019-10-04,,False
+EastFarm_5-3G,2020,Grain,zenodo,planting record only,,,False
+EastFarm_5-3H,2017,Grain,zenodo,planting record only,,,False
+EastFarm_5-3H,2019,Grain,zenodo,planting record only,,,False
+EastFarm_5-3H,2020,Grain,zenodo,planting record only,,,False
+EastFarm_5-42C,2017,Silage,zenodo,planting record only,,,True
+EastFarm_5-45A,2017,Silage,zenodo,planting record only,,,True
+EastFarm_5-45A,2019,Grain,zenodo,planting record only,,,True
+EastFarm_5-45C,2018,Silage,zenodo,planting record only,,,False
+EastFarm_5-45D,2015,Grain,reports,harvest record,2015-09-10,Combine,True
+EastFarm_5-45D,2018,Silage,reports+zenodo,harvest record,2018-08-31,Chopper,True
+EastFarm_5-5,2017,Grain,zenodo,planting record only,,,True
+EastFarm_5-5,2019,Grain,zenodo,planting record only,,,True
+EastFarm_5-5,2020,Grain,zenodo,planting record only,,,True
+EastFarm_5-9,2014,Grain,reports,planting record only,,,True
+EastFarm_6-57,2019,Grain,zenodo,harvest record,2019-09-20,,True
+EastFarm_6-57,2020,Grain,zenodo,harvest record,2020-10-15,,True
+EastFarm_6-58,2019,Grain,zenodo,planting record only,,,False
+EastFarm_6-58,2020,Grain,zenodo,planting record only,,,False
+EastFarm_6-59,2017,Grain,zenodo,planting record only,,,False
+EastFarm_6-59,2018,Grain,zenodo,planting record only,,,False
+EastFarm_6-59,2019,Grain,zenodo,harvest record,2019-09-25,,False
+EastFarm_6-59,2020,Grain,zenodo,harvest record,2020-10-18,,False
+EastFarm_6-60,2014,Grain,reports,planting record only,,,True
+EastFarm_6-60,2016,Silage,reports,planting record only,,,True
+EastFarm_6-60,2018,Grain,reports+zenodo,planting record only,,,True
+EastFarm_6-60,2019,Grain,reports+zenodo,harvest record,2019-09-20,Combine,True
+EastFarm_6-60,2020,Grain,reports+zenodo,harvest record,2020-10-18,Combine,True
+EastFarm_6-60,2024,Grain,reports,planting record only,,,True
+EastFarm_6-62A,2019,Grain,zenodo,harvest record,2019-10-04,,False
+EastFarm_6-62B,2019,Grain,zenodo,harvest record,2019-10-04,,False
+EastFarm_6-64,2014,Grain,reports,planting record only,,,True
+EastFarm_6-64,2019,Grain,reports+zenodo,harvest record,2019-09-30,Combine,True
+EastFarm_6-64,2020,Grain,reports+zenodo,harvest record,2020-10-18,Combine,True
+LinkageFarm_EB-3,2019,Grain,reports+zenodo,harvest record,2019-09-19,Combine,True
+LinkageFarm_EB-3,2024,Grain,reports,planting record only,,,True
+NorthFarm_ND-1-A,2017,Grain,zenodo,planting record only,,,False
+NorthFarm_NE-8,2018,Grain,zenodo,planting record only,,,False
+NorthFarm_NF-1-B,2017,Grain,zenodo,planting record only,,,False
+NorthFarm_NF-8-15,2024,Grain,reports,planting record only,,,False
+NorthFarm_NG-1-6,2017,Grain,reports+zenodo,planting record only,,,False
+SouthFarm_SF-8&9,2018,Grain,zenodo,planting record only,,,False
+SouthFarm_SG-14-16,2017,Grain,zenodo,planting record only,,,False
