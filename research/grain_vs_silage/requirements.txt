@@ -1,0 +1,4 @@
+# Everything the shared loader needs, plus modelling and figures.
+-r ../../requirements.txt
+scikit-learn>=1.5
+matplotlib>=3.8
