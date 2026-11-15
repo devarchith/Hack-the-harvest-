@@ -1,0 +1,17 @@
+2021: BDPPAD_v03_AN_2021_s_20230109.shp: 52581 MAF/MGR parcels; NBPRO {1: 52581}; CODPRO1 {'MGR': 43078, 'MFO': 6810, 'MFE': 2689, 'MGN': 4}
+2022: BDPPAD_v03_AN_2022_s_20240101.shp: 54281 MAF/MGR parcels; NBPRO {1: 54281}; CODPRO1 {'MGR': 44567, 'MFO': 7176, 'MFE': 2538}
+2023: BDPPAD_v03_AN_2023_s_20250120.shp: 56376 MAF/MGR parcels; NBPRO {1: 56376}; CODPRO1 {'MGR': 46135, 'MFO': 7579, 'MFE': 2660, 'MGN': 2}
+2021 Grain: 25121 parcels >= 3.0 ha in zone 18N
+2021 Silage: 2937 parcels >= 3.0 ha in zone 18N
+2022 Grain: 25921 parcels >= 3.0 ha in zone 18N
+2022 Silage: 2836 parcels >= 3.0 ha in zone 18N
+2023 Grain: 26555 parcels >= 3.0 ha in zone 18N
+2023 Silage: 2962 parcels >= 3.0 ha in zone 18N
+square EPSG:32618 x 680000-710000, y 5090000-5120000: fewest silage in a year 336, fewest grain 1352
+2021 Grain: 1352 parcels in the square, 400 kept
+2021 Silage: 360 parcels in the square, 360 kept
+2022 Grain: 1524 parcels in the square, 400 kept
+2022 Silage: 336 parcels in the square, 336 kept
+2023 Grain: 1439 parcels in the square, 400 kept
+2023 Silage: 349 parcels in the square, 349 kept
+wrote 2245 field-years, 1883 parcels, {'Grain': 1200, 'Silage': 1045}; 46 parcels change class between years

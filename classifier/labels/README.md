@@ -32,6 +32,7 @@ Needs pandas, geopandas, scikit-learn and pypdf. Downloads go to the source fold
 | 4. Field-report labels per field-year; agreement with the official labels and with Zenodo | `mgmt_vs_eval.py` | `farm_report_field_years.csv`, `4_reports_vs_official.txt` |
 | 5. One table outside 2021-2023; label basis, changes of use, outline fit | `combine_check.py` | `extra_labels_outside_2021_2023.csv`, `5_combined_checks.txt` |
 | 6. Satellite check of the 2017-2020 training labels | `satellite_check.py` | `satellite_check.csv`, `6_satellite_check.txt` |
+| 7. Fixes from the combine yield records | `apply_yield_fixes.py` | `label_fixes.csv`, `field_years_fixed.csv`, `field_years_combine_additions.csv`, `extra_labels_outside_2021_2023_fixed.csv`, `7_yield_fixes.txt` |
 
 A field-year's label is its whole-field harvest record when there is one, otherwise its whole-field planting record.
 Fields are matched to outlines by farm and field name only (for example `CentralFarm_1-14B`).
@@ -69,6 +70,26 @@ backed silage labels agree 7 of 7.
 **Outline fit.** 74 of the 114 field-years have recorded acres. 11 differ from the 2021-2023 outline by more than
 20-25%; 10 of them are Grain field-years in the 2017-2020 training set. In 4 (2017) the record covers 2-7 acres of a
 27-41 acre outline, so most of the outline describes other ground that year.
+
+**Combine yield records.** The same Ag Data Commons record has yearly zips (`2014.zip`, `2016.zip` to `2021.zip`) with
+the raw combine yield-monitor files of each field, year and crop; a combine corn file means grain harvest (there are no
+chopper files). Two separate checks of those files against the outlines (share of the outline the combine covered;
+harvest dates, header width and grain moisture from the raw shapefiles) found the same conflicts, and the farm reports
+agree where they have a harvest record. `apply_yield_fixes.py` holds the fixes with their evidence and writes fixed
+copies of the tables; the original tables are not changed.
+
+| Field-year | Label | Combine record | Fix |
+|---|---|---|---|
+| `CentralFarm_1-14C` 2020 (training) | Grain | soybeans on this outline (the farm redrew the 1-14 sub-fields in 2020) | dropped |
+| `CentralFarm_2-32A` 2017 (training) | Grain | redrilled to sorghum-sudangrass in June, combined as sorghum | dropped |
+| `CentralFarm_4-7` 2014, `EastFarm_5-12` 2014, `CentralFarm_1-37` 2016 | Silage (planting record only) | combined for grain over 83-100% in Oct-Nov | relabeled Grain |
+| `CentralFarm_2-32B` 2014 | Silage (planting record only) | 30% combined for grain, rest unknown | dropped |
+| `CentralFarm_4-7` 2021 (official) | Silage | combined Nov 4 over 90% of the field, 19.6% moisture, median 80 bu/ac | kept; score with and without it |
+
+Of the 16 official 2021 Grain labels, 15 have combine corn on the field (one over only 17%); the other has none
+either way. `field_years_fixed.csv` is `../prithvi/field_years.csv` without the 2 dropped rows (125 field-years).
+`field_years_combine_additions.csv` lists 13 more Grain field-years (2020 and 2021, outlines with no label) where the
+combine covered at least 70% and no other crop 10%; they are not merged into any table and have no image data yet.
 
 ## Caveats
 

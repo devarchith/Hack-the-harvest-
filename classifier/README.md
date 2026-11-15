@@ -60,6 +60,8 @@ official 2021-2023 labels) and the 5-feature model 39 of 44. On the mixed-year s
 | `labels/README.md` | Label sources, licenses, checks and results |
 | `labels/*.py`, `labels/run_all.sh` | Download, parse and check the farm records |
 | `labels/results/` | `extra_labels_outside_2021_2023.csv`, the combined label table; `run_all.sh` rebuilds it and every check |
+| `labels/apply_yield_fixes.py`, `labels/results/field_years_fixed.csv` | Label fixes from the combine yield records; the fixed 125-row table Presto trains on |
+| `quebec/` | 2,245 Québec field-years (FADQ declarations, 2021-2023), optional training-only rows for Presto |
 | `presto/README.md` | Presto results, pipeline and method |
 | `presto/presto_pixels.py`, `presto_train.py`, `presto_standard_test.py`, `presto_embed.py` | Pixel series, mixed-year splits, standard test, embeddings for `prithvi/evaluate.py` |
 | `presto/results/` | Summaries, test predictions and `metrics.md` per run |

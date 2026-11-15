@@ -139,7 +139,7 @@ def main(argv=None):
 
     enc, groups = load_presto(a.presto_dir, pretrained=True)
     X, M, LL, offs, key, cov, pixel_hashes = field_inputs(fy, a.pixels, groups, a.last_month)
-    y_all, extra, extra_note = y, np.array([], int), None
+    y_all, extra, extra_note, pbe_te = y, np.array([], int), None, None
     if a.extra_train:
         ein, ex, dropped, ehash = load_extra(a.extra_train, a.extra_pixels, groups, a.last_month, fy)
         X, M, LL, offs, key = stack_inputs((X, M, LL, offs, key), ein)
@@ -151,9 +151,13 @@ def main(argv=None):
                       f"{a.extra_ratio:g} per training field-year")
         print(extra_note, flush=True)
         S = pd.concat([fy[SMALL], ex[SMALL]]).to_numpy(float)
-        pbe_ho = np.concatenate([fit_weighted(make_logreg(), S, y_all, f, extra, a.extra_ratio)
-                                 .predict_proba(S[h])[:, 1] for f, h in folds])
-        pbe_te = fit_weighted(make_logreg(), S, y_all, tr, extra, a.extra_ratio).predict_proba(S[te])[:, 1]
+        extra_hand = extra[np.isfinite(S[extra]).any(1)]  # extra rows with hand features; others would be imputed
+        if len(extra_hand):
+            pbe_ho = np.concatenate([fit_weighted(make_logreg(), S, y_all, f, extra_hand, a.extra_ratio)
+                                     .predict_proba(S[h])[:, 1] for f, h in folds])
+            pbe_te = fit_weighted(make_logreg(), S, y_all, tr, extra_hand, a.extra_ratio).predict_proba(S[te])[:, 1]
+        else:
+            extra_note += "; no hand features, so the baseline is fitted without them"
     data = (torch.from_numpy(X).to(device), torch.from_numpy(M).to(device), torch.from_numpy(LL).to(device),
             offs, np.repeat(key, np.diff(offs)))
 
@@ -188,7 +192,7 @@ def main(argv=None):
     pred = fy.loc[te, ["field_id", "farm", "field", "year", "label", "label_source"]].assign(
         p_presto=p_presto.round(4), p_frozen=p_frozen.round(4), p_finetune=p_finetune.round(4),
         p_baseline=pb_te.round(4))
-    if len(extra):
+    if pbe_te is not None:
         pred["p_baseline_extra"] = pbe_te.round(4)
     pred.to_csv(out / "test_predictions.csv", index=False)
 
@@ -206,7 +210,7 @@ def main(argv=None):
                        {"model": names["finetune" if chosen == "frozen" else "frozen"] + " (not chosen)",
                         **score(y_te, p_frozen if chosen == "finetune" else p_finetune)},
                        {"model": "5-feature logistic baseline", **score(y_te, pb_te)}])[["model"] + cols]
-    if len(extra):
+    if pbe_te is not None:
         name = "5-feature logistic baseline with the extra rows"
         ch.loc[len(ch)] = {"model": name, "setting": "C=0.5", **score(y_ho, pbe_ho),
                            "log_loss": round(ll(y_ho, pbe_ho), 4)}

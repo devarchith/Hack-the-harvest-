@@ -4,6 +4,18 @@ A pretrained pixel time-series model (Presto, NASA Harvest, MIT) fine-tuned on t
 silage corn from grain corn. It is scored against the 5-feature logistic regression in `research/grain_vs_silage/`
 and against the Prithvi classifier in `../prithvi/`.
 
+## At a glance
+
+- **Official test** (train on 2017-2020, score the 44 labeled 2021-2023 field-years once): fine-tuned Presto gets 41
+  of 44 right, the 5-feature model 39 of 44.
+- **Five mixed-year splits:** Presto 92 of 101, the 5-feature model 96 of 101.
+- **Neither difference is significant:** the 95% intervals of both accuracy differences include 0. Presto matches the
+  5-feature model; it is not shown to beat it.
+- **Where to read the numbers:** `results/standard_test_fixed_labels/summary.md` (official test) and
+  `results/presto_fixed_labels/summary.md` (mixed-year splits). Each run folder's `metrics.md` has every metric with
+  its interval.
+- **To rerun:** the commands under Pipeline. Each run takes a few minutes on one GPU once the pixels are pulled.
+
 ## Hypothesis
 
 The monthly Sentinel-1 and Sentinel-2 series of a field carries the signals behind the hand features of
@@ -34,10 +46,10 @@ comparisons are in each run's `metrics.md`; definitions are in `../metrics/READM
 
 | Model | Correct | Silage caught | Grain called silage | Silage precision | Silage F1 | Balanced accuracy | MCC | AUC |
 |---|---|---|---|---|---|---|---|---|
-| Presto, chosen on validation | 92/101 | 23/27 | 5/74 | 0.82 | 0.84 (0.72-0.94) | 0.89 (0.81-0.96) | 0.78 | 0.968 |
+| Presto, chosen on validation | 92/101 | 23/27 | 5/74 | 0.82 | 0.84 (0.72-0.94) | 0.89 (0.81-0.96) | 0.78 | 0.967 |
 | Presto, January-October | 90/101 | 17/27 | 1/74 | 0.94 | 0.76 (0.56-0.88) | 0.81 (0.69-0.90) | 0.71 | 0.918 |
-| 5-feature logistic baseline | 96/101 | 24/27 | 2/74 | 0.92 | 0.91 (0.78-0.98) | 0.93 (0.86-0.99) | 0.87 | 0.969 |
-| Presto architecture from random weights (control) | 83/101 | 9/27 | 0/74 | 1.00 | 0.50 (0.25-0.67) | 0.67 (0.57-0.75) | 0.52 | 0.783 |
+| 5-feature logistic baseline | 96/101 | 24/27 | 2/74 | 0.92 | 0.91 (0.78-0.98) | 0.93 (0.86-0.99) | 0.87 | 0.968 |
+| Presto architecture from random weights (control) | 83/101 | 9/27 | 0/74 | 1.00 | 0.50 (0.25-0.67) | 0.67 (0.57-0.75) | 0.52 | 0.784 |
 
 What the results show:
 

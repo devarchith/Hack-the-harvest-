@@ -1,0 +1,4 @@
+field_years_fixed.csv: 127 -> 125 field-years, {'Grain': 94, 'Silage': 31}
+field_years_combine_additions.csv: 13 Grain field-years ({2020: 6, 2021: 7}); not merged into any training table
+extra_labels_outside_2021_2023_fixed.csv: 202 field-years, {'Grain': 164, 'Silage': 38}
+label_fixes.csv: 8 rows, {'drop': 3, 'relabel': 3, 'flag': 2}
