@@ -49,8 +49,28 @@ TESSERA: the head and the Prithvi version are chosen on 2017-2020 only, then eve
 - The two versions with 8 two-week frames (Aug 1 to Nov 20) lost the choice by 2 field-years (74 vs 76 of 83) but
   matched or beat the chosen one on every test: 42 and 41 of 44 on the official test, 122 and 119 of 127 holding out
   one year, 24 and 23 of 25 on Central Farm. Because they were not chosen on 2017-2020, these are not results to claim;
-  they point to the next version to test.
+  they were tested once on new years (below).
 - For comparison, Presto plus the 5 hand features, chosen the same way, scored 42 of 44 on the official test.
+
+**On years no model has seen, the 8-frame version does not hold up** (`prithvi/prithvi_fresh.sh`). 45 field-years
+from the farm reports in 2014, 2015, 2016 and 2024 (35 Grain, 10 Silage), never used for training or any choice.
+Each model was fitted once on all 127 labeled field-years, with its head already chosen; the test was written down
+and committed before these years' inputs were built, and run once.
+
+| Model | Correct of 45 | Silage caught | Grain called silage | AUC |
+|---|---|---|---|---|
+| 5-feature baseline | 29 | 3 of 10 | 9 of 35 | 0.66 |
+| Prithvi, 8 frames (the version under test) | 31 | 4 of 10 | 8 of 35 | 0.71 |
+| Prithvi, 4 frames (the evaluator's choice) | 35 | 4 of 10 | 4 of 35 | 0.76 |
+| Calling every field Grain | 35 | 0 of 10 | 0 of 35 | |
+
+- 8 frames against the baseline: right where the baseline is wrong 3 times, the reverse once (McNemar p = 0.63).
+  4 frames: 7 and 1 (p = 0.07). Neither difference is significant.
+- Every model does poorly here; none beats calling every field Grain. In 2014 (Landsat 8 only, 8 usable days from
+  June to November against 50 in 2021) no model catches any of the 5 silage fields. In 2024 the baseline and the
+  8-frame version call 7 of 8 grain fields silage.
+- Every silage label here rests on a planting record only, the least certain kind (see below). The hand features
+  rebuild the team's 2021 values exactly (83 of 83), so the baseline's inputs are built the same way as before.
 
 **The extra labels hold up where they are backed by a harvest record.** The farm's public records never contradict
 the official labels where both exist. A model fitted only on the official labels agrees with 27 of 27 harvest-backed
@@ -100,6 +120,7 @@ with the years run in parallel. Training all 5 seeds and 40 candidates per seed 
 | `/home/keeboh/hf/` | Prithvi-EO-2.0 checkpoints (Hugging Face cache) |
 | `/home/keeboh/venvs/prithvi/` | Python environment (PyTorch, timm, geopandas, scikit-learn, pypdf) |
 | `/home/keeboh/work/labels/` | Downloaded label sources and the text of the farm-report PDFs |
+| `/home/keeboh/work/fresh/` | Inputs for the 2014-2016 and 2024 test: test list, loader series, image stacks, embeddings |
 
 ## Limitations
 

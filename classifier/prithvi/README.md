@@ -12,6 +12,7 @@ field-years to tell silage corn from grain corn, scored against the 5-feature lo
 | 2. 30 m six-band image stacks, June-November, 2017-2023 | `prithvi_chips.py` | CPU, network | `<chips>/<year>.npz`, `<chips>/<year>.provenance.json` |
 | 3. Split, train, choose on validation, test once | `prithvi_train.py` | NVIDIA GPU | `results/prithvi/` |
 | 4. Frozen embeddings scored with the team's shared evaluator | `prithvi_evaluate.sh` (runs `prithvi_embed.py`, `evaluate.py`, `prithvi_select.py`) | NVIDIA GPU, then CPU | `results/evaluate/` |
+| 5. One test on 2014-2016 and 2024 field-years no model has seen | `prithvi_fresh.sh` (runs `prithvi_fresh.py`, the team loader, `prithvi_chips.py`, `prithvi_embed.py`) | CPU, network, NVIDIA GPU | `results/fresh/` |
 
 ```bash
 PY=/home/keeboh/venvs/prithvi/bin/python
@@ -70,6 +71,21 @@ on every split, including train 2017-2020, test on the 44 official 2021-2023 lab
   where it ran before.
 - It needs `research/grain_vs_silage/model_comparison.py` and `results/aef_embeddings.csv` from `main`, so the script
   runs it inside a fresh copy of `main`.
+
+## Test on unseen years (step 5)
+
+`prithvi_fresh.py` fixes the test before any input for these years exists (its docstring is the declaration):
+
+- **Test set:** the 45 field-years in `../labels/results/extra_labels_outside_2021_2023.csv` that have an outline in
+  the 2021-2023 evaluation file and are not among the 127 used so far: 2014, 2015, 2016 and 2024, 35 Grain, 10 Silage.
+- **Models:** the 8-frame and 4-frame 300M tables and the 5-feature baseline, each fitted once on all 127 labeled
+  field-years with the head `evaluate.py` chose on the 2017-2020 split.
+- **Inputs:** the hand features come from the team loader and `grain_silage.py`'s feature functions, run over every
+  field in the evaluation file. 2021 is fetched as a check, and the rebuilt features match the team's 2021 values
+  exactly. 2014 and 2015 have no same-day Sentinel-2 and Landsat readings, so their Landsat offset is the median of
+  the other years'.
+- **Result:** correct of 45 at p >= 0.5: baseline 29, 8 frames 31, 4 frames 35, all Grain 35. Per year, per label
+  basis, McNemar tests and the checks are in `results/fresh/summary.md`.
 
 ## Outputs (`results/prithvi/`)
 
