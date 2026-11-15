@@ -1,7 +1,7 @@
 # Methodology: grain vs silage corn from public satellite data (BARC, Maryland)
 
 This document explains what the method does, why, and how to reproduce every number. It is written so a
-teammate, a judge or an AI assistant can rebuild the results from nothing but public data and this folder.
+teammate or a judge can rebuild the results from nothing but public data and this folder.
 
 - **Fastest way to reproduce:** open [`reproduce.ipynb`](reproduce.ipynb) and run all cells (section 9).
 - **Results:** [`README.md`](README.md) (summary), [`results/report.md`](results/report.md) (every confusion

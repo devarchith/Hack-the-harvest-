@@ -11,6 +11,12 @@ data/
 *.zarr/
 *.gpkg
 *.zip
+*.npz
+*.parquet
+*.pt
+*.pth
+*.ckpt
+*.safetensors
 
 # Python and Jupyter
 __pycache__/
