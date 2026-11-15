@@ -12,6 +12,8 @@ models. The included notebooks are starting points, not a required solution.
 
 ## Team Work
 
+- [`VALIDATION.md`](VALIDATION.md): how every model was tested and the results
+  on one page.
 - [`preprocessing/`](preprocessing/README.md): loader that builds one row per
   field, date and satellite (Sentinel-2, Landsat 8/9) from Microsoft Planetary
   Computer imagery.
