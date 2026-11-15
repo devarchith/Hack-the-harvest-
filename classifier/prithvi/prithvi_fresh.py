@@ -34,6 +34,7 @@ import sys
 import time
 from pathlib import Path
 
+import geopandas as gpd
 import numpy as np
 import pandas as pd
 
@@ -58,7 +59,8 @@ def prepare(a):
     ex = ex[ex.outline_in_eval_gpkg & ~pd.Series([k in used for k in zip(ex.idn, ex.year)], index=ex.index)]
     ev = barc_fields(a.tree / "04_Evaluation" / "BARC_Corn.2021-2023.gpkg").to_crs(CRS)
     ev["idn"] = idn(ev.FARM, ev.FIELD)
-    d = ex.merge(ev[["idn", "field_id", "FARM", "FIELD", "geometry"]], on="idn", how="left", validate="m:1")
+    d = gpd.GeoDataFrame(ex.merge(ev[["idn", "field_id", "FARM", "FIELD", "geometry"]], on="idn", how="left",
+                                  validate="m:1"), geometry="geometry", crs=CRS)
     if d.field_id.isna().any():
         sys.exit(f"{int(d.field_id.isna().sum())} test field-years have no outline")
     c = d.geometry.centroid.to_crs(4326)
