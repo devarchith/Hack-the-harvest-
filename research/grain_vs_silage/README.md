@@ -80,8 +80,10 @@ The 2021-2023 labels are the test set. Splits, from weakest to strongest:
    training. This is the out-of-time test.
 4. **Leave one year out over all seven years.**
 
-The challenge asks to avoid random field splits; nothing here uses one. A spatial holdout is not yet possible:
-11 of the 12 silage field-years are on Central Farm.
+The challenge asks to avoid random field splits; nothing here uses one. A full spatial holdout is not possible
+(11 of the 12 test silage field-years are on Central Farm); `model_comparison.py` adds a partial one: train on
+the other farms' 2017-2020 records, test on Central Farm 2021-2023. Exact methods and reproduction steps:
+[`METHODOLOGY.md`](METHODOLOGY.md).
 
 ## What the results show
 
@@ -180,6 +182,9 @@ Correct field-years for the baseline and the main alternatives:
 
 ## Reproduce
 
+Step by step in Jupyter: open [`reproduce.ipynb`](reproduce.ipynb) and run all cells (it ends by checking the
+headline numbers). Every method detail and the expected outputs: [`METHODOLOGY.md`](METHODOLOGY.md).
+
 From the repository root (Windows PowerShell or bash; Python 3.12 tested):
 
 ```bash
@@ -198,6 +203,8 @@ many scene-days fail, and `--force-pull` to re-pull.
 
 | Path | What it is |
 |---|---|
+| `METHODOLOGY.md` | Data sources with exact queries, label rules, processing, feature definitions, models, validation, reproduction steps and checks |
+| `reproduce.ipynb` | The same pipeline step by step in Jupyter, with saved outputs and a final check of the headline numbers |
 | `reproduce.py` | One-command pipeline |
 | `kraatz_fields.py` | Builds the 2017-2020 training field-years and the 2021 harvest-date records |
 | `grain_silage.py` | Features and every validation; writes `results/` |

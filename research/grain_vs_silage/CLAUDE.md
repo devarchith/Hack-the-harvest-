@@ -2,7 +2,9 @@
 
 This folder is a self-contained, reproducible line of work for the UC Davis "Silage or Grain?" challenge
 (`01_Challenge/challenge_statement.md`). Read `README.md` here first: it has the hypothesis, the features,
-the validation design, the current results and the open questions.
+the validation design, the current results and the open questions. `METHODOLOGY.md` has the exact rules
+(queries, thresholds, feature definitions, splits) and the expected numbers; `reproduce.ipynb` runs the whole
+pipeline in Jupyter and ends with a check cell. Keep all three in step when you change a method.
 
 ## Ground rules (from the challenge; do not break them)
 
