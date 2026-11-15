@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presto Pixel Map</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --grain: #2a78d6; --silage: #e34948; --mid: #d3d2cb; --nodata: #dcdbd5; --good: #006300; --bad: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --grain: #3987e5; --silage: #e66767; --mid: #45443f; --nodata: #2e2e2b; --good: #0ca30c; --bad: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --grain: #3987e5; --silage: #e66767; --mid: #45443f; --nodata: #2e2e2b; --good: #0ca30c; --bad: #e66767;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 48px; }
+.eyebrow { color: var(--muted); font-size: 13px; margin: 0 0 6px; }
+h1 { font-size: 28px; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.01em; }
+h2 { font-size: 17px; margin: 0 0 12px; }
+.lede { color: var(--ink2); max-width: 760px; margin: 0; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-top: 20px; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.step { border-top: 2px solid var(--axis); padding-top: 10px; }
+.step b { display: block; font-size: 14px; margin-bottom: 4px; }
+.step span { color: var(--ink2); font-size: 13.5px; }
+.step .n { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-bottom: 12px; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13.5px; padding: 6px 12px; border: 0; background: transparent; color: var(--ink2); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.month { display: flex; align-items: center; gap: 10px; flex: 1 1 260px; }
+.month[aria-disabled="true"] { opacity: 0.4; }
+.month input { flex: 1; accent-color: var(--ink); }
+.month output { min-width: 34px; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+.play { font: inherit; font-size: 13px; width: 34px; height: 30px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; }
+.mapwrap { position: relative; }
+canvas#map { display: block; width: 100%; cursor: pointer; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--surface); font-size: 12.5px; padding: 6px 8px; border-radius: 6px; white-space: nowrap; display: none; z-index: 2; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; color: var(--ink2); font-size: 12.5px; margin-top: 10px; }
+.ramp { display: inline-flex; align-items: center; gap: 6px; }
+.ramp i { display: inline-block; width: 140px; height: 10px; border-radius: 3px; background: linear-gradient(90deg, var(--grain), var(--mid), var(--silage)); }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.key svg { overflow: visible; }
+.cardhead { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.cardhead h2 { margin: 0; font-size: 20px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--ink2); font-size: 14px; margin: 8px 0 14px; }
+.facts strong { color: var(--ink); }
+.verdict { font-weight: 600; }
+.verdict.ok { color: var(--good); } .verdict.no { color: var(--bad); }
+.vote { height: 10px; border-radius: 4px; background: var(--grain); overflow: hidden; display: flex; max-width: 420px; }
+.vote i { display: block; height: 100%; background: var(--silage); border-right: 2px solid var(--surface); }
+.votecap { font-size: 12.5px; color: var(--ink2); margin-top: 4px; }
+.minis { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 6px; margin: 16px 0 6px; }
+.mini { text-align: center; font-size: 11.5px; color: var(--ink2); cursor: pointer; }
+.mini canvas { width: 100%; image-rendering: pixelated; border-radius: 4px; border: 2px solid transparent; display: block; }
+.mini.sel canvas { border-color: var(--ink); }
+.mini.score { border-left: 1px solid var(--border); padding-left: 6px; cursor: default; }
+.chart { position: relative; margin-top: 10px; }
+.chart > svg { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--ink2); font-size: 11px; }
+.results p { color: var(--ink2); margin: 0 0 8px; max-width: 820px; }
+.results p strong { color: var(--ink); }
+.foot { color: var(--muted); font-size: 12.5px; margin-top: 18px; }
+@media (max-width: 760px) {
+  h1 { font-size: 23px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .minis { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .mini.score { border-left: 0; padding-left: 0; }
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Silage or grain corn? · Beltsville Agricultural Research Center, Maryland · test years 2021–2023</p>
+  <h1>Presto judges every 10 m pixel, then the field takes the vote</h1>
+  <p class="lede">Each field below was scored once by a model that never saw its label. Switch between what the satellite
+    recorded each month and what Presto concluded, pixel by pixel. Click a field to see its year.</p>
+
+  <section class="panel steps" aria-label="How the method works">
+    <div class="step"><span class="n">1</span><b>One pixel, twelve months</b><span>For every 10 m pixel: Sentinel-2's
+      10 bands (visible red, green, blue plus red-edge, near- and shortwave-infrared), NDVI and Sentinel-1 radar,
+      one value per month (for Sentinel-2, the median of clear readings).</span></div>
+    <div class="step"><span class="n">2</span><b>A pretrained reader</b><span>Presto, a transformer NASA Harvest
+      pretrained on unlabeled pixel time series from around the world, turns each pixel's year into 128 numbers.</span></div>
+    <div class="step"><span class="n">3</span><b>Fine-tuned on our labels</b><span>The whole model is trained further on
+      the 81 labeled field-years from 2017–2020, 64 random pixels per field-year per epoch, each carrying its field's
+      label. Settings were chosen by holding out one year at a time.</span></div>
+    <div class="step"><span class="n">4</span><b>Pixels vote, the field decides</b><span>Every pixel gets a silage
+      score from 0 to 1. A field's score is the mean over its pixels and five training runs; 0.5 or more means
+      silage.</span></div>
+  </section>
+
+  <section class="panel" aria-label="Map">
+    <div class="controls">
+      <div class="seg" id="years" role="group" aria-label="Year"></div>
+      <div class="seg" id="layers" role="group" aria-label="Layer">
+        <button data-layer="color">Satellite color</button>
+        <button data-layer="score">Presto score</button>
+      </div>
+      <div class="month" id="monthbox">
+        <button class="play" id="play" aria-label="Play months">▶</button>
+        <input type="range" id="month" min="0" max="11" step="1" aria-label="Month">
+        <output id="monthout"></output>
+      </div>
+    </div>
+    <div class="mapwrap"><canvas id="map" role="img" aria-label="Map of the test fields"></canvas><div class="tip" id="tip"></div></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section class="panel" id="card" aria-live="polite"></section>
+
+  <section class="panel results">
+    <h2>How good is it, honestly?</h2>
+    <p id="tally"></p>
+    <p><strong>Official test</strong> (train on 2017–2020, score the 44 labeled 2021–2023 field-years once):
+      fine-tuned Presto 41 of 44 right, the simple 5-feature model 39 of 44. Presto is right on 4 field-years where the
+      simple model is wrong and wrong on 2 where it is right, so the difference is not significant (McNemar p = 0.69).
+      On five mixed-year splits the simple model leads, 96 to 92 of 101.</p>
+    <p><strong>What it seems to pick up:</strong> silage is cut green in late summer and the field goes bare; grain
+      stands and dries into October or November. Silage fields here also green up again in November and December,
+      probably a cover crop: hiding those two months drops silage caught from 11 to 8 of 12.</p>
+    <p><strong>Limits:</strong> one farm, 44 test field-years; each one is 2.3 points of accuracy.</p>
+    <p class="foot">Data: Sentinel-2 L2A and Sentinel-1 RTC from Microsoft Planetary Computer; Presto (nasaharvest/presto,
+      MIT). True color is red, green and blue reflectance as Presto received it. Pixels are shrunk 10 m inside each
+      field outline.</p>
+  </section>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const N = DATA.n;
+const bin = Uint8Array.from(atob(DATA.blob), c => c.charCodeAt(0));
+const COL = new Uint16Array(bin.buffer, 0, N), ROW = new Uint16Array(bin.buffer, 2 * N, N);
+const SCORE = bin.subarray(4 * N, 5 * N), RGB = bin.subarray(5 * N, 41 * N), NDVI = bin.subarray(41 * N, 53 * N);
+const years = Object.keys(DATA.years).map(Number);
+const S = { year: 2021, layer: "color", month: 8, sel: null, hover: null, timer: null };
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+let C = {};
+function readColors() {
+  C = { grain: hex(css("--grain")), mid: hex(css("--mid")), silage: hex(css("--silage")), nodata: hex(css("--nodata")),
+        ink: css("--ink"), muted: css("--muted"), surface: css("--surface"), ink2: css("--ink2"), grid: css("--grid"),
+        axis: css("--axis"), grainC: css("--grain"), silageC: css("--silage") };
+}
+function ramp(t) {
+  const [a, b, u] = t < 0.5 ? [C.grain, C.mid, t * 2] : [C.mid, C.silage, (t - 0.5) * 2];
+  return [0, 1, 2].map(k => Math.round(a[k] + (b[k] - a[k]) * u));
+}
+function pixelColor(f, k, layer, m) {
+  if (layer === "score") return ramp(SCORE[k] / 255);
+  if (!f.used[m]) return C.nodata;
+  const o = k * 36 + m * 3;
+  return [RGB[o], RGB[o + 1], RGB[o + 2]];
+}
+const fieldsOf = y => DATA.fields.filter(f => f.year === y);
+const pct = v => Math.round(v * 100) + "%";
+
+// ---------------------------------------------------------------- map
+const map = document.getElementById("map"), tip = document.getElementById("tip");
+let view = { scale: 1 };
+function drawMap() {
+  const Y = DATA.years[S.year], dpr = window.devicePixelRatio || 1;
+  const cssW = map.parentElement.clientWidth, scale = cssW / Y.w, cssH = Math.round(Y.h * scale);
+  view = { scale };
+  map.width = Math.round(cssW * dpr); map.height = Math.round(cssH * dpr); map.style.height = cssH + "px";
+  const off = document.createElement("canvas"); off.width = Y.w; off.height = Y.h;
+  const octx = off.getContext("2d"), img = octx.createImageData(Y.w, Y.h);
+  for (const f of fieldsOf(S.year)) {
+    for (let k = f.start; k < f.start + f.n; k++) {
+      const c = pixelColor(f, k, S.layer, S.month), o = (ROW[k] * Y.w + COL[k]) * 4;
+      img.data[o] = c[0]; img.data[o + 1] = c[1]; img.data[o + 2] = c[2]; img.data[o + 3] = 255;
+    }
+  }
+  octx.putImageData(img, 0, 0);
+  const ctx = map.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssW, cssH);
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(off, 0, 0, Y.w * scale, Y.h * scale);
+  for (const f of fieldsOf(S.year)) {
+    const sel = S.sel === f, hov = S.hover === f;
+    ctx.beginPath();
+    for (const ring of f.rings) ring.forEach(([x, y], j) => j ? ctx.lineTo(x * scale, y * scale) : ctx.moveTo(x * scale, y * scale));
+    ctx.setLineDash(f.right ? [] : [5, 3]);
+    ctx.lineWidth = sel ? 2.5 : (hov || !f.right ? 1.6 : 0.8);
+    ctx.strokeStyle = sel || hov || !f.right ? C.ink : C.muted;
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+}
+function inRing(x, y, ring) {
+  let ins = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) ins = !ins;
+  }
+  return ins;
+}
+function fieldAt(ev) {
+  const r = map.getBoundingClientRect(), x = (ev.clientX - r.left) / view.scale, y = (ev.clientY - r.top) / view.scale;
+  return fieldsOf(S.year).find(f => f.rings.some(ring => inRing(x, y, ring))) || null;
+}
+map.addEventListener("mousemove", ev => {
+  const f = fieldAt(ev);
+  if (f !== S.hover) { S.hover = f; drawMap(); }
+  if (!f) { tip.style.display = "none"; return; }
+  tip.innerHTML = `<b>${f.name}</b> · labeled ${f.label.toLowerCase()} · Presto ${f.p.toFixed(2)} ${f.right ? "✓" : "✗"}`;
+  tip.style.display = "block";
+  const r = map.getBoundingClientRect(), w = tip.offsetWidth;
+  tip.style.left = Math.min(Math.max(ev.clientX - r.left - w / 2, 0), r.width - w) + "px";
+  tip.style.top = (ev.clientY - r.top - 38) + "px";
+});
+map.addEventListener("mouseleave", () => { S.hover = null; tip.style.display = "none"; drawMap(); });
+map.addEventListener("click", ev => { const f = fieldAt(ev); if (f) select(f); });
+
+// ---------------------------------------------------------------- controls
+const yearsEl = document.getElementById("years");
+years.forEach(y => {
+  const b = document.createElement("button"); b.textContent = y; b.dataset.year = y;
+  b.onclick = () => { S.year = y; select(defaultField(y)); render(); };
+  yearsEl.appendChild(b);
+});
+document.querySelectorAll("#layers button").forEach(b => b.onclick = () => { S.layer = b.dataset.layer; render(); });
+const monthEl = document.getElementById("month"), monthOut = document.getElementById("monthout");
+monthEl.oninput = () => { S.month = +monthEl.value; S.layer = "color"; render(); };
+document.getElementById("play").onclick = () => {
+  if (S.timer) { stop(); return; }
+  S.layer = "color";
+  document.getElementById("play").textContent = "❚❚";
+  S.timer = setInterval(() => { S.month = (S.month + 1) % 12; render(); }, 650);
+  render();
+};
+function stop() { clearInterval(S.timer); S.timer = null; document.getElementById("play").textContent = "▶"; }
+function defaultField(y) {
+  const fs = fieldsOf(y);
+  return fs.filter(f => f.label === "Silage" && f.right).sort((a, b) => b.n - a.n)[0] || fs[0];
+}
+function legend() {
+  const el = document.getElementById("legend");
+  const outlineKey = `<span class="key"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="${C.muted}" stroke-width="1"/></svg>called right</span>
+    <span class="key"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="${C.ink}" stroke-width="1.6" stroke-dasharray="5 3"/></svg>called wrong</span>`;
+  el.innerHTML = S.layer === "score"
+    ? `<span class="ramp">grain 0 <i></i> 1 silage</span><span>Presto's silage score of each 10 m pixel</span>${outlineKey}`
+    : `<span>True color in ${MONTHS[S.month]}: Sentinel-2 red, green and blue, monthly median of clear days</span>
+       <span class="key"><svg width="14" height="10"><rect width="14" height="10" rx="2" fill="${css("--nodata")}"/></svg>no clear view that month</span>${outlineKey}`;
+}
+function render() {
+  readColors();
+  yearsEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.year === S.year));
+  document.querySelectorAll("#layers button").forEach(b => b.setAttribute("aria-pressed", b.dataset.layer === S.layer));
+  monthEl.value = S.month; monthOut.textContent = MONTHS[S.month];
+  document.getElementById("monthbox").setAttribute("aria-disabled", S.layer === "score");
+  const Y = DATA.years[S.year];
+  document.getElementById("tally").innerHTML = `<strong>${S.year}:</strong> ${Y.right} of ${Y.n} field-years called right on this map. All years: ${DATA.fields.filter(f => f.right).length} of ${DATA.fields.length}.`;
+  legend(); drawMap(); card();
+}
+
+// ---------------------------------------------------------------- field card
+function select(f) { S.sel = f; S.year = f.year; render(); }
+function miniCanvas(f, layer, m) {
+  let c0 = 1e9, r0 = 1e9, c1 = 0, r1 = 0;
+  for (let k = f.start; k < f.start + f.n; k++) { c0 = Math.min(c0, COL[k]); c1 = Math.max(c1, COL[k]); r0 = Math.min(r0, ROW[k]); r1 = Math.max(r1, ROW[k]); }
+  const s = Math.max(c1 - c0, r1 - r0) + 3, cv = document.createElement("canvas"); cv.width = s; cv.height = s;
+  const ctx = cv.getContext("2d"), img = ctx.createImageData(s, s), dx = Math.floor((s - (c1 - c0)) / 2), dy = Math.floor((s - (r1 - r0)) / 2);
+  for (let k = f.start; k < f.start + f.n; k++) {
+    const c = pixelColor(f, k, layer, m), o = ((ROW[k] - r0 + dy) * s + COL[k] - c0 + dx) * 4;
+    img.data[o] = c[0]; img.data[o + 1] = c[1]; img.data[o + 2] = c[2]; img.data[o + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  return cv;
+}
+function card() {
+  const f = S.sel, el = document.getElementById("card");
+  if (!f) { el.innerHTML = ""; return; }
+  const share = f.share, ok = f.right;
+  el.innerHTML = `<div class="cardhead"><h2>${f.name}, ${f.year}</h2>
+      <span class="verdict ${ok ? "ok" : "no"}">${ok ? "✓ called right" : "✗ called wrong"}</span></div>
+    <div class="facts"><span>Farm record: <strong>${f.label}</strong></span>
+      <span>Presto field score: <strong>${f.p.toFixed(2)}</strong> → ${f.called.toLowerCase()}</span>
+      <span>${f.n} pixels</span></div>
+    <div class="vote" role="img" aria-label="${pct(share)} of pixels score silage"><i style="width:${share * 100}%"></i></div>
+    <div class="votecap">${pct(share)} of pixels score 0.5 or more (silage), ${pct(1 - share)} below (grain)</div>
+    <div class="minis" id="minis"></div>
+    <div class="chart" id="chart"></div>`;
+  const minis = el.querySelector("#minis");
+  MONTHS.forEach((name, m) => {
+    const d = document.createElement("div");
+    d.className = "mini" + (S.layer === "color" && S.month === m ? " sel" : "");
+    d.title = f.used[m] ? `${name}: true color` : `${name}: no clear view`;
+    d.appendChild(miniCanvas(f, "color", m));
+    d.appendChild(document.createTextNode(f.used[m] ? name : name + " ☁"));
+    d.onclick = () => { stop(); S.month = m; S.layer = "color"; render(); };
+    minis.appendChild(d);
+  });
+  const sc = document.createElement("div"); sc.className = "mini score";
+  sc.appendChild(miniCanvas(f, "score", 0)); sc.appendChild(document.createTextNode("score"));
+  minis.appendChild(sc);
+  chart(f, el.querySelector("#chart"));
+}
+
+// ---------------------------------------------------------------- NDVI chart
+function chart(f, el) {
+  const W = 760, H = 230, L = 40, R = 16, T = 14, B = 28, x = m => L + m * (W - L - R) / 11, y = v => T + (1 - Math.max(0, Math.min(1, v))) * (H - T - B);
+  const seg = (vals) => { // path through consecutive non-null points
+    let d = "", pen = false;
+    vals.forEach((v, m) => { if (v == null) { pen = false; return; } d += (pen ? "L" : "M") + x(m).toFixed(1) + "," + y(v).toFixed(1); pen = true; });
+    return d;
+  };
+  const q = f.ndvi, med = q.map(v => v && v[1]);
+  let band = "";
+  for (let m = 0; m < 12; m++) {
+    if (!q[m]) continue;
+    let e = m; while (e + 1 < 12 && q[e + 1]) e++;
+    const up = [], dn = [];
+    for (let k = m; k <= e; k++) { up.push(`${x(k)},${y(q[k][2])}`); dn.unshift(`${x(k)},${y(q[k][0])}`); }
+    band += `<polygon points="${up.concat(dn).join(" ")}" fill="${C.ink}" opacity="0.10"/>`;
+    m = e;
+  }
+  const grid = [0, 0.25, 0.5, 0.75, 1].map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${C.grid}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`).join("");
+  const ticks = MONTHS.map((n, m) => `<text x="${x(m)}" y="${H - 8}" text-anchor="middle">${n}</text>`).join("");
+  const cls = DATA.classNdvi;
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="NDVI by month for ${f.name}">
+    ${grid}${ticks}<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="${C.axis}"/>
+    ${band}
+    <path d="${seg(cls.Silage)}" fill="none" stroke="${C.silageC}" stroke-width="2" stroke-dasharray="5 4"/>
+    <path d="${seg(cls.Grain)}" fill="none" stroke="${C.grainC}" stroke-width="2" stroke-dasharray="5 4"/>
+    <path d="${seg(med)}" fill="none" stroke="${C.ink}" stroke-width="2"/>
+    ${med.map((v, m) => v == null ? "" : `<circle cx="${x(m)}" cy="${y(v)}" r="4" fill="${C.ink}" stroke="${C.surface}" stroke-width="2"/>`).join("")}
+    <line id="xh" y1="${T}" y2="${H - B}" stroke="${C.muted}" visibility="hidden"/>
+    <rect x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}" fill="transparent" id="hit"/>
+  </svg>
+  <div class="legend"><span class="key"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="${C.ink}" stroke-width="2"/></svg>${f.name}: median NDVI of its pixels (band: middle half)</span>
+    <span class="key"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="${C.silageC}" stroke-width="2" stroke-dasharray="5 4"/></svg>typical silage field</span>
+    <span class="key"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="${C.grainC}" stroke-width="2" stroke-dasharray="5 4"/></svg>typical grain field</span></div>
+  <div class="tip" id="ctip"></div>`;
+  const svg = el.querySelector("svg"), xh = el.querySelector("#xh"), ct = el.querySelector("#ctip");
+  const fmt = v => v == null ? "no clear view" : v.toFixed(2);
+  el.querySelector("#hit").addEventListener("mousemove", ev => {
+    const r = svg.getBoundingClientRect(), sx = (ev.clientX - r.left) * W / r.width;
+    const m = Math.max(0, Math.min(11, Math.round((sx - L) / ((W - L - R) / 11))));
+    xh.setAttribute("x1", x(m)); xh.setAttribute("x2", x(m)); xh.setAttribute("visibility", "visible");
+    ct.innerHTML = `<b>${MONTHS[m]}</b> · this field ${fmt(med[m])} · silage ${fmt(cls.Silage[m])} · grain ${fmt(cls.Grain[m])}`;
+    ct.style.display = "block";
+    const px = x(m) * r.width / W, w = ct.offsetWidth;
+    ct.style.left = Math.min(Math.max(px - w / 2, 0), r.width - w) + "px"; ct.style.top = "-30px";
+  });
+  el.querySelector("#hit").addEventListener("mouseleave", () => { xh.setAttribute("visibility", "hidden"); ct.style.display = "none"; });
+}
+
+S.sel = defaultField(S.year);
+render();
+window.addEventListener("resize", drawMap);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+</script>
+</body>
+</html>
