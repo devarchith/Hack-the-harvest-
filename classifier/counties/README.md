@@ -13,15 +13,16 @@ Seven counties in UTM zone 18N (the grid of the BARC pixels), chosen for a wide 
 
 | FIPS | County | Census 2022 silage share of harvested corn acres |
 |---|---|---|
-| 24035 | Queen Anne's, MD | 0.007 |
-| 24013 | Carroll, MD | 0.047 |
-| 42133 | York, PA | 0.128 |
-| 42071 | Lancaster, PA | 0.362 |
-| 36011 | Cayuga, NY | 0.630 |
-| 36115 | Washington, NY | 0.757 |
+| 24035 | Queen Anne's, MD | 0.013 |
+| 24013 | Carroll, MD | 0.089 |
+| 42133 | York, PA | 0.078 |
+| 42071 | Lancaster, PA | 0.274 |
+| 36011 | Cayuga, NY | 0.525 |
+| 36115 | Washington, NY | 0.759 |
 | 50001 | Addison, VT | 0.921 |
 
-Share = silage / (silage + grain), harvested acres, Census rows with `domain` TOTAL. Withheld values are left out.
+Share = silage / (silage + grain), harvested acres, rows with `source` CENSUS and `domain` TOTAL. The file also holds
+2022 county SURVEY estimates for some counties; they are left out. Withheld values are left out.
 
 ## Sample
 

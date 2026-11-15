@@ -38,7 +38,7 @@ CROPSCAPE = "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLFile?ye
 def census_shares(path):
     """2022 Census harvested acres per county: grain, silage, silage share. Withheld values are left out."""
     c = pd.read_csv(path, dtype=str)
-    c = c[(c.year == str(YEAR)) & (c.aggregation_level == "COUNTY") & (c.domain == "TOTAL")
+    c = c[(c.year == str(YEAR)) & (c.aggregation_level == "COUNTY") & (c.source == "CENSUS") & (c.domain == "TOTAL")
           & c.short_description.isin(["CORN, GRAIN - ACRES HARVESTED", "CORN, SILAGE - ACRES HARVESTED"])]
     c = c.assign(fips=c.state_ansi + c.county_ansi,
                  acres=pd.to_numeric(c.value.str.replace(",", "").str.strip(), errors="coerce"))
