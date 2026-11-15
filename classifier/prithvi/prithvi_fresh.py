@@ -22,7 +22,7 @@ Fixed before any input for these years was built:
 
 Known before the run: every silage label here rests on a planting record only (2014, 2016 and 2024 have no harvest
 records), and in the farm reports planned silage was harvested wholly or partly as grain 3 of 25 times. 2014 has
-Landsat 8 only and 2015-2016 one Sentinel-2 satellite, so these years have fewer clear readings than 2017-2023.
+Landsat 8 only and 2015-2016 few Sentinel-2 readings, so these years have fewer clear readings than 2017-2023.
 
   prepare  writes <fresh>/fresh_field_years.csv (the test set with polygons)
   score    builds the hand features, fits the three models, writes <out>/summary.md, scores.csv, predictions.csv,
@@ -107,6 +107,8 @@ def score(a):
     diff = pd.DataFrame({c: (chk[c + "_team"] - chk[c + "_rebuilt"]).abs() for c in mc.SMALL})
     chk.to_csv(out / "check_2021.csv", index=False)
     same = int((diff.fillna(0) < 1e-6).all(1).sum())
+    ser = pd.read_parquet(a.fresh / "series_fresh.parquet")
+    days = ser[ser.usable & pd.to_datetime(ser.date).dt.month.between(6, 11)].groupby("year").date.nunique()
 
     _, _, allv, _ = mc.load()
     te = pd.read_csv(a.fresh / "fresh_field_years.csv").drop(columns="wkt")
@@ -150,11 +152,12 @@ def score(a):
              "2017-2023 with the head `evaluate.py` had already chosen for it; the test and the models were fixed in "
              "`prithvi_fresh.py` before these years' inputs were built, and this is the only run.", "",
              "## All field-years", "",
-             mc.md_table(sc[sc.subset == "all"].drop(columns="subset")), ""]
+             mc.md_table(sc[sc.subset == "all"].drop(columns="subset")), "",
+             f"Calling every field-year Grain would score {int((y == 0).sum())} of {len(y)}.", ""]
     for k in P:
         if k == BASE:
             continue
-        b_only, k_only, pv = ev.mcnemar(y, P[BASE], P[k])
+        k_only, b_only, pv = ev.mcnemar(y, P[BASE], P[k])  # returns (only the second right, only the first right, p)
         lines.append(f"- {k}: right where the baseline is wrong {k_only}, the reverse {b_only}, "
                      f"exact McNemar p = {pv:.3f}")
     lines += ["", "## By year and by label basis", "",
@@ -169,8 +172,8 @@ def score(a):
               "- Every silage label here rests on a planting record only; planned silage was sometimes harvested "
               "as grain (3 of 25 times in the farm reports). Grain called silage may be a label error.",
               "- The outlines are the 2021-2023 polygons; a field's shape may have differed in 2014-2016.",
-              "- 2014 has Landsat 8 only and 2015-2016 one Sentinel-2 satellite, so fewer clear readings than the "
-              "training years.",
+              "- Fewer clear readings than the training years. Days with a usable reading, June-November: "
+              + ", ".join(f"{yr} {n}" for yr, n in days.items()) + " (2021, a training year, for scale).",
               f"- {len(te)} field-years with {int(y.sum())} silage: a difference of one or two fields is noise.", ""]
     (out / "summary.md").write_text("\n".join(lines), encoding="utf-8")
     info = ev.run_info([], t0)
