@@ -77,7 +77,8 @@ The seven-county check above, widened to the whole country, plus a Presto varian
 county shares (learning from label proportions). Files: `national_counties.py` (sample), `national_pixels.py` and
 `launch_pulls.sh` (pixels), `fix_shares.py` (Census-only shares of the drawn sample), `presto_national.py` (models;
 `launch_runs.sh` holds the commands of the three runs), `guard_fields.py` (BARC held-out-year predictions),
-`census_prior.py` (comparison with the last Census), `national_page.py` (results page); results in `national/`.
+`census_prior.py` (comparison with the last Census), `national_page.py` (results page), `national_metrics.py`
+(challenge and USDA-style metrics with 95% intervals, `national/<run>/metrics_usda.md`); results in `national/`.
 
 ### Sample
 
