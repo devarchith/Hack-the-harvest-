@@ -1,0 +1,74 @@
+{
+ "created_utc": "2026-11-15T05:36:30+00:00",
+ "year": 2020,
+ "field_years": 18,
+ "pixels": 6531,
+ "fields_without_inward_buffer": 0,
+ "field_years_csv_sha256": "d4fac8a56689322c23e48d9e72be6b2d6f7fd12381e766de3ddf585feaac610c",
+ "npz_sha256": "17c4865a1f9e16478134739e5983669b651401ff58d6de94a6035a8e4f349612",
+ "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1",
+ "crs": "EPSG:32618",
+ "resolution_m": 10,
+ "grid_anchor": 0,
+ "buffer_m": 10,
+ "s2_bands": {
+  "B02": "B2",
+  "B03": "B3",
+  "B04": "B4",
+  "B05": "B5",
+  "B06": "B6",
+  "B07": "B7",
+  "B08": "B8",
+  "B8A": "B8A",
+  "B11": "B11",
+  "B12": "B12"
+ },
+ "s1_bands": [
+  "vv",
+  "vh"
+ ],
+ "s2_scl_keep": [
+  4,
+  5,
+  6,
+  7
+ ],
+ "usable_frac": 0.6,
+ "s2_scaling": "loader._to_reflectance: (DN - 1000)/1e4 if baseline >= 04.00 else DN/1e4",
+ "s1": "sentinel-1-rtc gamma0 linear; -32768 and <= 0 dropped; monthly mean in linear, then 10*log10",
+ "months": [
+  1,
+  12
+ ],
+ "queries": [
+  {
+   "sensor": "s2",
+   "collection": "sentinel-2-l2a",
+   "bbox": [
+    -76.89918967388084,
+    39.01206644014767,
+    -76.81623374368209,
+    39.04297726575392
+   ],
+   "datetime": "2020-01-01/2020-12-31",
+   "n_items": 143,
+   "n_older_copies_dropped": 0
+  },
+  {
+   "sensor": "s1",
+   "collection": "sentinel-1-rtc",
+   "bbox": [
+    -76.89918967388084,
+    39.01206644014767,
+    -76.81623374368209,
+    39.04297726575392
+   ],
+   "datetime": "2020-01-01/2020-12-31",
+   "n_items": 59,
+   "n_older_copies_dropped": 0
+  }
+ ],
+ "scene_days": 202,
+ "failures": [],
+ "runtime_s": 399
+}
