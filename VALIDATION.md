@@ -55,9 +55,28 @@ Presto ranks silage above grain better than chance, but at the cut learned at BA
 Grain. At the 19% silage share of the area sampled, its accuracy (0.83) is barely above calling every field Grain
 (0.81). The baseline cannot be scored on Québec yet, because the Québec rows have no hand features.
 
+## Outside Maryland: US county totals
+
+Elsewhere in the US there are no field labels, so the check uses county totals. In 7 counties in Maryland, Pennsylvania,
+New York and Vermont, Presto (trained on BARC 2017-2020 only) scored 200 random 90 m corn blocks from the 2022
+Cropland Data Layer. The share it calls silage is compared with the county's 2022 Census silage share of harvested
+corn acres, which runs from 1% to 92% (`classifier/counties/README.md`). The main result, fixed before any prediction,
+is the Spearman correlation of the county's mean probability with the Census share.
+
+| Model | Spearman (exact one-sided p) | Mean gap, share called silage vs Census | Result file |
+|---|---|---|---|
+| Presto, January-December | −0.04 (0.55) | 0.339 | `classifier/presto/results/county_test/` |
+| Presto, January-October | 0.64 (0.069) | 0.256 | `classifier/presto/results/county_test_jan_oct/` |
+| Calling every block Grain | | 0.380 | same |
+
+The official model's county shares do not follow the Census. The January-October model leans the right way but is
+not significant with 7 counties. Both call about 10% silage in the two New York dairy counties, where the Census has
+53% and 76%.
+
 ## Limits
 
 - All training labels and the official test come from one farm, BARC.
 - With 12 silage test cases, one field-year moves silage recall by 8 points.
 - Most 2017-2020 training labels rest on a planting record only (`classifier/labels/README.md`).
 - The Québec labels are declarations made before harvest, not harvest records.
+- The county check has 7 counties, each sampled in one 20 km square, against Census totals for the whole county.
