@@ -27,9 +27,9 @@ pictures show the pixel scores and the monthly true color Presto was given.
 `presto_pixel_map.py` refits the setting chosen in the standard test (fine-tuning, lr 3e-4, 12 epochs, seeds 0-4) on
 2017-2020 with `presto_standard_test.train_curve`, unchanged, and keeps each test pixel's probability. Each
 field-year's mean over pixels and seeds equals `p_finetune` in the standard test's `test_predictions.csv` (largest
-difference 0.0000, same call on 44 of 44; `data/field_check.csv`). Pixel positions are recomputed from the polygons in
+difference 0.0000, same call on 44 of 44; `results/field_check.csv`). Pixel positions are recomputed from the polygons in
 `../field_years.csv` on the grid of `presto_pixels.py` (10 m, shrunk 10 m inward); the script stops if a field-year's
-count differs from the pulled pixels. `build_showcase.py` draws the pictures from `data/pixel_map.npz` (3.5 MB, not
+count differs from the pulled pixels. `build_showcase.py` draws the pictures from `results/pixel_map.npz` (3.5 MB, not
 committed: step 1 rebuilds it in under a minute on one NVIDIA B200).
 
 ```bash
@@ -38,8 +38,8 @@ FY=classifier/labels/results/field_years_fixed.csv
 $PY classifier/presto/showcase/presto_pixel_map.py --field-years $FY --pixels /home/keeboh/work/presto/pixels \
   --presto-dir /home/keeboh/ext/presto \
   --predictions classifier/presto/results/standard_test_fixed_labels/test_predictions.csv \
-  --out classifier/presto/showcase/data
-$PY classifier/presto/showcase/build_showcase.py --data classifier/presto/showcase/data --field-years $FY \
+  --out classifier/presto/showcase/results
+$PY classifier/presto/showcase/build_showcase.py --data classifier/presto/showcase/results --field-years $FY \
   --out classifier/presto/showcase --pair 280:2021 301:2021
 ```
 

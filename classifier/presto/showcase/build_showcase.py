@@ -1,7 +1,7 @@
 """Pictures of fine-tuned Presto's pixel-by-pixel calls on the 44 test field-years (2021-2023), from the output of
 presto_pixel_map.py.
 
-  python classifier/presto/showcase/build_showcase.py --data classifier/presto/showcase/data \
+  python classifier/presto/showcase/build_showcase.py --data classifier/presto/showcase/results \
       --field-years classifier/labels/results/field_years_fixed.csv --out classifier/presto/showcase
 
 Writes presto_pixels.html (interactive, one self-contained file from template.html), season_strip.png and

@@ -5,7 +5,7 @@ position and the monthly values Presto was given, for the maps in this folder.
       --field-years classifier/labels/results/field_years_fixed.csv --pixels /home/keeboh/work/presto/pixels \
       --presto-dir /home/keeboh/ext/presto \
       --predictions classifier/presto/results/standard_test_fixed_labels/test_predictions.csv \
-      --out classifier/presto/showcase/data
+      --out classifier/presto/showcase/results
 
 Refits the setting chosen in the standard test (lr 3e-4, 12 epochs, seeds 0-4) on the 2017-2020 field-years with
 presto_standard_test.train_curve, unchanged, and keeps every test pixel's probability for each seed. The mean over
