@@ -50,6 +50,7 @@ Stated before modelling, from the challenge statement and agronomy:
 | Daymet daily weather (1 km) | Growing degree days | ORNL single-pixel API |
 | BARC evaluation polygons + labels | Test set: 44 labeled field-years, 2021-2023 | `04_Evaluation/BARC_Corn.2021-2023.gpkg` |
 | Kraatz BARC farm records + outlines (CC-BY-4.0) | Training labels 2017-2020; 2021 harvest dates for checking | Zenodo [8087301](https://doi.org/10.5281/zenodo.8087301), downloaded and md5-checked by `reproduce.py` |
+| AlphaEarth Foundations Satellite Embedding V1, annual (10 m, 64 numbers per pixel; CC-BY-4.0) | Pretrained-model features, model comparison only | Source Cooperative [tge-labs/aef](https://source.coop/tge-labs/aef), read by `aef_embeddings.py`. "The AlphaEarth Foundations Satellite Embedding dataset is produced by Google and Google DeepMind." |
 
 Each field is shrunk 10 m inward; clouds are masked per pixel (S2 SCL 4-7, Landsat QA bits 0-5); a reading
 counts only when at least 60% of the field is clear. Landsat is shifted onto the Sentinel-2 scale per year
@@ -138,9 +139,44 @@ records vs the challenge labels), and the learned weights point the same way in 
   cut (4-7, 2021) or an early grain harvest (2019) fools it.
 - The fall regrowth signal (AUC 0.99) is probably a BARC cover-crop habit. It is kept out of the main model on
   purpose.
-- No spatial holdout is possible: 11 of 12 silage field-years are on Central Farm.
+- Only a partial spatial holdout is possible: 11 of 12 test silage field-years are on Central Farm. Training on
+  the other farms' 2017-2020 records (8 silage) and testing on Central Farm 2021-2023 gives 24/25 for the
+  baseline (see the model comparison below).
 
-**Bottom line:** a strong, transparent baseline for BARC. Transfer to other farms and regions is untested.
+**Bottom line:** a strong, transparent baseline for BARC. Transfer to other regions is untested; transfer to
+other farms is tested only by the Central Farm holdout.
+
+## Model comparison: XGBoost and AlphaEarth embeddings
+
+`model_comparison.py` runs three models (logistic regression; random forest; XGBoost with the settings from the
+teammate's `baseline_xgboost.ipynb`, not tuned here) on four feature sets: the 5 hypothesis features, all 38
+hand-built features, the 64 AlphaEarth embedding numbers averaged over each field, and 5 + 64. It first checks
+that the original numbers reproduce (they do). Full tables: `results/model_comparison.md`.
+
+Correct field-years for the baseline and the main alternatives:
+
+| Test | Hand 5, logistic (baseline) | Hand all 38, XGBoost | AlphaEarth 64, logistic | Hand 5 + AlphaEarth, logistic |
+|---|---|---|---|---|
+| Hold out one year, 2021-23 | 42/44 | 41/44 | 40/44 | 42/44 |
+| Train 2017-20, test 2021-23 | 39/44 | 40/44 | 43/44 | 43/44 |
+| Same, training only on fields never seen in 2021-23 | 40/44 | 37/44 | 40/44 | 43/44 |
+| Train other farms 2017-20, test Central Farm 2021-23 | 24/25 | 21/25 | 24/25 | 25/25 |
+| Hold out one year, 2017-23 | 113/127 | 117/127 | 109/127 | 117/127 |
+| Hold out one year, 2017-20 only (used to choose a model) | 68/83 | 74/83 | 64/83 | 69/83 |
+
+- **XGBoost does not help.** It wins the model-choice split, which never touches the 2021-2023 labels, but then
+  does no better than the baseline on any 2021-2023 test and worse on the Central Farm holdout (21/25). On the 64
+  embedding numbers it is the weakest model (36/44 out of time).
+- **AlphaEarth alone is no better than the five features.**
+- **The five features plus AlphaEarth are a lead, not a result.** In a logistic regression they score at least
+  as well as the baseline on every 2021-2023 test, including when every test field is kept out of training (so
+  it is not just recognizing fields it has seen). But we noticed this by looking at the test results; on the
+  model-choice split it ties the baseline (69 vs 68 of 83); and no difference is statistically significant
+  (exact McNemar, out of time: 5 field-years only it gets right vs 1, p = 0.22). One of its extra "correct"
+  calls is 4-7 (2021), labeled Silage but harvested Nov 4, which is grain timing. It needs confirming on new
+  data before it replaces the baseline.
+- AlphaEarth gives one embedding per calendar year from Google's model, so we cannot tell which signals it uses.
+  It is less explainable than the five features.
 
 ## Reproduce
 
@@ -166,6 +202,8 @@ many scene-days fail, and `--force-pull` to re-pull.
 | `kraatz_fields.py` | Builds the 2017-2020 training field-years and the 2021 harvest-date records |
 | `grain_silage.py` | Features and every validation; writes `results/` |
 | `make_figures.py` | The two figures |
+| `aef_embeddings.py` | Reads AlphaEarth annual embeddings over BARC and averages them per labeled field-year (`results/aef_embeddings.csv`) |
+| `model_comparison.py` | Logistic vs random forest vs XGBoost on hand-built features and embeddings; `results/model_comparison.md` |
 | `results/report.md` | Full output: offsets, univariate table, confusion matrices, per-year results, misclassified field-years, harvest-date check |
 | `results/univariate_separation.csv` | AUC of every feature, overall, per year and within Central Farm |
 | `results/loyo_predictions.csv`, `results/train1720_test2123_predictions.csv`, `results/loyo7_predictions.csv` | Per-field-year predictions for each split |

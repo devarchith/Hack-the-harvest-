@@ -73,6 +73,8 @@ def main():
 
     run(HERE / "grain_silage.py")
     run(HERE / "make_figures.py")
+    run(HERE / "aef_embeddings.py")  # first run downloads a 78 MB index and reads 14 tile windows (a few minutes)
+    run(HERE / "model_comparison.py")
     print("\nDone. Read research/grain_vs_silage/results/report.md")
 
 

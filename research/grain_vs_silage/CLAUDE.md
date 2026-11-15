@@ -38,6 +38,8 @@ shared go in `results/` (small CSVs, `report.md`, PNGs).
 | `../../preprocessing/loader.py` | Shared team loader. `--gpkg` for the evaluation fields, `--fields` for any polygon file (added for this work) |
 | `grain_silage.py` | `merged_series()` harmonizes Landsat to Sentinel-2 and drops isolated cloud dips; `features_one()` computes every feature for one field-year; `main()` / `extra_section()` run every validation and write `results/` |
 | `make_figures.py` | NDVI trajectories by class and the key-feature dot plots |
+| `aef_embeddings.py` | AlphaEarth annual embeddings (source.coop, CC-BY 4.0) averaged per labeled field-year -> `results/aef_embeddings.csv`; caches tile windows in `data/aef/` |
+| `model_comparison.py` | 3 models x 4 feature sets x 6 splits; asserts the baseline numbers first; picks a model on 2017-2020 only -> `results/model_comparison.md` |
 
 To add a feature: compute it in `features_one()` and it automatically appears in
 `results/univariate_separation.csv` and in the random forest. Add it to the `small` list (the pre-stated
@@ -68,6 +70,12 @@ its 2021-2023 separation.
   Grain vs silage does not need CDL (all labeled field-years are corn); labeling unlabeled field-years does.
 - **Field names change between years** (1-7 split into 1-7A to 1-7F, etc.). `kraatz_fields.py` drops
   field-years with no matching polygon (52 of 135) rather than guess.
+- **AlphaEarth files are stored bottom-up**, and their `.vrt` wrappers point at `/vsis3/` paths that need S3
+  settings. `aef_embeddings.py` reads the raw `.tiff` windows over HTTPS and flips them. Checked: field masks on
+  the flipped mosaic give within-field cosine 0.975 vs 0.889 on a wrongly flipped one.
+- **Choose models on 2017-2020 only.** `model_comparison.py` ranks every model on a hold-out-one-year split
+  inside 2017-2020 and only then reads its 2021-2023 scores. "Hand 5 + AlphaEarth" looks best on 2021-2023 but
+  ties the baseline on that split; do not promote it on 2021-2023 numbers alone.
 - Windows: run scripts with the venv's `python`; paths in this folder are all relative to the repo root.
 
 ## Open tasks (pick up here)
