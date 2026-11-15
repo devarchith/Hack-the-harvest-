@@ -1,0 +1,1102 @@
+field_id,farm,field,year,label,split,model,p_silage
+1,APU,1,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1293
+24,APU,30,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0571
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0826
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9404
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0124
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0397
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9419
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.121
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9525
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0306
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1462
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0986
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0747
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0441
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0063
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0083
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0759
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0365
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9653
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0243
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9724
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9565
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.5465
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0622
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9468
+1,APU,1,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.154
+24,APU,30,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.3501
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1877
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1874
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1101
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.6947
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.065
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0992
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1564
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9019
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.2681
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.2413
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1746
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1713
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.1756
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.0867
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.4687
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9325
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2021-23",hand 5 / logistic (baseline),0.9429
+1,APU,1,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0029
+24,APU,30,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1434
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2811
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9916
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9944
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0077
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.941
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0207
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.245
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0056
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0088
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1404
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.009
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0406
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.001
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),1.0
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9999
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8995
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0581
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9992
+1,APU,1,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0007
+24,APU,30,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1156
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0091
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0372
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9545
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9745
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0011
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0157
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0501
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8423
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0274
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1338
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8922
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8083
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0005
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3656
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3687
+1,APU,1,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0554
+24,APU,30,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2366
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3146
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9435
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0072
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0236
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9226
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1728
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8944
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0821
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2897
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.02
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0263
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0395
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.004
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.046
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.271
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0566
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3319
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0115
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9955
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.995
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6253
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0766
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9822
+1,APU,1,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0263
+24,APU,30,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2541
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1736
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3654
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7308
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9121
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0332
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0833
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1887
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.82
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0811
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2617
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6622
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.5618
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0166
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0255
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.032
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6428
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.5726
+1,APU,1,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.243
+1,APU,1,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0918
+24,APU,30,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.3109
+24,APU,30,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.5072
+230,Central Farm,1-1,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0934
+231,Central Farm,1-11,2022,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9905
+231,Central Farm,1-11,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1769
+238,Central Farm,1-15,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1735
+238,Central Farm,1-15,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0437
+248,Central Farm,1-32,2023,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.8469
+251,Central Farm,1-34,2022,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0258
+251,Central Farm,1-34,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0244
+252,Central Farm,1-37,2022,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9927
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9872
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.5168
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.992
+286,Central Farm,2-51,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0759
+286,Central Farm,2-51,2022,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0156
+286,Central Farm,2-51,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0714
+288,Central Farm,2-66,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1434
+288,Central Farm,2-66,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0612
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9911
+323,Central Farm,4-25,2023,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9732
+327,Central Farm,4-7,2021,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.359
+328,Central Farm,4-8,2021,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9952
+332,East Farm,5-11A,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.3173
+334,East Farm,5-12,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1745
+347,East Farm,5-21,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.3752
+347,East Farm,5-21,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.6333
+348,East Farm,5-23,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0668
+348,East Farm,5-23,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.2072
+382,East Farm,5-2A,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1935
+383,East Farm,5-2B,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.2268
+394,East Farm,5-3C,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.1587
+397,East Farm,5-3F,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.018
+400,East Farm,5-40,2023,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.7647
+429,East Farm,5-8,2022,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9812
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0403
+571,North Farm,NE-3,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0301
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.0239
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9893
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.4278
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.9915
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20, test 2021-23",hand 5 / logistic (baseline),0.4301
+1,APU,1,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8174
+1,APU,1,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1673
+24,APU,30,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0138
+24,APU,30,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0014
+230,Central Farm,1-1,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0033
+231,Central Farm,1-11,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8131
+231,Central Farm,1-11,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.7695
+238,Central Farm,1-15,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0602
+238,Central Farm,1-15,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.378
+248,Central Farm,1-32,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8346
+251,Central Farm,1-34,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.7738
+251,Central Farm,1-34,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0987
+252,Central Farm,1-37,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9983
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9364
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9772
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9598
+286,Central Farm,2-51,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0223
+286,Central Farm,2-51,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.58
+286,Central Farm,2-51,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0393
+288,Central Farm,2-66,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+288,Central Farm,2-66,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0927
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.6457
+323,Central Farm,4-25,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2871
+327,Central Farm,4-7,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0427
+328,Central Farm,4-8,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.6754
+332,East Farm,5-11A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0005
+334,East Farm,5-12,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+347,East Farm,5-21,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+347,East Farm,5-21,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1188
+348,East Farm,5-23,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0004
+348,East Farm,5-23,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0035
+382,East Farm,5-2A,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0442
+383,East Farm,5-2B,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0232
+394,East Farm,5-3C,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0398
+397,East Farm,5-3F,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3685
+400,East Farm,5-40,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.6348
+429,East Farm,5-8,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2236
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1192
+571,North Farm,NE-3,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0119
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0017
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9578
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0554
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.4702
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0017
+1,APU,1,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.5094
+1,APU,1,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2091
+24,APU,30,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1944
+24,APU,30,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1432
+230,Central Farm,1-1,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1146
+231,Central Farm,1-11,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7896
+231,Central Farm,1-11,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8112
+238,Central Farm,1-15,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2673
+238,Central Farm,1-15,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2734
+248,Central Farm,1-32,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8545
+251,Central Farm,1-34,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.296
+251,Central Farm,1-34,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1659
+252,Central Farm,1-37,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9645
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9246
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7953
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9456
+286,Central Farm,2-51,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.088
+286,Central Farm,2-51,2022,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2045
+286,Central Farm,2-51,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1139
+288,Central Farm,2-66,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0611
+288,Central Farm,2-66,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2166
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7776
+323,Central Farm,4-25,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7519
+327,Central Farm,4-7,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3894
+328,Central Farm,4-8,2021,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9266
+332,East Farm,5-11A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0361
+334,East Farm,5-12,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0068
+347,East Farm,5-21,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0029
+347,East Farm,5-21,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2277
+348,East Farm,5-23,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0314
+348,East Farm,5-23,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0855
+382,East Farm,5-2A,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2296
+383,East Farm,5-2B,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2199
+394,East Farm,5-3C,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3152
+397,East Farm,5-3F,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3828
+400,East Farm,5-40,2023,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7149
+429,East Farm,5-8,2022,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6522
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.063
+571,North Farm,NE-3,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0988
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0686
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9307
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3306
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7671
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.063
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0365
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9039
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4968
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0679
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.035
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0071
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0387
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0169
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0363
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0683
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0157
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.8214
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.825
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.012
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0898
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.107
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1412
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1603
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0809
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9918
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9335
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0043
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0405
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0004
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.335
+14,APU,18,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.001
+35,APU,7,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3591
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3512
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3766
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0133
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4266
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1436
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0283
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3298
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4157
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1049
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0868
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0049
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9378
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0153
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0476
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.6097
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.6319
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4352
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.411
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9994
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.998
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.6392
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0843
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.242
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.5133
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.6268
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0621
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1498
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.2155
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.2358
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1236
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0866
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1636
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1147
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4595
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1529
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4886
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3486
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.6626
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0572
+34,APU,5,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0332
+35,APU,7,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9719
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0011
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9933
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0976
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.041
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9777
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.05
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.7444
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.8939
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0113
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0457
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0689
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1208
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0478
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0664
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0874
+1,APU,1,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1998
+24,APU,30,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.2554
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1311
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9918
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0492
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1009
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9913
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3009
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.995
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.2477
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.142
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3183
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0513
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0289
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0178
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.014
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3685
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.3542
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9937
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0171
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9955
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9911
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.5244
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0142
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9868
+1,APU,1,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0924
+24,APU,30,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.4669
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1005
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.162
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0432
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.8424
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0181
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.062
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0624
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9772
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.5948
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.2101
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1741
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.199
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.1484
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.0189
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.7513
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9894
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2017-23",hand 5 / logistic (baseline),0.9926
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8568
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8712
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9968
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0382
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0359
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0423
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0084
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1243
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.4938
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0414
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0006
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8951
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.6156
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.4906
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2307
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0486
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8459
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1896
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0334
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9778
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.436
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0089
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0013
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0014
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1647
+14,APU,18,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0005
+35,APU,7,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.267
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2819
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0459
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.008
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0097
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0101
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.99
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9952
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.3854
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.001
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9932
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1044
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1292
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.177
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1266
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9544
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.3424
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0367
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8984
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.001
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2078
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.613
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0633
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0163
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.006
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0149
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0042
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0682
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0066
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1526
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0304
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0004
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0031
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0552
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.003
+34,APU,5,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.016
+35,APU,7,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9827
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.009
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9384
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0065
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0693
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.7125
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0108
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9752
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9876
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0005
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0016
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0004
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0017
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+1,APU,1,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.7435
+24,APU,30,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1107
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0711
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9787
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.028
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0007
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8517
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0845
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9194
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.002
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0009
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.069
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0086
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.003
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0837
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0028
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.6235
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2614
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9995
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9974
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9781
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2786
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8733
+1,APU,1,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2056
+24,APU,30,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.04
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.007
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9287
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8471
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9811
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0701
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.069
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1827
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.8081
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2068
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.0296
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.2449
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1884
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.1257
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.6154
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.7353
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9477
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2017-23",presto_frozen emb k=16 C=0.5 (chosen),0.9065
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3786
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8736
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.915
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0768
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0609
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1042
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0303
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.085
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1939
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.074
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0159
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.6525
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.5604
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1071
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1375
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0871
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2742
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1567
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0955
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9662
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.5539
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0206
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0327
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0174
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0785
+14,APU,18,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0054
+35,APU,7,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.101
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2337
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1272
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.047
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0419
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0366
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0029
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9193
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9498
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2339
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.028
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.004
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.6337
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0006
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0045
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3802
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.454
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3109
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2815
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9771
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.7109
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1665
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.615
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0423
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3518
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.7129
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1022
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0538
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0448
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.049
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0357
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0841
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.06
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1465
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1407
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0207
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.026
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0559
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2386
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0184
+34,APU,5,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0334
+35,APU,7,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8564
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.02
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9384
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0591
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2269
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8165
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0138
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.7941
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9009
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.014
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0406
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0114
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0265
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0129
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0158
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0107
+1,APU,1,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.4887
+24,APU,30,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2421
+238,Central Farm,1-15,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.236
+280,Central Farm,2-32C,2021,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9665
+286,Central Farm,2-51,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0589
+288,Central Farm,2-66,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0428
+291,Central Farm,2-68B,2021,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8992
+327,Central Farm,4-7,2021,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.358
+328,Central Farm,4-8,2021,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9585
+332,East Farm,5-11A,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0601
+334,East Farm,5-12,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0165
+347,East Farm,5-21,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0035
+348,East Farm,5-23,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0251
+511,Linkage Farm,EB-3,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0526
+571,North Farm,NE-3,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0554
+548,North Farm,ND-5-A,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0553
+263,Central Farm,1-9A,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3556
+301,Central Farm,2-72A,2021,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.0659
+231,Central Farm,1-11,2022,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8348
+251,Central Farm,1-34,2022,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1444
+252,Central Farm,1-37,2022,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9907
+278,Central Farm,2-32A,2022,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9817
+279,Central Farm,2-32B,2022,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8484
+286,Central Farm,2-51,2022,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1097
+429,East Farm,5-8,2022,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8301
+1,APU,1,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1608
+24,APU,30,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2067
+230,Central Farm,1-1,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1073
+231,Central Farm,1-11,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8441
+238,Central Farm,1-15,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3733
+248,Central Farm,1-32,2023,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9236
+251,Central Farm,1-34,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.115
+286,Central Farm,2-51,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1019
+288,Central Farm,2-66,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.215
+323,Central Farm,4-25,2023,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8518
+347,East Farm,5-21,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2348
+348,East Farm,5-23,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.1123
+382,East Farm,5-2A,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.3115
+383,East Farm,5-2B,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2915
+394,East Farm,5-3C,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2505
+397,East Farm,5-3F,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.2966
+400,East Farm,5-40,2023,Grain,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.642
+254,Central Farm,1-7B,2023,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.9388
+292,Central Farm,2-71A,2023,Silage,"Hold out one year, 2017-23",presto_frozen hand5+emb k=128 C=0.05,0.8425
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.2388
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9809
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.2442
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.2894
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.1172
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.808
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.0684
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.0438
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9875
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9721
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.4755
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9836
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.0814
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.0837
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.1201
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.1738
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.1572
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9841
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9636
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.4161
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9877
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9736
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.4207
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.9838
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",hand 5 / logistic (baseline),0.3736
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3334
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2143
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9997
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8283
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9737
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9989
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0715
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1681
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),1.0
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9998
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9976
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9999
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0509
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1749
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0582
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2859
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3659
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.6985
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9121
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9936
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9984
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9973
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8095
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3259
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4802
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6461
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9892
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8104
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9151
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9941
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1165
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2435
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9994
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9983
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.964
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9982
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1578
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1864
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2098
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4999
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.5114
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8475
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9432
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9728
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.9951
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.983
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8643
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6874
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 other farms, test Central Farm 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0214
+1,APU,1,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0963
+1,APU,1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0836
+24,APU,30,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.2969
+24,APU,30,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.5906
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1213
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9855
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1901
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1958
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0673
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.8331
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0489
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0169
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9888
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9816
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.4888
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.989
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.2158
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0315
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1017
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1787
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0587
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9874
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9627
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.3415
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9935
+332,East Farm,5-11A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.3506
+334,East Farm,5-12,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1321
+347,East Farm,5-21,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.2809
+347,East Farm,5-21,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.5612
+348,East Farm,5-23,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0429
+348,East Farm,5-23,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.183
+382,East Farm,5-2A,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.2556
+383,East Farm,5-2B,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.2917
+394,East Farm,5-3C,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1415
+397,East Farm,5-3F,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0292
+400,East Farm,5-40,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.708
+429,East Farm,5-8,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9737
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.0313
+571,North Farm,NE-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1386
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.1158
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9852
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.4039
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.9878
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",hand 5 / logistic (baseline),0.4558
+1,APU,1,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9341
+1,APU,1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3536
+24,APU,30,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.01
+24,APU,30,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0011
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0325
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.5533
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.4396
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1378
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0773
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.123
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.9067
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2057
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.945
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3139
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8549
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.6522
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0357
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8342
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0656
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0006
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0468
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.7545
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0753
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0191
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1942
+332,East Farm,5-11A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.002
+334,East Farm,5-12,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+347,East Farm,5-21,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0
+347,East Farm,5-21,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1398
+348,East Farm,5-23,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.002
+348,East Farm,5-23,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0022
+382,East Farm,5-2A,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0064
+383,East Farm,5-2B,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0041
+394,East Farm,5-3C,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0505
+397,East Farm,5-3F,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.3537
+400,East Farm,5-40,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.7258
+429,East Farm,5-8,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0733
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.7271
+571,North Farm,NE-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.086
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0154
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.8437
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.1604
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.2483
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen emb k=16 C=0.5 (chosen),0.0204
+1,APU,1,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.5676
+1,APU,1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3468
+24,APU,30,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2221
+24,APU,30,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2003
+230,Central Farm,1-1,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3119
+231,Central Farm,1-11,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7536
+231,Central Farm,1-11,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7608
+238,Central Farm,1-15,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3279
+238,Central Farm,1-15,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2164
+248,Central Farm,1-32,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6274
+251,Central Farm,1-34,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4992
+251,Central Farm,1-34,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2353
+252,Central Farm,1-37,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8438
+278,Central Farm,2-32A,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7844
+279,Central Farm,2-32B,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7251
+280,Central Farm,2-32C,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8835
+286,Central Farm,2-51,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1122
+286,Central Farm,2-51,2022,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4944
+286,Central Farm,2-51,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1919
+288,Central Farm,2-66,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0529
+288,Central Farm,2-66,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2075
+291,Central Farm,2-68B,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8529
+323,Central Farm,4-25,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6664
+327,Central Farm,4-7,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2652
+328,Central Farm,4-8,2021,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8144
+332,East Farm,5-11A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0678
+334,East Farm,5-12,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0296
+347,East Farm,5-21,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0257
+347,East Farm,5-21,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.3151
+348,East Farm,5-23,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.0647
+348,East Farm,5-23,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1009
+382,East Farm,5-2A,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1509
+383,East Farm,5-2B,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1224
+394,East Farm,5-3C,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4027
+397,East Farm,5-3F,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.6093
+400,East Farm,5-40,2023,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8573
+429,East Farm,5-8,2022,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.625
+511,Linkage Farm,EB-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2051
+571,North Farm,NE-3,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.2404
+548,North Farm,ND-5-A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.1807
+254,Central Farm,1-7B,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.8896
+263,Central Farm,1-9A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.4556
+292,Central Farm,2-71A,2023,Silage,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.7791
+301,Central Farm,2-72A,2021,Grain,"Train 2017-20 unseen fields only, test 2021-23",presto_frozen hand5+emb k=128 C=0.05,0.194
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0537
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.898
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.5301
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1054
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0636
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0117
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0641
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.03
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0598
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0881
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0252
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.8328
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.8199
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0203
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1235
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1457
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1843
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.212
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1101
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.988
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9249
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0077
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0667
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0012
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4039
+14,APU,18,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.002
+35,APU,7,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4283
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4237
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4392
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0263
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.5032
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1969
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0487
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4045
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4946
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1546
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1136
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0093
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.942
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0264
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0675
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.7958
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.7888
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.6408
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.6191
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9994
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9983
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.8049
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1123
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4009
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.6933
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.7537
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1095
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.3356
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4079
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.4043
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.2358
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1773
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.2168
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.2482
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.6016
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.2523
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.715
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.5209
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.8195
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0692
+34,APU,5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0407
+35,APU,7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9595
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0013
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9901
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1061
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0483
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.9735
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0614
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.7443
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.8929
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0192
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0702
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1091
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1812
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.0864
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1009
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",hand 5 / logistic (baseline),0.1293
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.3381
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.2574
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.3724
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0005
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0011
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0031
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0023
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0014
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0746
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0113
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.2487
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.3041
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0317
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0216
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.001
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0975
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0276
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0145
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.1117
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.5621
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0006
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.2137
+14,APU,18,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0
+35,APU,7,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.2359
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.644
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.1714
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.071
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0218
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0923
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9499
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9787
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9047
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0074
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9262
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.312
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.3715
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0601
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0419
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.8416
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.1315
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0297
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.875
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0029
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9123
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.9951
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0148
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0072
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0031
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0127
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0036
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.1092
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0047
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.046
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0708
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0004
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0112
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.1313
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0007
+34,APU,5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0004
+35,APU,7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.745
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.08
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.8229
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0011
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0373
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.356
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0015
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.804
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.923
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0067
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0022
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0003
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0002
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen emb k=16 C=0.5 (chosen),0.0001
+1003,CentralFarm,1-13,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1537
+235,CentralFarm,1-14C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.5328
+238,CentralFarm,1-15,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.3143
+254,CentralFarm,1-7B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0508
+263,CentralFarm,1-9A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0401
+278,CentralFarm,2-32A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.054
+285,CentralFarm,2-43,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0243
+292,CentralFarm,2-71A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0699
+301,CentralFarm,2-72A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1428
+317,CentralFarm,4-16,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0736
+327,CentralFarm,4-7,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0073
+382,EastFarm,5-2A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.3213
+383,EastFarm,5-2B,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.3028
+392,EastFarm,5-3A,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0668
+393,EastFarm,5-3B,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1333
+394,EastFarm,5-3C,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0572
+395,EastFarm,5-3D,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2043
+397,EastFarm,5-3F,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1524
+1032,EastFarm,5-3H,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1112
+403,EastFarm,5-42C,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.7869
+416,EastFarm,5-45A,2017,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4539
+422,EastFarm,5-5,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0142
+1035,EastFarm,6-59,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.031
+1044,NorthFarm,NG-1-6,2017,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0102
+5,APU,1-98,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1612
+14,APU,18,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0112
+35,APU,7,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1766
+234,CentralFarm,1-14B,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4902
+236,CentralFarm,1-14D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.3159
+271,CentralFarm,2-13,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1444
+279,CentralFarm,2-32B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0722
+286,CentralFarm,2-51,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1189
+288,CentralFarm,2-66,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.012
+1022,CentralFarm,2-68A,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.8138
+291,CentralFarm,2-68B,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.8739
+323,CentralFarm,4-25,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.5022
+1027,EastFarm,5-11,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0678
+334,EastFarm,5-12,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0071
+419,EastFarm,5-45D,2018,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4425
+1035,EastFarm,6-59,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0017
+434,EastFarm,6-60,2018,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0164
+234,CentralFarm,1-14B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.6612
+236,CentralFarm,1-14D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.7116
+240,CentralFarm,1-20B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4037
+1008,CentralFarm,1-20C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4435
+248,CentralFarm,1-32,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.961
+271,CentralFarm,2-13,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.654
+278,CentralFarm,2-32A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2704
+280,CentralFarm,2-32C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.7793
+348,EastFarm,5-23,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0982
+382,EastFarm,5-2A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4536
+383,EastFarm,5-2B,2019,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.8011
+392,EastFarm,5-3A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2019
+393,EastFarm,5-3B,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1082
+394,EastFarm,5-3C,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0922
+395,EastFarm,5-3D,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0964
+397,EastFarm,5-3F,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0653
+1032,EastFarm,5-3H,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2025
+416,EastFarm,5-45A,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1318
+422,EastFarm,5-5,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1793
+431,EastFarm,6-57,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2217
+1035,EastFarm,6-59,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0545
+434,EastFarm,6-60,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0421
+437,EastFarm,6-64,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.1025
+511,LinkageFarm,EB-3,2019,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.4662
+5,APU,1-98,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0259
+34,APU,5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0306
+35,APU,7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.6874
+230,CentralFarm,1-1,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0574
+231,CentralFarm,1-11,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.8901
+1003,CentralFarm,1-13,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0611
+235,CentralFarm,1-14C,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.2676
+1009,CentralFarm,1-21,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.6318
+249,CentralFarm,1-33,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0155
+317,CentralFarm,4-16,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.7048
+327,CentralFarm,4-7,2020,Silage,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.8236
+347,EastFarm,5-21,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.021
+1032,EastFarm,5-3H,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0718
+422,EastFarm,5-5,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0143
+431,EastFarm,6-57,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0384
+1035,EastFarm,6-59,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.018
+434,EastFarm,6-60,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.0204
+437,EastFarm,6-64,2020,Grain,"Hold out one year, 2017-20 only (used to choose the model)",presto_frozen hand5+emb k=128 C=0.05,0.017

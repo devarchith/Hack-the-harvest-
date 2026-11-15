@@ -1,12 +1,16 @@
 # Classifier: silage vs grain corn at BARC
 
-This folder holds two pieces of work on telling silage cornfields from grain cornfields at the USDA Beltsville
+This folder holds four pieces of work on telling silage cornfields from grain cornfields at the USDA Beltsville
 Agricultural Research Center (BARC), using only public satellite data:
 
 1. **`prithvi/`**: a pretrained Earth-observation model, Prithvi-EO-2.0 (IBM and NASA), adapted to this task and
    trained on the GPU here. It is compared with the team's simple 5-feature model from `research/grain_vs_silage/`.
 2. **`labels/`**: the public BARC farm records for years outside 2021-2023, turned into silage/grain labels, and
    checks of how far those labels can be trusted.
+3. **`presto/`**: Presto (NASA Harvest), a pretrained pixel time-series model, fine-tuned on the labeled
+   field-years. Results and method: `presto/README.md`.
+4. **`metrics/`**: shared test metrics for any of these models (accuracy, balanced accuracy, precision, recall and
+   F1 per class, MCC, AUC, log loss, Brier, with field-resampled confidence intervals), and their tests.
 
 ## Results so far
 
@@ -40,6 +44,11 @@ the official labels where both exist. A model fitted only on the official labels
 training labels, but with only 6 of 12 silage labels that rest on a planting record alone (what the farm planned to
 grow). 12 of the 19 silage labels in the 2017-2020 training data are planting-only. Details: `labels/README.md`.
 
+**Presto matches the 5-feature model but is not shown to beat it.** With the fixed labels (125 field-years, without
+235/2020 and 278/2017), the fine-tuned Presto gets 41 of 44 on the standard test (train on 2017-2020, score the 44
+official 2021-2023 labels) and the 5-feature model 39 of 44. On the mixed-year splits it is 92 of 101 against 96 of
+101. In both cases the 95% interval of the accuracy difference includes 0 (`presto/README.md`, `metrics/README.md`).
+
 ## Folder layout
 
 | Path | What it holds |
@@ -51,6 +60,11 @@ grow). 12 of the 19 silage labels in the 2017-2020 training data are planting-on
 | `labels/README.md` | Label sources, licenses, checks and results |
 | `labels/*.py`, `labels/run_all.sh` | Download, parse and check the farm records |
 | `labels/results/` | `extra_labels_outside_2021_2023.csv`, the combined label table; `run_all.sh` rebuilds it and every check |
+| `presto/README.md` | Presto results, pipeline and method |
+| `presto/presto_pixels.py`, `presto_train.py`, `presto_standard_test.py`, `presto_embed.py` | Pixel series, mixed-year splits, standard test, embeddings for `prithvi/evaluate.py` |
+| `presto/results/` | Summaries, test predictions and `metrics.md` per run |
+| `metrics/README.md` | Metric definitions, decisions, how to run and read them |
+| `metrics/metrics.py`, `report.py`, `test_metrics.py` | Metric code, report writer (`metrics.md`, `metrics.csv`), tests |
 
 ## Run
 

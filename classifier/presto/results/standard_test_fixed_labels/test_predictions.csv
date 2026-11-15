@@ -1,0 +1,45 @@
+field_id,farm,field,year,label,label_source,p_presto,p_frozen,p_finetune,p_baseline
+1,APU,1,2021,Grain,evaluation labels 2021-2023,0.6658,0.5894,0.6658,0.2474
+24,APU,30,2021,Grain,evaluation labels 2021-2023,0.6627,0.1462,0.6627,0.3066
+238,Central Farm,1-15,2021,Grain,evaluation labels 2021-2023,0.0599,0.2826,0.0599,0.173
+263,Central Farm,1-9A,2021,Grain,evaluation labels 2021-2023,0.2348,0.1886,0.2348,0.4213
+280,Central Farm,2-32C,2021,Silage,evaluation labels 2021-2023,0.9953,0.9241,0.9953,0.9914
+286,Central Farm,2-51,2021,Grain,evaluation labels 2021-2023,0.0198,0.0665,0.0198,0.0724
+288,Central Farm,2-66,2021,Grain,evaluation labels 2021-2023,0.0161,0.0229,0.0161,0.1426
+291,Central Farm,2-68B,2021,Silage,evaluation labels 2021-2023,0.9944,0.6634,0.9944,0.9905
+301,Central Farm,2-72A,2021,Grain,evaluation labels 2021-2023,0.0618,0.0247,0.0618,0.4222
+327,Central Farm,4-7,2021,Silage,evaluation labels 2021-2023,0.1714,0.2039,0.1714,0.3554
+328,Central Farm,4-8,2021,Silage,evaluation labels 2021-2023,0.9709,0.7881,0.9709,0.9948
+332,East Farm,5-11A,2021,Grain,evaluation labels 2021-2023,0.0283,0.0147,0.0283,0.3116
+334,East Farm,5-12,2021,Grain,evaluation labels 2021-2023,0.0054,0.0019,0.0054,0.1745
+347,East Farm,5-21,2021,Grain,evaluation labels 2021-2023,0.0066,0.0001,0.0066,0.3732
+348,East Farm,5-23,2021,Grain,evaluation labels 2021-2023,0.0334,0.0131,0.0334,0.0682
+511,Linkage Farm,EB-3,2021,Grain,evaluation labels 2021-2023,0.0564,0.1099,0.0564,0.0412
+548,North Farm,ND-5-A,2021,Grain,evaluation labels 2021-2023,0.0529,0.0412,0.0529,0.0229
+571,North Farm,NE-3,2021,Grain,evaluation labels 2021-2023,0.0608,0.0648,0.0608,0.0287
+231,Central Farm,1-11,2022,Silage,evaluation labels 2021-2023,0.9892,0.6213,0.9892,0.9899
+251,Central Farm,1-34,2022,Grain,evaluation labels 2021-2023,0.0395,0.6716,0.0395,0.0261
+252,Central Farm,1-37,2022,Silage,evaluation labels 2021-2023,0.9355,0.9587,0.9355,0.9922
+278,Central Farm,2-32A,2022,Silage,evaluation labels 2021-2023,0.995,0.8654,0.995,0.9864
+279,Central Farm,2-32B,2022,Grain,evaluation labels 2021-2023,0.458,0.8237,0.458,0.5112
+286,Central Farm,2-51,2022,Grain,evaluation labels 2021-2023,0.0045,0.6074,0.0045,0.0159
+429,East Farm,5-8,2022,Silage,evaluation labels 2021-2023,0.8209,0.5926,0.8209,0.9802
+1,APU,1,2023,Grain,evaluation labels 2021-2023,0.131,0.3166,0.131,0.0927
+24,APU,30,2023,Grain,evaluation labels 2021-2023,0.2671,0.052,0.2671,0.5034
+230,Central Farm,1-1,2023,Grain,evaluation labels 2021-2023,0.1654,0.1971,0.1654,0.0951
+231,Central Farm,1-11,2023,Grain,evaluation labels 2021-2023,0.3932,0.8901,0.3932,0.1754
+238,Central Farm,1-15,2023,Grain,evaluation labels 2021-2023,0.0308,0.4084,0.0308,0.0442
+248,Central Farm,1-32,2023,Silage,evaluation labels 2021-2023,0.6511,0.842,0.6511,0.842
+251,Central Farm,1-34,2023,Grain,evaluation labels 2021-2023,0.1991,0.2385,0.1991,0.0253
+254,Central Farm,1-7B,2023,Silage,evaluation labels 2021-2023,0.9903,0.9186,0.9903,0.9886
+286,Central Farm,2-51,2023,Grain,evaluation labels 2021-2023,0.1741,0.138,0.1741,0.0712
+288,Central Farm,2-66,2023,Grain,evaluation labels 2021-2023,0.1561,0.2718,0.1561,0.0622
+292,Central Farm,2-71A,2023,Silage,evaluation labels 2021-2023,0.9196,0.6394,0.9196,0.991
+323,Central Farm,4-25,2023,Silage,evaluation labels 2021-2023,0.9631,0.6159,0.9631,0.9718
+347,East Farm,5-21,2023,Grain,evaluation labels 2021-2023,0.1251,0.129,0.1251,0.6276
+348,East Farm,5-23,2023,Grain,evaluation labels 2021-2023,0.0456,0.0463,0.0456,0.2069
+382,East Farm,5-2A,2023,Grain,evaluation labels 2021-2023,0.0091,0.2301,0.0091,0.1918
+383,East Farm,5-2B,2023,Grain,evaluation labels 2021-2023,0.0173,0.2444,0.0173,0.2242
+394,East Farm,5-3C,2023,Grain,evaluation labels 2021-2023,0.2017,0.2355,0.2017,0.1586
+397,East Farm,5-3F,2023,Grain,evaluation labels 2021-2023,0.0419,0.6518,0.0419,0.0184
+400,East Farm,5-40,2023,Grain,evaluation labels 2021-2023,0.3674,0.7226,0.3674,0.759
