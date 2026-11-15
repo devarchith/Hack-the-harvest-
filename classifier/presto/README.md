@@ -7,13 +7,17 @@ and against the Prithvi classifier in `../prithvi/`.
 ## At a glance
 
 - **Official test** (train on 2017-2020, score the 44 labeled 2021-2023 field-years once): fine-tuned Presto gets 41
-  of 44 right, the 5-feature model 39 of 44.
-- **Five mixed-year splits:** Presto 92 of 101, the 5-feature model 96 of 101.
-- **Neither difference is significant:** the 95% intervals of both accuracy differences include 0. Presto matches the
-  5-feature model; it is not shown to beat it.
-- **Where to read the numbers:** `results/standard_test_fixed_labels/summary.md` (official test) and
-  `results/presto_fixed_labels/summary.md` (mixed-year splits). Each run folder's `metrics.md` has every metric with
-  its interval.
+  of 44 right, the 5-feature model 39 of 44. The difference is not significant (accuracy +0.05, 95% interval −0.04 to
+  +0.14). Presto matches the 5-feature model; it is not shown to beat it.
+- **Presto's edge comes from November and December.** Silage fields at BARC green up again after the cut, probably a
+  cover crop. The 5-feature model leaves that regrowth out on purpose, because it may be a BARC habit
+  (`research/grain_vs_silage/README.md`). With November and December hidden, Presto gets 40 of 44 but catches 8 of 12
+  silage fields against the 5-feature model's 11 of 12 (balanced accuracy 0.83 against 0.90).
+- **Mixed-year splits are the weaker test:** fields of the same year sit in training and test, and the order flipped
+  when two label rows were dropped. Presto 92 of 101, the 5-feature model 96 of 101.
+- **Where to read the numbers:** `results/standard_test_fixed_labels/summary.md` (official test),
+  `results/standard_test_fixed_labels_jan_oct/summary.md` (January-October). Each run folder's `metrics.md` has every
+  metric with its interval.
 - **To rerun:** the commands under Pipeline. Each run takes a few minutes on one GPU once the pixels are pulled.
 
 ## Hypothesis
@@ -103,6 +107,7 @@ original labels; the feature set, PCA components and C are chosen on 2017-2020 o
 | 1. Monthly 10 m pixel series, January-December, 2017-2023 | `presto_pixels.py` | CPU, network | `<pixels>/pixels_<year>.npz`, `results/pixels/<year>.provenance.json` |
 | 2a. Mixed-year splits: split, train, choose on validation, test once | `presto_train.py` | NVIDIA GPU (CPU works, slowly) | `results/presto*/` |
 | 2b. Standard test: choose on 2017-2020, test 2021-2023 once | `presto_standard_test.py` | NVIDIA GPU | `results/standard_test*/` |
+| 2c. Québec test: the model chosen in 2b, trained on BARC only, scores Québec once | `presto_quebec_test.py` | NVIDIA GPU | `results/quebec_test*/` |
 | 3. Metrics with confidence intervals | `../metrics/report.py` | CPU | `results/*/metrics.md`, `metrics.csv` |
 | Optional: frozen field embeddings for `../prithvi/evaluate.py` | `presto_embed.py` | NVIDIA GPU | one CSV |
 
@@ -125,6 +130,10 @@ $PY classifier/presto/presto_train.py $A $Q --out $R/presto_fixed_labels_quebec
 $PY classifier/presto/presto_standard_test.py $A --out $R/standard_test_fixed_labels
 $PY classifier/presto/presto_standard_test.py $A --last-month 10 --out $R/standard_test_fixed_labels_jan_oct
 $PY classifier/presto/presto_standard_test.py $A $Q --out $R/standard_test_fixed_labels_quebec
+QT="--pixels /home/keeboh/work/presto/pixels --quebec-pixels /home/keeboh/work/quebec/pixels --presto-dir /home/keeboh/ext/presto"
+$PY classifier/presto/presto_quebec_test.py $QT --setting-from $R/standard_test_fixed_labels --out $R/quebec_test
+$PY classifier/presto/presto_quebec_test.py $QT --setting-from $R/standard_test_fixed_labels_jan_oct \
+  --out $R/quebec_test_jan_oct
 $PY classifier/metrics/report.py --predictions $R/standard_test_fixed_labels/test_predictions.csv \
   --models p_finetune="Presto fine-tuned" p_frozen="Presto frozen" p_baseline="5-feature baseline" \
   --baseline p_baseline --out $R/standard_test_fixed_labels/metrics.md
@@ -206,8 +215,12 @@ how many runs shared the GPU. The scripts need `torch`, `einops` and the package
   honest ones.
 - The Québec rows come from 2021-2023, the years of the standard test (other fields, other region). With them, the
   standard test no longer measures training only on earlier years.
-- Sentinel-2 values are L2A surface reflectance in Presto's scaling (DN / 10000); whether this matches the product
-  Presto was pretrained on was not checked.
+- Presto was pretrained on Sentinel-2 Level-1C top-of-atmosphere reflectance (`COPERNICUS/S2` through `openmapflow`
+  0.2.2, the version its repository pins). The inputs here are Level-2A surface reflectance, in the same scaling
+  (DN / 10000). The Presto repository's own embedding script also uses Level-2A (`S2_SR_HARMONIZED`). The effect of
+  the difference was not measured.
+- Time steps are calendar months: a cut on August 2 and one on August 30 look the same.
+- The shared-evaluator table uses the original 127-row labels; the other headline numbers use the fixed 125.
 - The control is not a tuned model without pretraining; it got the same short training budget as the fine-tuned
   Presto.
 - 56 of the 83 farm-record labels in the original table rest on a planting record only (see `../labels/README.md`).
