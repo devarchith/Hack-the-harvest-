@@ -1,0 +1,7 @@
+training set,train n,train Silage,model,correct,Silage caught,Grain called Silage,predicted positive rate,ROC-AUC,log loss
+all 2017-2020 field-years,83,19,baseline,39,11/12,4/32,0.341,0.982,0.23
+all 2017-2020 field-years,83,19,Prithvi,40,11/12,3/32,0.318,0.906,0.364
+without outline misfits,73,19,baseline,39,11/12,4/32,0.341,0.982,0.24
+without outline misfits,73,19,Prithvi,40,11/12,3/32,0.318,0.917,0.332
+without outline misfits and planting-only Silage,61,7,baseline,42,11/12,1/32,0.273,0.987,0.137
+without outline misfits and planting-only Silage,61,7,Prithvi,40,9/12,1/32,0.227,0.943,0.263

@@ -1,0 +1,152 @@
+{
+ "finished_utc": "2026-11-15T07:48:00+00:00",
+ "runtime_s": 196,
+ "chosen": {
+  "name": "100M f8 fine-tuned, date dropout",
+  "kind": "finetune",
+  "size": "100M",
+  "frames": 8,
+  "aug": true,
+  "epochs": 24,
+  "inputs": null
+ },
+ "cuts_chosen_on_2017_2020": {
+  "baseline": 0.41578857134326147,
+  "Prithvi": 0.19908545911312103
+ },
+ "settings": {
+  "SIZES": [
+   "100M",
+   "300M"
+  ],
+  "SCALE": 2,
+  "FRAME_SETS": [
+   4,
+   8
+  ],
+  "KS": [
+   8,
+   16
+  ],
+  "C_HEAD": 0.5,
+  "FT_SIZE": "100M",
+  "RUN_FINETUNE": true,
+  "EPOCHS": 40,
+  "SEEDS": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "P_DROP": 0.25,
+  "N_AUG": 8,
+  "N_STAB": 20
+ },
+ "frames": {
+  "4": [
+   [
+    "07-01",
+    "07-31"
+   ],
+   [
+    "08-10",
+    "09-05"
+   ],
+   [
+    "09-06",
+    "10-05"
+   ],
+   [
+    "10-06",
+    "11-15"
+   ]
+  ],
+  "8": [
+   [
+    "08-01",
+    "08-14"
+   ],
+   [
+    "08-15",
+    "08-28"
+   ],
+   [
+    "08-29",
+    "09-11"
+   ],
+   [
+    "09-12",
+    "09-25"
+   ],
+   [
+    "09-26",
+    "10-09"
+   ],
+   [
+    "10-10",
+    "10-23"
+   ],
+   [
+    "10-24",
+    "11-06"
+   ],
+   [
+    "11-07",
+    "11-20"
+   ]
+  ]
+ },
+ "models": {
+  "100M f4": {
+   "repo": "ibm-nasa-geospatial/Prithvi-EO-2.0-100M-TL",
+   "checkpoint": "Prithvi_EO_V2_100M_TL.pt",
+   "sha256": "d45406d5fc51af1d9657d48f2e2c3ff077408a2e1113f9a242889a4fe4469b17",
+   "embed_dim": 768,
+   "depth": 12,
+   "params_m": 86.2
+  },
+  "100M f8": {
+   "repo": "ibm-nasa-geospatial/Prithvi-EO-2.0-100M-TL",
+   "checkpoint": "Prithvi_EO_V2_100M_TL.pt",
+   "sha256": "d45406d5fc51af1d9657d48f2e2c3ff077408a2e1113f9a242889a4fe4469b17",
+   "embed_dim": 768,
+   "depth": 12,
+   "params_m": 86.2
+  },
+  "300M f4": {
+   "repo": "ibm-nasa-geospatial/Prithvi-EO-2.0-300M-TL",
+   "checkpoint": "Prithvi_EO_V2_300M_TL.pt",
+   "sha256": "3629cedfbb350faafcb0dac902ae0d3c927e25ce8d9e0024aa1276ec66956ddb",
+   "embed_dim": 1024,
+   "depth": 24,
+   "params_m": 303.9
+  },
+  "300M f8": {
+   "repo": "ibm-nasa-geospatial/Prithvi-EO-2.0-300M-TL",
+   "checkpoint": "Prithvi_EO_V2_300M_TL.pt",
+   "sha256": "3629cedfbb350faafcb0dac902ae0d3c927e25ce8d9e0024aa1276ec66956ddb",
+   "embed_dim": 1024,
+   "depth": 24,
+   "params_m": 303.9
+  }
+ },
+ "inputs_sha256": {
+  "field_years.csv": "49508b3b9fada40d1a5e3ecfdf5b9128a683137e7c336134fdcc5a8df3100079",
+  "2017.npz": "fb196fb4a2d90240309d64f8322383e97e80975ef69e2b2a3ea66418af718120",
+  "2018.npz": "38e1ebb93e3d77815dfef3e132a09a7f75021068842ce77d4bf5978cb183bc31",
+  "2019.npz": "891a4310d734e2f9c4a9fb09fdb9df23b33576c1ef3b64d523fd39596ee200e1",
+  "2020.npz": "3d8612988e5ea1f11d2be45a02f92ad5f5237e44dea27f64be34c20cfb012f4e",
+  "2021.npz": "3cc8c6fbd956537296b7513ee00eadb3067813598036d778db89bd0ccc93e42c",
+  "2022.npz": "ceea9779bbd804555002c9896e29ff3b284a1063f0f9fb796041d2afebedef54",
+  "2023.npz": "482ded02117835555b30540c908ceb7a728c9d32976fa56538edf2669d6089e1"
+ },
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.15.0+cu132",
+  "device": "cuda",
+  "gpu": "NVIDIA B200",
+  "sklearn": "1.9.1",
+  "timm": "1.0.31"
+ }
+}
