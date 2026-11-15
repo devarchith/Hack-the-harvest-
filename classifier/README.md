@@ -108,7 +108,8 @@ official 2021-2023 labels) and the 5-feature model 39 of 44. On the mixed-year s
 101. In both cases the 95% interval of the accuracy difference includes 0 (`presto/README.md`, `metrics/README.md`).
 Presto's small lead on the standard test comes from November and December, when BARC's silage fields green up again
 (probably a cover crop, left out of the 5-feature model on purpose). Without those months Presto gets 40 of 44 and
-catches 8 of 12 silage fields, against 11 of 12 for the 5-feature model.
+catches 8 of 12 silage fields, against 11 of 12 for the 5-feature model. Trained on BARC and scored once on 2,245
+Québec field-years, Presto ranks silage above grain (AUC 0.78) but catches only 149 of 1,045 silage fields.
 
 ## Folder layout
 

@@ -15,9 +15,12 @@ and against the Prithvi classifier in `../prithvi/`.
   silage fields against the 5-feature model's 11 of 12 (balanced accuracy 0.83 against 0.90).
 - **Mixed-year splits are the weaker test:** fields of the same year sit in training and test, and the order flipped
   when two label rows were dropped. Presto 92 of 101, the 5-feature model 96 of 101.
+- **Outside Maryland it mostly says Grain.** Trained on BARC only and scored once on 2,245 Québec field-years, Presto
+  ranks silage above grain better than chance (AUC 0.78) but catches 149 of 1,045 silage fields at the 0.5 cut. At the
+  silage share of the sampled area, its accuracy (0.83) is barely above calling every field Grain (0.81).
 - **Where to read the numbers:** `results/standard_test_fixed_labels/summary.md` (official test),
-  `results/standard_test_fixed_labels_jan_oct/summary.md` (January-October). Each run folder's `metrics.md` has every
-  metric with its interval.
+  `results/standard_test_fixed_labels_jan_oct/summary.md` (January-October), `results/quebec_test*/summary.md`
+  (Québec). Each BARC run folder's `metrics.md` has every metric with its interval.
 - **To rerun:** the commands under Pipeline. Each run takes a few minutes on one GPU once the pixels are pulled.
 
 ## Hypothesis
@@ -99,6 +102,22 @@ original labels; the feature set, PCA components and C are chosen on 2017-2020 o
 | Train other farms 2017-2020, test Central Farm 2021-2023 (/25) | 24 | 18 | 19 |
 | Train 2017-2020 fields never seen in 2021-2023, test 2021-2023 (/44) | 40 | 31 | 38 |
 | Hold out one year, 2017-2020 (/83) | 68 | 70 | 70 |
+
+**Outside Maryland:** the setting chosen for the standard test, trained on the 81 BARC 2017-2020 field-years only,
+scores the 2,245 Québec field-years once (`results/quebec_test/`, `results/quebec_test_jan_oct/`). No Québec label is
+used to train or choose anything. Brackets resample whole parcels. The sample is 47% silage; accuracy is reweighted to
+the 19% of the 30 km area it was drawn from (`../quebec/README.md`). The 5-feature baseline cannot be scored: Québec has
+no hand features.
+
+| Model | Field-years (silage) | AUC | Balanced accuracy | Silage caught | Grain called silage | Accuracy at 19% silage |
+|---|---|---|---|---|---|---|
+| Presto fine-tuned (lr 3e-4, 12 epochs) | 2,245 (1,045) | 0.780 (0.760-0.799) | 0.57 (0.56-0.58) | 149/1,045 | 6/1,200 | 0.83 |
+| Presto fine-tuned, January-October (lr 3e-4, 34 epochs) | 2,245 (1,045) | 0.711 (0.689-0.732) | 0.64 (0.62-0.65) | 422/1,045 | 158/1,200 | 0.78 |
+| Every field called Grain | | | 0.50 | 0/1,045 | 0/1,200 | 0.81 |
+
+What BARC teaches does not carry over at the BARC cut: the full-year model calls 3% of the sampled area's fields silage
+where 19% are. Hiding November and December lowers the ranking (AUC 0.71) and does not fix the calls. The Québec labels
+are crop-insurance declarations, not harvest records.
 
 ## Pipeline
 
