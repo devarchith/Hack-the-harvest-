@@ -1,0 +1,74 @@
+# Prithvi-EO-2.0 classifier: silage vs grain corn
+
+A pretrained Earth-observation model (Prithvi-EO-2.0, IBM and NASA, Apache 2.0) fine-tuned on the labeled BARC
+field-years to tell silage corn from grain corn, scored against the 5-feature logistic regression in
+`research/grain_vs_silage/` on the same split.
+
+## Pipeline
+
+| Step | Script | Runs on | Output |
+|---|---|---|---|
+| 1. Labeled field-years with polygons | `prithvi_field_years.py` | any machine with the repo `data/` folder | `field_years.csv` (127 rows) |
+| 2. 30 m six-band image stacks, June-November, 2017-2023 | `prithvi_chips.py` | CPU, network | `<chips>/<year>.npz`, `<chips>/<year>.provenance.json` |
+| 3. Split, train, choose on validation, test once | `prithvi_train.py` | NVIDIA GPU | `results/prithvi/` |
+
+```bash
+PY=/home/keeboh/venvs/prithvi/bin/python
+$PY classifier/prithvi/prithvi_field_years.py
+for y in 2017 2018 2019 2020 2021 2022 2023; do
+  $PY classifier/prithvi/prithvi_chips.py --out /home/keeboh/work/prithvi/chips --years $y --workers 6 &
+done; wait
+HF_HOME=/home/keeboh/hf $PY classifier/prithvi/prithvi_train.py --chips /home/keeboh/work/prithvi/chips \
+  --out classifier/prithvi/results/prithvi
+```
+
+Step 3 needs `torch`, `timm`, `einops`, `huggingface_hub` and the packages in `research/grain_vs_silage/requirements.txt`.
+It downloads the Prithvi checkpoints from Hugging Face (`ibm-nasa-geospatial/Prithvi-EO-2.0-{tiny,100M,300M,600M}-TL`).
+
+## Inputs
+
+- **Labels:** 83 field-years from the BARC farm records 2017-2020 (Kraatz 2023, Zenodo 8087301, CC BY 4.0) and
+  the 44 labeled field-years of the 2021-2023 evaluation file. 96 Grain, 31 Silage, 64 distinct fields.
+  Unlabeled field-years are not used. How far the farm-record labels can be trusted: `../labels/README.md`.
+- **Imagery:** Sentinel-2 L2A and Landsat 8/9 Collection 2 Level-2 from Microsoft Planetary Computer, the same
+  collections, cloud rules and reflectance scaling as `preprocessing/loader.py`. Both are put on one 30 m grid
+  (EPSG:32618, Landsat pixel edges) in Prithvi's band order: blue, green, red, narrow NIR, SWIR 1, SWIR 2.
+  Prithvi was pretrained on NASA HLS; Planetary Computer holds HLS only from 2020, so the six bands are built from
+  the source collections. HLS's BRDF and bandpass adjustments are not applied.
+- **Model input per field-year:** a 48 x 48 pixel chip (1.44 km) centred on the field; four frames, each the
+  per-pixel median of cloud-free readings in Jul 1-31, Aug 10-Sep 5, Sep 6-Oct 5 and Oct 6-Nov 15; the year and
+  day-of-year of each frame and the field's latitude and longitude as Prithvi's time and location inputs.
+
+## Method (the run in `results/prithvi/`)
+
+- **Split:** 70/15/15 train/validation/test by field: every year of a field is in the same part
+  (StratifiedGroupKFold, 20 folds: 14 train, 3 validation, 3 test). Repeated for 5 split seeds (0-4).
+- **Candidates:** model size (tiny 5M, 100M, 300M, 600M parameters) x input scale (30 m, or upsampled to 15 m so one
+  16 x 16 patch is 240 m, about one field) x training mode:
+  - frozen encoder, features averaged over the 8 rotations and flips, logistic regression head (C chosen with the rest);
+  - last two encoder blocks and a linear head fine-tuned (AdamW, encoder 2e-5, head 1e-3, class-weighted loss,
+    random rotations and flips, batch 16, up to 40 epochs, stop after 10 epochs without a lower validation log loss,
+    keep the best epoch).
+- **Pooling:** encoder patch tokens are averaged per frame, weighted by the share of each patch inside the field
+  polygon, then the four frame vectors are concatenated.
+- **Choice and test:** each seed picks the candidate with the lowest validation log loss. The test part is scored once
+  for that candidate and for the baseline (5 hand features, logistic regression, fitted on the same training part).
+
+## Outputs (`results/prithvi/`)
+
+- `summary.md`: test results per seed against the baseline, McNemar test, top validation candidates, input check.
+- `validation_scores.csv`: every candidate on every seed's validation part; `epoch` is the kept fine-tuning epoch.
+- `test_predictions.csv`: test-part probabilities for the chosen candidate and the baseline.
+- `splits.csv`: which part each field-year was in, per seed. `run.json`: versions, GPU, checkpoint and input hashes.
+  The run was made when this folder was `research/pretrained_classifier/`, so `run.json` records those paths.
+
+## Caveats
+
+- One farm (BARC, Maryland). About 20 test field-years per seed, so one field-year is about 5 percentage points.
+- 56 of the 83 farm-record labels rest on a planting record only (what was planned), 12 of them Silage. A model
+  fitted on the official labels agrees with 6 of those 12 (`../labels/README.md`).
+- 5 official Grain field-years look like soybeans in the USDA Cropland Data Layer (field_id 251 and 286 in 2022;
+  230, 231 and 397 in 2023).
+- 14 of the 40 fine-tuning runs kept epoch 39 or 40, so the 40-epoch limit may have stopped them early.
+- This split mixes years, unlike the "train 2017-2020, test 2021-2023" result in `research/grain_vs_silage/`, so the
+  two sets of numbers are not directly comparable.
