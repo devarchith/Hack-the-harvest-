@@ -8,9 +8,27 @@ Agricultural Research Center (BARC), using only public satellite data:
 2. **`labels/`**: the public BARC farm records for years outside 2021-2023, turned into silage/grain labels, and
    checks of how far those labels can be trusted.
 
+## Status: Prithvi stops here
+
+Prithvi-EO-2.0 does not beat the 5-feature model on any test, and its best-looking version (8 frames) did not hold
+up on years no model had seen (below). Presto is the stronger pretrained model wherever the two were scored the same
+way:
+
+| Test (correct field-years) | 5-feature model | Prithvi | Presto |
+|---|---|---|---|
+| Same 5 seeded splits, 101 test field-years, version chosen on validation | 90 | 87 | 95 |
+| Shared evaluator: train 2017-2020, test the 44 official labels | 39 | 38 | 42 |
+| Shared evaluator: hold out one year, 2017-2023 (127) | 113 | 115 | 117 |
+| Shared evaluator: train on other farms, test Central Farm (25) | 24 | 16 | 19 |
+
+Neither pretrained model beats the 5-feature model significantly (Presto on the official test: right where it is
+wrong 4 times, the reverse once, McNemar p = 0.38), and both do worse than it on Central Farm when trained on the
+other farms. The Presto numbers come from its own runs: the fine-tuned classifier on the same seeded splits
+(`classifier/presto/`, branch `presto-classifier`) and its field embeddings scored by `evaluate.py`.
+
 ## Results so far
 
-**Prithvi does not beat the simple model yet.** Same field-level splits, 5 different splits (seeds), each test part
+**Prithvi does not beat the simple model.** Same field-level splits, 5 different splits (seeds), each test part
 scored once:
 
 | | Prithvi | 5-feature model |
