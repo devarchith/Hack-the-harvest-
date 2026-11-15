@@ -113,8 +113,9 @@ def field_inputs(fy, pixels_dir, groups, last_month=12, max_pix=None, skip=False
         z = np.load(f)
         assert list(z["s2_bands"]) == S2_ORDER, z["s2_bands"]
         yr, off = int(f.stem.split("_")[1]), z["offsets"]
+        s2, s1 = z["s2"], z["s1"]  # each z[...] decompresses the whole array again, so read once per file
         for i, fid in enumerate(z["field_id"]):
-            by[(int(fid), yr)] = (z["s2"][off[i]:off[i + 1]], z["s1"][off[i]:off[i + 1]])
+            by[(int(fid), yr)] = (s2[off[i]:off[i + 1]], s1[off[i]:off[i + 1]])
         hashes[f.name] = sha256(f)
     missing = [(r.field_id, r.year) for r in fy.itertuples() if (r.field_id, r.year) not in by]
     if missing and not skip:

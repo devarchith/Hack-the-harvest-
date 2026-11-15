@@ -1,7 +1,13 @@
 # Québec silage and grain corn field-years
 
 Extra labeled field-years from outside Maryland, in the same format as `../prithvi/field_years.csv`, with Presto pixel
-inputs. They are for training and for a transfer check; the BARC evaluation labels stay the only test.
+inputs. They are used in two separate ways, never both in one run: as training-only rows for Presto
+(`--extra-train`), and as a test outside Maryland (`../presto/presto_quebec_test.py`: the model chosen for the BARC
+official test, trained on BARC only, scores Québec once; results in `../presto/README.md`).
+
+The sample is about 47% silage. In the 30 km square it was drawn from, silage is 18-21% of the parcels each year; among
+all parcels of at least 3 ha in UTM zone 18N it is about 10%. Accuracy and precision on Québec must be reweighted to
+the share of interest; AUC, balanced accuracy and the per-class recalls need no reweighting.
 
 ## Source
 
