@@ -79,6 +79,10 @@ Classes are under 5%, 5-40% and 40% and over (35, 81 and 47 counties). By share 
 
 This chart uses a different county estimate: the mean probability of the county's blocks. That gives 60 and 108 right (not 53 and 97); the 125 is the last Census. Its cells differ from the 23 / 1 and 11 / 15 above (here 10 / 0 and 15 / 23), so do not compare it with the table above.
 
+![High-silage counties found: Maryland-only 5, county-share 38, last Census reused 38 of 47](figures/county_2x2.png)
+
+The same counties in two classes, under 40% or 40% and over (exploratory: this view merges the three classes fixed in advance and was added after the results). Of the 47 high-silage counties the Maryland-only model finds 5, the county-share model 38 and the last Census 38. The county-share model wrongly puts 20 of the other 116 counties in the high class; the last Census does so for 7. Right overall: 109, 134 and 147 of 163.
+
 ## The 7 counties never trained on
 
 200 blocks each, in Maryland, Pennsylvania, New York and Vermont.

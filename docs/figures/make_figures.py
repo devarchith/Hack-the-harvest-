@@ -304,6 +304,45 @@ def chart_county_classes():
 
 
 # ---------------------------------------------------------------- chart 4: predicted vs Census scatter
+def chart_county_2x2():
+    """The 3x3 county matrices merged at the 40% class edge: high-silage county (40% and over) or not. Same file,
+    counties, truth and county estimate as chart_county_classes. Exploratory: the two-class view was added after
+    the results; the edge itself is one of the two fixed in advance."""
+    pr = prior(HEAD)
+    panels = [("Maryland-only model", GRAY, pr.maryland_only), ("County-share model", BLUE, pr.satellite),
+              ("Last Census reused", ORANGE, pr.last_census)]
+    ms = []
+    for _, _, e in panels:
+        m3 = class_matrix(pr.truth, e)
+        ms.append(np.array([[m3[:2, :2].sum(), m3[:2, 2].sum()], [m3[2, :2].sum(), m3[2, 2]]], dtype=int))
+    right = [acc(m)[0] for m in ms]
+    n_high = int(ms[0][1].sum())
+    title = (f"High-silage counties found: Maryland-only {ms[0][1, 1]}, county-share {ms[1][1, 1]}, "
+             f"last Census reused {ms[2][1, 1]} (of {n_high})")
+    fig, top = header(title, f"{len(pr)} counties in two classes by silage share of harvested corn acres: under 40%, "
+                             "or 40% and over. A county's predicted share is the mean predicted silage probability of "
+                             "its 100 sampled corn blocks, out of fold by state. Exploratory: this two-class view "
+                             "merges the three classes fixed in advance and was added after the results.")
+    gs = fig.add_gridspec(1, len(panels), left=0.115, right=0.975, top=top - 0.15, bottom=0.20, wspace=0.10)
+    labels = ["under 40%", "40%+"]
+    for k, ((model, color, _), m) in enumerate(zip(panels, ms)):
+        ax = fig.add_subplot(gs[0, k])
+        draw_matrix(ax, m, labels, color, model, f"{right[k]} of {int(m.sum())} right" + (", out of fold" if k == 1 else ""),
+                    ylabel=(k == 0), count_size=30, pct_size=15)
+        ax.set_xlabel("Predicted class", size=15, labelpad=8)
+        if k == 0:
+            ax.set_ylabel("2022 Census class", size=15, labelpad=10)
+    save(fig, "county_2x2",
+         f"{REL}/{HEAD}/census_prior/census_prior_counties.csv (truth, maryland_only, satellite, last_census). "
+         "Rows: 2022 Census class. Columns: predicted class. Small figures: percent of the row.")
+    DATA["county_2x2"] = {
+        "rows": "2022 Census class (under 40%, 40% and over)", "columns": "predicted class, same order",
+        "n": int(len(pr)), "model_estimate": "mean predicted probability (census_prior_counties.csv)",
+        "exploratory": True,
+        **{key: {"matrix": m.tolist(), "right": r}
+           for key, m, r in zip(["maryland_only", "county_share_oof", "last_census_reused"], ms, right)}}
+
+
 def chart_scatter():
     ct = counties(HEAD)
     t = ct.census_share
@@ -476,6 +515,7 @@ def main():
     chart_cm_maryland()
     chart_cm_quebec()
     chart_county_classes()
+    chart_county_2x2()
     chart_scatter()
     chart_variants()
     chart_last_census()

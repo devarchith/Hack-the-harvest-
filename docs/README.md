@@ -34,6 +34,7 @@ Six charts in [figures/](figures/) (PNG and SVG):
 - `cm_maryland`: Maryland held-out years, both models make the same 41 of 44 calls.
 - `cm_quebec`: Québec field checks, with no Québec label in training.
 - `county_class_matrices`: counties in the right silage-share class, for both models and the last Census.
+- `county_2x2`: the same counties in two classes, under 40% silage or 40% and over (exploratory).
 - `pred_vs_census_scatter`: each of the 163 counties, estimate against the Census share.
 - `variants_bar`: the three runs of the county-share model; the headline run has the lowest out-of-fold county gap.
 - `last_census_comparison`: mean gap to the Census share, last Census reused against the models.

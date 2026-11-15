@@ -94,6 +94,7 @@ Same 163 counties, same truth, county estimate = mean probability, out of fold. 
 - The last Census is closer than the model in 116 of 163 counties, the model in 47 (exploratory; recomputed from `RF/census_prior/census_prior_counties.csv`).
 - Adding the model to the last Census: better in 83 counties, worse in 80, Wilcoxon p = 0.67. No measurable gain (`prior` line 16).
 - 108/163 and 0.138 here, 97/163 and 0.139 in section 4, are the same model with two county estimates (mean probability here; share of blocks called there). Truth and counties are identical in both. Do not pair 125 with 97, or 0.082 with 0.139: pair the last Census with 108 and 0.138.
+- Two classes, under 40% or 40% and over (exploratory: merges the three fixed classes, added after the results; `docs/figures/county_2x2.png`). Cells are low called low / low called high / high called low / high called high: Maryland-only 104 / 12 / 42 / 5 (109 right), county-share 96 / 20 / 9 / 38 (134 right), last Census 109 / 7 / 9 / 38 (147 right), of 116 low and 47 high counties. Recomputed from `RF/census_prior/census_prior_counties.csv`.
 - The charts `docs/figures/last_census_comparison.png` and `docs/figures/county_class_matrices.png` use this section's figures (0.231 / 0.138 / 0.082 / 0.080 and 60 / 108 / 125); the scatter and three-runs charts use section 4's share of blocks called.
 
 ## 7. National total: silage share of US corn acres, 2022
