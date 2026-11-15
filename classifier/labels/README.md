@@ -32,6 +32,10 @@ Needs pandas, geopandas, scikit-learn and pypdf. Downloads go to the source fold
 | 4. Field-report labels per field-year; agreement with the official labels and with Zenodo | `mgmt_vs_eval.py` | `farm_report_field_years.csv`, `4_reports_vs_official.txt` |
 | 5. One table outside 2021-2023; label basis, changes of use, outline fit | `combine_check.py` | `extra_labels_outside_2021_2023.csv`, `5_combined_checks.txt` |
 | 6. Satellite check of the 2017-2020 training labels | `satellite_check.py` | `satellite_check.csv`, `6_satellite_check.txt` |
+| 7. Fixes from the combine yield records | `apply_yield_fixes.py` | `label_fixes.csv`, `field_years_fixed.csv`, `field_years_combine_additions.csv`, `extra_labels_outside_2021_2023_fixed.csv`, `7_yield_fixes.txt` |
+| 8. Label basis and outline fit of each 2017-2020 training field-year | `outline_check.py` | `training_label_checks.csv`, `8_training_label_checks.txt` |
+
+`label_trust_summary.ipynb` walks through the same checks with their outputs, without writing to `results/`.
 
 A field-year's label is its whole-field harvest record when there is one, otherwise its whole-field planting record.
 Fields are matched to outlines by farm and field name only (for example `CentralFarm_1-14B`).
@@ -70,6 +74,45 @@ backed silage labels agree 7 of 7.
 20-25%; 10 of them are Grain field-years in the 2017-2020 training set. In 4 (2017) the record covers 2-7 acres of a
 27-41 acre outline, so most of the outline describes other ground that year.
 
+**Combine yield records.** The same Ag Data Commons record has yearly zips (`2014.zip`, `2016.zip` to `2021.zip`) with
+the raw combine yield-monitor files of each field, year and crop; a combine corn file means grain harvest (there are no
+chopper files). Two separate checks of those files against the outlines (share of the outline the combine covered;
+harvest dates, header width and grain moisture from the raw shapefiles) found the same conflicts, and the farm reports
+agree where they have a harvest record. `apply_yield_fixes.py` holds the fixes with their evidence and writes fixed
+copies of the tables; the original tables are not changed.
+
+| Field-year | Label | Combine record | Fix |
+|---|---|---|---|
+| `CentralFarm_1-14C` 2020 (training) | Grain | soybeans on this outline (the farm redrew the 1-14 sub-fields in 2020) | dropped |
+| `CentralFarm_2-32A` 2017 (training) | Grain | redrilled to sorghum-sudangrass in June, combined as sorghum | dropped |
+| `CentralFarm_4-7` 2014, `EastFarm_5-12` 2014, `CentralFarm_1-37` 2016 | Silage (planting record only) | combined for grain over 83-100% in Oct-Nov | relabeled Grain |
+| `CentralFarm_2-32B` 2014 | Silage (planting record only) | 30% combined for grain, rest unknown | dropped |
+| `CentralFarm_4-7` 2021 (official) | Silage | combined Nov 4 over 90% of the field, 19.6% moisture, median 80 bu/ac | kept; score with and without it |
+
+Of the 16 official 2021 Grain labels, 15 have combine corn on the field (one over only 17%); the other has none
+either way. `field_years_fixed.csv` is `../prithvi/field_years.csv` without the 2 dropped rows (125 field-years).
+`field_years_combine_additions.csv` lists 13 more Grain field-years (2020 and 2021, outlines with no label) where the
+combine covered at least 70% and no other crop 10%; they are not merged into any table and have no image data yet.
+
+**Outline fit of the 83 training field-years** (`outline_check.py`, on the outlines stored in
+`classifier/prithvi/field_years.csv`: 69 evaluation outlines, 14 Zenodo study outlines). All 83 have recorded acres.
+
+| Outline against the record | Grain | Silage |
+|---|---|---|
+| Acres match; the other source has an outline of the same field (overlap 0.9 or more in 37 of these 41) | 30 | 11 |
+| Acres match; no second outline to compare | 24 | 8 |
+| Acres do not match | 10 | 0 |
+
+The 10 that do not match are the 10 named above. For 4 field-years the acres match although the overlap with the
+Zenodo outline is below 0.9 (`CentralFarm_1-14B` 2018, `EastFarm_6-60` 2018, `EastFarm_6-57` 2019 and 2020):
+`1-14B` and `6-60` fit the evaluation outline in 2018 and the larger Zenodo outline from 2019, so those fields were
+enlarged. The Zenodo outlines are one set, not one per year. Matching acres cannot rule out an outline of the right
+size in the wrong place.
+
+`training_label_checks.csv` holds `label_basis` and `outline_fit` per field-year. `prithvi_field_years.py` copies them
+into `field_years.csv`, and `prithvi_train.py --exclude outline-misfit planting-only-silage` leaves those field-years
+out. No model has been retrained without them yet.
+
 ## Caveats
 
 - One farm. The official labels likely come from the same farm database, so agreement shows the sources are
@@ -77,4 +120,4 @@ backed silage labels agree 7 of 7.
 - 5 official Grain field-years look like soybeans in the USDA Cropland Data Layer (field_id 251 and 286 in 2022;
   230, 231 and 397 in 2023). No farm record exists for any of them.
 - Planting-only silage labels are the least certain. Results that depend on them should also be checked with them
-  left out.
+  left out. The same holds for the 10 field-years whose outline does not fit.

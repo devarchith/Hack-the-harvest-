@@ -1,0 +1,84 @@
+field_id,idn,year,label,label_basis,outline_used,record_acres,outline_acres,acres_ratio,iou_other_outline,outline_checked_by,outline_fit
+235,CentralFarm_1-14C,2017,Silage,planting record only,evaluation,8.59,8.64,0.99,,acres,ok
+238,CentralFarm_1-15,2017,Silage,planting record only,evaluation,17.39,17.29,1.01,0.97,acres and overlap,ok
+254,CentralFarm_1-7B,2017,Grain,planting record only,evaluation,2.76,26.95,0.1,,acres,misfit
+263,CentralFarm_1-9A,2017,Grain,planting record only,evaluation,1.81,32.46,0.06,,acres,misfit
+278,CentralFarm_2-32A,2017,Grain,planting record only,evaluation,19.05,19.11,1.0,0.98,acres and overlap,ok
+285,CentralFarm_2-43,2017,Grain,planting record only,evaluation,9.25,9.2,1.0,0.96,acres and overlap,ok
+292,CentralFarm_2-71A,2017,Grain,planting record only,evaluation,3.63,40.69,0.09,,acres,misfit
+301,CentralFarm_2-72A,2017,Grain,planting record only,evaluation,7.22,40.91,0.18,,acres,misfit
+317,CentralFarm_4-16,2017,Grain,planting record only,evaluation,7.68,7.66,1.0,0.96,acres and overlap,ok
+327,CentralFarm_4-7,2017,Grain,planting record only,evaluation,22.15,22.13,1.0,0.96,acres and overlap,ok
+382,EastFarm_5-2A,2017,Silage,planting record only,evaluation,8.28,8.24,1.01,0.94,acres and overlap,ok
+383,EastFarm_5-2B,2017,Silage,planting record only,evaluation,6.99,6.93,1.01,0.96,acres and overlap,ok
+392,EastFarm_5-3A,2017,Grain,planting record only,evaluation,13.76,13.72,1.0,0.97,acres and overlap,ok
+393,EastFarm_5-3B,2017,Grain,planting record only,evaluation,8.09,8.02,1.01,0.97,acres and overlap,ok
+394,EastFarm_5-3C,2017,Grain,planting record only,evaluation,8.52,8.47,1.01,0.97,acres and overlap,ok
+395,EastFarm_5-3D,2017,Grain,planting record only,evaluation,9.74,9.67,1.01,0.97,acres and overlap,ok
+397,EastFarm_5-3F,2017,Grain,planting record only,evaluation,8.1,8.13,1.0,,acres,ok
+403,EastFarm_5-42C,2017,Silage,planting record only,evaluation,10.07,10.09,1.0,,acres,ok
+416,EastFarm_5-45A,2017,Silage,planting record only,evaluation,14.88,14.84,1.0,,acres,ok
+422,EastFarm_5-5,2017,Grain,planting record only,evaluation,6.62,6.57,1.01,0.95,acres and overlap,ok
+1003,CentralFarm_1-13,2017,Grain,planting record only,zenodo,4.31,3.93,1.1,,acres,ok
+1032,EastFarm_5-3H,2017,Grain,planting record only,zenodo,2.73,2.31,1.18,,acres,ok
+1035,EastFarm_6-59,2017,Grain,planting record only,zenodo,4.39,4.27,1.03,,acres,ok
+1044,NorthFarm_NG-1-6,2017,Grain,planting record only,zenodo,17.88,18.13,0.99,,acres,ok
+5,APU_1-98,2018,Grain,planting record only,evaluation,8.52,8.46,1.01,0.96,acres and overlap,ok
+14,APU_18,2018,Grain,planting record only,evaluation,6.32,6.34,1.0,,acres,ok
+35,APU_7,2018,Grain,planting record only,evaluation,16.55,16.34,1.01,,acres,ok
+234,CentralFarm_1-14B,2018,Silage,planting record only,evaluation,6.86,6.81,1.01,0.28,acres and overlap,ok
+236,CentralFarm_1-14D,2018,Silage,planting record only,evaluation,6.61,6.65,0.99,,acres,ok
+271,CentralFarm_2-13,2018,Grain,planting record only,evaluation,26.35,26.22,1.0,0.99,acres and overlap,ok
+279,CentralFarm_2-32B,2018,Grain,planting record only,evaluation,17.76,17.72,1.0,,acres,ok
+286,CentralFarm_2-51,2018,Grain,planting record only,evaluation,6.51,6.48,1.0,0.94,acres and overlap,ok
+288,CentralFarm_2-66,2018,Grain,planting record only,evaluation,7.71,7.65,1.01,0.93,acres and overlap,ok
+291,CentralFarm_2-68B,2018,Grain,planting record only,evaluation,17.83,17.67,1.01,0.97,acres and overlap,ok
+323,CentralFarm_4-25,2018,Silage,planting record only,evaluation,24.16,25.24,0.96,,acres,ok
+334,EastFarm_5-12,2018,Grain,planting record only,evaluation,26.1,26.09,1.0,0.96,acres and overlap,ok
+419,EastFarm_5-45D,2018,Silage,planting record only,evaluation,17.3,17.23,1.0,,acres,ok
+434,EastFarm_6-60,2018,Grain,planting record only,evaluation,18.95,19.01,1.0,0.72,acres and overlap,ok
+1022,CentralFarm_2-68A,2018,Grain,planting record only,zenodo,4.82,4.77,1.01,,acres,ok
+1027,EastFarm_5-11,2018,Grain,planting record only,zenodo,13.8,13.34,1.03,,acres,ok
+1035,EastFarm_6-59,2018,Grain,planting record only,zenodo,4.39,4.27,1.03,,acres,ok
+234,CentralFarm_1-14B,2019,Grain,harvest record,evaluation,13.33,6.81,1.96,0.28,acres and overlap,misfit
+236,CentralFarm_1-14D,2019,Grain,planting record only,evaluation,6.61,6.65,0.99,,acres,ok
+240,CentralFarm_1-20B,2019,Grain,harvest record,evaluation,7.08,7.01,1.01,0.98,acres and overlap,ok
+248,CentralFarm_1-32,2019,Silage,harvest record,evaluation,14.96,14.91,1.0,0.97,acres and overlap,ok
+271,CentralFarm_2-13,2019,Silage,harvest record,evaluation,26.35,26.22,1.0,0.99,acres and overlap,ok
+278,CentralFarm_2-32A,2019,Grain,harvest record,evaluation,19.05,19.11,1.0,0.98,acres and overlap,ok
+280,CentralFarm_2-32C,2019,Grain,planting record only,evaluation,20.87,20.87,1.0,,acres,ok
+348,EastFarm_5-23,2019,Grain,harvest record,evaluation,18.85,18.74,1.01,0.97,acres and overlap,ok
+382,EastFarm_5-2A,2019,Grain,harvest record,evaluation,8.28,8.24,1.01,0.94,acres and overlap,ok
+383,EastFarm_5-2B,2019,Silage,planting record only,evaluation,6.99,6.93,1.01,0.96,acres and overlap,ok
+392,EastFarm_5-3A,2019,Grain,harvest record,evaluation,13.76,13.72,1.0,0.97,acres and overlap,ok
+393,EastFarm_5-3B,2019,Grain,harvest record,evaluation,8.09,8.02,1.01,0.97,acres and overlap,ok
+394,EastFarm_5-3C,2019,Grain,harvest record,evaluation,8.52,8.47,1.01,0.97,acres and overlap,ok
+395,EastFarm_5-3D,2019,Grain,harvest record,evaluation,9.74,9.67,1.01,0.97,acres and overlap,ok
+397,EastFarm_5-3F,2019,Grain,harvest record,evaluation,8.1,8.13,1.0,,acres,ok
+416,EastFarm_5-45A,2019,Grain,planting record only,evaluation,14.88,14.84,1.0,,acres,ok
+422,EastFarm_5-5,2019,Grain,planting record only,evaluation,6.62,6.57,1.01,0.95,acres and overlap,ok
+431,EastFarm_6-57,2019,Grain,harvest record,evaluation,6.81,6.17,1.1,0.83,acres and overlap,ok
+434,EastFarm_6-60,2019,Grain,harvest record,evaluation,25.2,19.01,1.33,0.72,acres and overlap,misfit
+437,EastFarm_6-64,2019,Grain,harvest record,evaluation,22.67,29.5,0.77,0.74,acres and overlap,misfit
+511,LinkageFarm_EB-3,2019,Grain,harvest record,evaluation,16.95,17.04,0.99,,acres,ok
+1008,CentralFarm_1-20C,2019,Grain,harvest record,zenodo,3.27,2.86,1.14,,acres,ok
+1032,EastFarm_5-3H,2019,Grain,planting record only,zenodo,2.73,2.31,1.18,,acres,ok
+1035,EastFarm_6-59,2019,Grain,harvest record,zenodo,4.39,4.27,1.03,,acres,ok
+5,APU_1-98,2020,Silage,planting record only,evaluation,8.21,8.46,0.97,0.96,acres and overlap,ok
+34,APU_5,2020,Grain,planting record only,evaluation,11.3,14.01,0.81,,acres,ok
+35,APU_7,2020,Silage,harvest record,evaluation,15.18,16.34,0.93,,acres,ok
+230,CentralFarm_1-1,2020,Grain,planting record only,evaluation,27.1,27.26,0.99,0.97,acres and overlap,ok
+231,CentralFarm_1-11,2020,Silage,harvest record,evaluation,9.73,9.74,1.0,0.96,acres and overlap,ok
+235,CentralFarm_1-14C,2020,Grain,planting record only,evaluation,11.53,8.64,1.33,,acres,misfit
+249,CentralFarm_1-33,2020,Grain,planting record only,evaluation,8.7,8.77,0.99,0.98,acres and overlap,ok
+317,CentralFarm_4-16,2020,Silage,harvest record,evaluation,7.58,7.66,0.99,0.96,acres and overlap,ok
+327,CentralFarm_4-7,2020,Silage,harvest record,evaluation,21.29,22.13,0.96,0.96,acres and overlap,ok
+347,EastFarm_5-21,2020,Grain,planting record only,evaluation,16.27,16.37,0.99,,acres,ok
+422,EastFarm_5-5,2020,Grain,planting record only,evaluation,6.38,6.57,0.97,0.95,acres and overlap,ok
+431,EastFarm_6-57,2020,Grain,harvest record,evaluation,6.84,6.17,1.11,0.83,acres and overlap,ok
+434,EastFarm_6-60,2020,Grain,harvest record,evaluation,25.28,19.01,1.33,0.72,acres and overlap,misfit
+437,EastFarm_6-64,2020,Grain,harvest record,evaluation,22.07,29.5,0.75,0.74,acres and overlap,misfit
+1003,CentralFarm_1-13,2020,Grain,planting record only,zenodo,4.08,3.93,1.04,,acres,ok
+1009,CentralFarm_1-21,2020,Silage,harvest record,zenodo,4.14,4.09,1.01,,acres,ok
+1032,EastFarm_5-3H,2020,Grain,planting record only,zenodo,2.38,2.31,1.03,,acres,ok
+1035,EastFarm_6-59,2020,Grain,harvest record,zenodo,4.28,4.27,1.0,,acres,ok

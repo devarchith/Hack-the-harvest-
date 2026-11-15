@@ -20,3 +20,6 @@ mkdir -p "$OUT" "$SRC/farm_reports/txt"
   "$OUT/farm_report_field_years.csv" | tee "$OUT/4_reports_vs_official.txt"
 "$PY" "$HERE/combine_check.py" --zenodo-dir "$SRC/zenodo/farmdb" | tee "$OUT/5_combined_checks.txt"
 "$PY" "$HERE/satellite_check.py" | tee "$OUT/6_satellite_check.txt"
+"$PY" "$HERE/apply_yield_fixes.py"
+"$PY" "$HERE/outline_check.py" --zenodo-dir "$SRC/zenodo/farmdb" --zenodo-outlines "$(ls "$SRC"/zenodo/outlines/*.shp)" \
+  | tee "$OUT/8_training_label_checks.txt"
