@@ -106,6 +106,9 @@ grow). 12 of the 19 silage labels in the 2017-2020 training data are planting-on
 235/2020 and 278/2017), the fine-tuned Presto gets 41 of 44 on the standard test (train on 2017-2020, score the 44
 official 2021-2023 labels) and the 5-feature model 39 of 44. On the mixed-year splits it is 92 of 101 against 96 of
 101. In both cases the 95% interval of the accuracy difference includes 0 (`presto/README.md`, `metrics/README.md`).
+Presto's small lead on the standard test comes from November and December, when BARC's silage fields green up again
+(probably a cover crop, left out of the 5-feature model on purpose). Without those months Presto gets 40 of 44 and
+catches 8 of 12 silage fields, against 11 of 12 for the 5-feature model.
 
 ## Folder layout
 
