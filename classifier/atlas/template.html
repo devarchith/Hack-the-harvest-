@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silage Atlas</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--ink:#17202a;--mute:#5d6b78;--line:#d9dfe5;--bg:#f5f6f8;--card:#fff;--accent:#3b3fb6;--grain:#d99a0b;--bad:#c62828}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);display:flex;flex-direction:column}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:10px 16px}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.tag{color:var(--mute)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px}
+.tile{border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#fbfcfd}
+.tile b{display:block;font-size:21px;line-height:1.15;font-variant-numeric:tabular-nums}
+.tile span{display:block;font-size:12px;color:var(--mute)}
+.tile i{font-style:normal;font-size:12px;font-weight:600;color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:8px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:none;padding:5px 11px;font:inherit;cursor:pointer;color:var(--ink)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--accent);color:#fff}
+.bar label{font-size:12px;color:var(--mute);display:inline-flex;gap:6px;align-items:center}
+select,input[type=search]{font:inherit;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);max-width:170px}
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 370px}
+#map{min-height:340px;background:#dde6ee}
+aside{background:var(--card);border-left:1px solid var(--line);overflow:auto;padding:12px 14px}
+h2{font-size:16px;margin:0 0 2px}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);margin:14px 0 5px}
+p{margin:6px 0}
+.sub{color:var(--mute);font-size:12.5px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+.nums div{border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+.nums b{display:block;font-size:19px;font-variant-numeric:tabular-nums}
+.nums span{font-size:11.5px;color:var(--mute)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:right;font-size:12.5px}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--mute);font-weight:600;position:sticky;top:0;background:var(--card)}
+tr.pick{cursor:pointer}
+tr.pick:hover{background:#eef0fb}
+.cm td,.cm th{text-align:center;border:1px solid var(--line)}
+.cm td.ok{background:#e7ebfb;font-weight:700}
+.cm td.no{background:#fbeaea}
+.hist{display:flex;align-items:flex-end;gap:2px;height:64px;margin-top:4px}
+.hist div{flex:1;min-height:1px;border-radius:2px 2px 0 0}
+.axis{display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}
+.ramp{height:10px;border-radius:5px;border:1px solid var(--line)}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;text-decoration:none;margin:4px 6px 0 0}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.badge{display:inline-block;font-size:11px;border-radius:10px;padding:1px 8px;background:#eef0fb;color:var(--accent);font-weight:600;vertical-align:middle}
+.list{max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:7px}
+details{margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+summary{cursor:pointer;font-weight:600}
+.bad{color:var(--bad);font-weight:600}
+.leaflet-container{font:inherit}
+@media (max-width:860px){
+  body{height:auto}
+  main{grid-template-columns:1fr}
+  #map{height:56vh}
+  aside{border-left:0;border-top:1px solid var(--line)}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>Silage Atlas</h1>
+    <span class="tag">Silage or grain, for every corn field, every year, from free public satellite imagery</span>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <div class="bar">
+    <div class="seg" id="views">
+      <button data-v="us" class="on">United States</button>
+      <button data-v="md">Maryland test fields</button>
+      <button data-v="qc">Qu&eacute;bec test fields</button>
+    </div>
+    <label>Model
+      <span class="seg" id="models">
+        <button data-m="cs" class="on">County-share</button>
+        <button data-m="md">Maryland-only</button>
+      </span>
+    </label>
+    <label id="colorWrap">Color counties by
+      <span class="seg" id="colors">
+        <button data-c="model" class="on">Model</button>
+        <button data-c="census">2022 Census</button>
+        <button data-c="diff">Difference</button>
+      </span>
+    </label>
+    <label id="stateWrap">State <select id="state"><option value="">All</option></select></label>
+    <label id="findWrap">County <input type="search" id="find" list="names" placeholder="type a name"><datalist id="names"></datalist></label>
+  </div>
+</header>
+<main>
+  <div id="map"></div>
+  <aside id="panel"></aside>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const D = /*DATA*/;
+const S = D.stats;
+const st = {view: "us", model: "cs", color: "model", state: "", fips: null, year: 0};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const pct = (v, d) => v == null ? "n/a" : (100 * v).toFixed(d == null ? 0 : d) + "%";
+
+// ---- colors
+function mix(stops, t) {
+  t = Math.max(0, Math.min(1, t));
+  const x = t * (stops.length - 1), i = Math.min(stops.length - 2, Math.floor(x)), f = x - i;
+  const a = stops[i], b = stops[i + 1];
+  return "rgb(" + [0, 1, 2].map(k => Math.round(a[k] + (b[k] - a[k]) * f)).join(",") + ")";
+}
+const PROB = [[217, 154, 11], [240, 215, 140], [244, 242, 232], [150, 156, 224], [59, 63, 182]];   // grain gold .. silage indigo
+const SHARE = [[250, 244, 214], [176, 209, 224], [98, 140, 204], [42, 47, 143]];                     // low .. high silage share
+const DIFF = [[33, 102, 172], [146, 197, 222], [247, 247, 247], [244, 165, 130], [178, 24, 43]];    // model under .. over
+const cProb = p => mix(PROB, p), cShare = v => mix(SHARE, v), cDiff = d => mix(DIFF, (d + 0.5));
+const css = stops => "linear-gradient(90deg," + stops.map(s => "rgb(" + s.join(",") + ")").join(",") + ")";
+
+// ---- helpers on the data
+const modelShare = c => st.model === "cs" ? c.called : c.md_called;
+const countyValue = c => st.color === "census" ? c.census : st.color === "diff" ? modelShare(c) - c.census : modelShare(c);
+const countyColor = c => st.color === "diff" ? cDiff(countyValue(c)) : cShare(countyValue(c));
+const blockP = b => st.model === "cs" ? b[1] : b[2];
+const fieldP = f => st.model === "cs" ? f.cs : f.md;
+const modelName = () => st.model === "cs" ? "County-share model" : "Maryland-only model";
+function matrix(rows) {            // rows: [isSilage, p]
+  const m = {ss: 0, sg: 0, gs: 0, gg: 0};
+  rows.forEach(r => { m[(r[0] ? "s" : "g") + (r[1] >= 0.5 ? "s" : "g")]++; });
+  return m;
+}
+function matrixHtml(m) {
+  const n = m.ss + m.sg + m.gs + m.gg, ok = m.ss + m.gg;
+  return `<table class="cm"><tr><th></th><th>called Silage</th><th>called Grain</th></tr>
+  <tr><th>Silage</th><td class="ok">${m.ss}</td><td class="no">${m.sg}</td></tr>
+  <tr><th>Grain</th><td class="no">${m.gs}</td><td class="ok">${m.gg}</td></tr></table>
+  <p><b>${ok} of ${n} correct (${pct(n ? ok / n : null)})</b>. Silage caught ${m.ss} of ${m.ss + m.sg};
+  grain called silage ${m.gs} of ${m.gs + m.gg}.</p>`;
+}
+function download(name, rows) {
+  const text = rows.map(r => r.map(v => v == null ? "" : /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : v).join(",")).join("\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], {type: "text/csv"}));
+  a.download = name; document.body.appendChild(a); a.click(); a.remove();
+}
+
+// ---- scorecard
+(function tiles() {
+  const acc = m => (m.ss + m.gg) / (m.ss + m.sg + m.gs + m.gg);
+  const md = S.md.cs, qc = S.qc.cs, q0 = S.qc.md;
+  const t = [
+    [pct(acc(md)), "Maryland official test", `${md.ss + md.gg} of ${md.ss + md.sg + md.gs + md.gg} field-years, held-out years; silage caught ${md.ss} of ${md.ss + md.sg}`],
+    [pct(acc(qc)), "Québec, no local labels", `${(qc.ss + qc.gg).toLocaleString()} of ${(qc.ss + qc.sg + qc.gs + qc.gg).toLocaleString()} field-years; up from ${pct(acc(q0))} with Maryland-only training`],
+    [S.n_counties + " counties", S.n_states + " states scored", `${S.n_blocks.toLocaleString()} corn blocks of 90 m, plus ${S.n_test} counties never trained on`],
+    [(100 * S.county_gap.cs).toFixed(1) + " pts", "average gap to the 2022 Census", `county silage share, out of fold by state; ${(100 * S.county_gap.md).toFixed(1)} pts with Maryland-only training`],
+  ];
+  $("tiles").innerHTML = t.map(x => `<div class="tile"><b>${x[0]}</b><i>${x[1]}</i><span>${x[2]}</span></div>`).join("");
+})();
+
+// ---- map
+const map = L.map("map", {preferCanvas: true, zoomSnap: 0.5, minZoom: 3, maxZoom: 19}).setView([39.5, -96], 4.5);
+const imagery = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  {minZoom: 9, maxZoom: 19, maxNativeZoom: 18, attribution: "Imagery: Esri, Maxar, Earthstar Geographics"}).addTo(map);
+const statesLayer = L.polygon(D.states, {color: "#8794a1", weight: 1, fillColor: "#f4f6f8", fillOpacity: 1, interactive: false}).addTo(map);
+const layers = {counties: L.layerGroup().addTo(map), blocks: L.layerGroup().addTo(map), fields: L.layerGroup().addTo(map)};
+map.attributionControl.addAttribution("Boundaries: US Census Bureau");
+let countyShapes = {};
+
+function drawCounties() {
+  layers.counties.clearLayers(); countyShapes = {};
+  D.counties.forEach(c => {
+    if (st.state && c.state !== st.state) return;
+    const sel = c.fips === st.fips, col = countyColor(c);
+    const tip = `<b>${esc(c.name)}, ${esc(c.state)}</b><br>Model ${pct(modelShare(c))} silage &middot; 2022 Census ${pct(c.census)}`;
+    const poly = L.polygon(c.geom, {color: sel ? "#111" : "#55606b", weight: sel ? 2.5 : 0.8, fillColor: col, fillOpacity: sel ? 0 : 0.9});
+    const dot = L.circleMarker([c.lat, c.lon], {radius: c.test ? 6.5 : 5, color: c.test ? "#111" : "#fff", weight: c.test ? 2 : 1, fillColor: col, fillOpacity: sel ? 0 : 1});
+    [poly, dot].forEach(l => { l.bindTooltip(tip, {sticky: true}); l.on("click", () => selectCounty(c.fips)); l.addTo(layers.counties); });
+    countyShapes[c.fips] = poly;
+  });
+}
+function drawBlocks() {
+  layers.blocks.clearLayers();
+  if (!st.fips) return;
+  const close = map.getZoom() >= 14;
+  D.blocks[st.fips].forEach((b, i) => {
+    const p = blockP(b), o = {color: "#fff", weight: 1, fillColor: cProb(p), fillOpacity: 0.95};
+    const lat = (b[0][0][0] + b[0][2][0]) / 2, lon = (b[0][0][1] + b[0][2][1]) / 2;
+    const l = close ? L.polygon(b[0], o) : L.circleMarker([lat, lon], Object.assign({radius: 4.5}, o));
+    l.bindTooltip(`Block ${i + 1}: silage probability ${p.toFixed(2)}<br><b>${p >= 0.5 ? "Silage" : "Grain"}</b>${close ? "" : "<br>click to zoom in"}`, {sticky: true});
+    l.on("click", () => map.setView([lat, lon], 16));
+    l.addTo(layers.blocks);
+  });
+}
+function drawFields() {
+  layers.fields.clearLayers();
+  if (st.view === "md") {
+    D.barc.filter(f => !st.year || f.year === st.year).forEach(f => {
+      const p = fieldP(f), call = p >= 0.5 ? "Silage" : "Grain", ok = call === f.label;
+      L.polygon(f.geom, {color: ok ? "#fff" : "#e53935", weight: ok ? 1.2 : 3.5, fillColor: cProb(p), fillOpacity: 0.9})
+        .bindTooltip(`<b>${esc(f.farm)} ${esc(f.field)}</b>, ${f.year}<br>Farm record: ${f.label}<br>Model: ${call} (probability ${p.toFixed(2)})<br>${ok ? "Correct" : "<span class='bad'>Miss</span>"}`, {sticky: true})
+        .addTo(layers.fields);
+    });
+  } else if (st.view === "qc") {
+    D.quebec.filter(q => !st.year || q[2] === st.year).forEach(q => {
+      const p = st.model === "cs" ? q[5] : q[4], call = p >= 0.5 ? 1 : 0;
+      L.circleMarker([q[0], q[1]], {radius: 4, color: "#333", weight: 0.4, fillColor: cProb(p), fillOpacity: 0.95})
+        .bindTooltip(`${q[2]} &middot; declared ${q[3] ? "Silage" : "Grain"}<br>Model: ${call ? "Silage" : "Grain"} (probability ${p.toFixed(2)})`, {sticky: true})
+        .addTo(layers.fields);
+    });
+  }
+}
+function background() {
+  const far = map.getZoom() < 9;
+  statesLayer.setStyle({fillOpacity: far ? 1 : 0, color: far ? "#8794a1" : "#ffffff", weight: far ? 1 : 0.6});
+}
+let wasClose = false;
+map.on("zoomend", () => {
+  background();
+  const close = map.getZoom() >= 14;
+  if (close !== wasClose) { wasClose = close; drawBlocks(); }
+});
+
+// ---- panels
+const legendProb = `<h3>Silage probability</h3><div class="ramp" style="background:${css(PROB)}"></div><div class="axis"><span>0 Grain</span><span>0.5</span><span>Silage 1</span></div>`;
+function legendCounty() {
+  return st.color === "diff"
+    ? `<h3>Model minus Census, points of silage share</h3><div class="ramp" style="background:${css(DIFF)}"></div><div class="axis"><span>&minus;50</span><span>0</span><span>+50</span></div>`
+    : `<h3>${st.color === "census" ? "2022 Census" : esc(modelName())}: silage share of corn</h3><div class="ramp" style="background:${css(SHARE)}"></div><div class="axis"><span>0%</span><span>50%</span><span>100%</span></div>`;
+}
+const limits = `<details><summary>Limits</summary>
+<p class="sub">Field labels for training and the official test come from one research farm in Maryland. Outside Maryland the model learns only from published county totals.</p>
+<p class="sub">Each county is judged on a sample of corn blocks inside one square, against the Census total for the whole county.</p>
+<p class="sub">For county totals alone, reusing the previous Census is still closer on average (${(100 * S.last_census_gap).toFixed(1)} pts over ${S.n_last} counties). The Census has no field-level answer and comes every five years.</p>
+<p class="sub">Qu&eacute;bec labels are crop-insurance declarations made before harvest.</p></details>`;
+
+function usda() {
+  const e = S.confident, m = e.maryland_county_share, q = e.quebec_county_share, n = e.national_blocks_county_share_oof, g = S.moved;
+  return `<details open><summary>What this gives USDA</summary>
+<p class="sub"><b>A call for every field, every year.</b> The Census of Agriculture gives one silage number per county every five years. This gives a silage or grain call, with a probability, for each corn field or block.</p>
+<p class="sub"><b>No new field survey.</b> Outside Maryland the model learns only from the county silage shares USDA already publishes.</p>
+<p class="sub"><b>It flags its own doubtful calls.</b> Calls with probability under 0.2 or over 0.8 cover ${m.n_confident} of ${m.n} Maryland test fields (${pct(m.accuracy_on_confident)} correct), ${q.n_confident.toLocaleString()} of ${q.n.toLocaleString()} Qu&eacute;bec fields (${pct(q.accuracy_on_confident)} correct) and ${pct(n.coverage)} of the ${n.n.toLocaleString()} US blocks. The rest can go to review.</p>
+<p class="sub"><b>Most useful where farming is changing.</b> In the ${g.fast_changing.n} counties whose silage share moved more than 10 points since the previous Census, the satellite estimate misses by ${(100 * g.fast_changing.mae_satellite).toFixed(0)} points and the reused Census by ${(100 * g.fast_changing.mae_last_census).toFixed(0)}. These counties are picked by the old Census being off, and which ones moved is known only after the next Census.</p>
+<p class="sub">The last two items were computed after the main tests.</p></details>`;
+}
+function panelUS() {
+  const rows = D.counties.filter(c => !st.state || c.state === st.state)
+    .sort((a, b) => b.census - a.census);
+  $("panel").innerHTML = `<h2>United States</h2>
+  <p class="sub">${esc(modelName())}. Each county shows the share of its sampled corn blocks called silage. Click a county to see its blocks on satellite imagery.</p>
+  ${legendCounty()}
+  <p class="sub">Dark-ringed dots: ${S.n_test} counties never used in training.</p>
+  <h3>Counties${st.state ? " in " + esc(st.state) : ""} (${rows.length})</h3>
+  <div class="list"><table><tr><th>County</th><th>Model</th><th>Census</th><th>Gap</th></tr>
+  ${rows.map(c => `<tr class="pick" data-f="${c.fips}"><td>${esc(c.name)}, ${esc(c.state)}${c.test ? " <span class='badge'>test</span>" : ""}</td><td>${pct(modelShare(c))}</td><td>${pct(c.census)}</td><td>${(100 * (modelShare(c) - c.census)).toFixed(0)}</td></tr>`).join("")}
+  </table></div>
+  <button class="btn" id="dlCounties">Download county table (CSV)</button>
+  ${usda()}
+  ${limits}`;
+  $("panel").querySelectorAll("tr.pick").forEach(r => r.onclick = () => selectCounty(r.dataset.f));
+  $("dlCounties").onclick = () => download("silage_atlas_counties.csv",
+    [["fips", "county", "state", "never_trained_on", "blocks", "census_2022_silage_share", "county_share_model_called_silage", "county_share_model_mean_probability", "maryland_only_model_called_silage", "previous_census_share"]]
+      .concat(D.counties.map(c => [c.fips, c.name, c.state, c.test, c.n, c.census, c.called, c.pred, c.md_called, c.last])));
+}
+function panelCounty() {
+  const c = D.counties.find(x => x.fips === st.fips), bl = D.blocks[c.fips];
+  const ps = bl.map(blockP), bins = Array(10).fill(0);
+  ps.forEach(p => bins[Math.min(9, Math.floor(p * 10))]++);
+  const top = Math.max.apply(null, bins), sure = ps.filter(p => p < 0.2 || p > 0.8).length;
+  const share = modelShare(c), gap = share - c.census;
+  $("panel").innerHTML = `<button class="btn" id="back">&larr; All counties</button>
+  <h2 style="margin-top:8px">${esc(c.name)}, ${esc(c.state)} ${c.test ? "<span class='badge'>never trained on</span>" : ""}</h2>
+  <p class="sub">${esc(modelName())}${c.test ? "" : st.model === "cs" ? ", fitted without this county's state group" : ""}</p>
+  <div class="nums">
+    <div><b>${pct(share)}</b><span>blocks called silage</span></div>
+    <div><b>${pct(c.census)}</b><span>2022 Census silage share</span></div>
+    <div><b>${gap >= 0 ? "+" : "&minus;"}${Math.abs(100 * gap).toFixed(0)} pts</b><span>model minus Census</span></div>
+  </div>
+  <table>
+    <tr><td>Sampled corn blocks (90 m)</td><td>${c.n}</td></tr>
+    <tr><td>Confident calls (probability under 0.2 or over 0.8)</td><td>${sure} of ${c.n}</td></tr>
+    ${c.silage_acres != null ? `<tr><td>Census 2022 acres: silage / grain</td><td>${Math.round(c.silage_acres).toLocaleString()} / ${Math.round(c.grain_acres).toLocaleString()}</td></tr>` : ""}
+    ${c.last != null ? `<tr><td>${/^\d+$/.test(c.last_year) ? c.last_year + " Census share reused" : "Earlier share reused (state figure)"}</td><td>${pct(c.last)}</td></tr>` : ""}
+    <tr><td>${st.model === "cs" ? "Maryland-only model" : "County-share model"}</td><td>${pct(st.model === "cs" ? c.md_called : c.called)}</td></tr>
+  </table>
+  <h3>Blocks by silage probability</h3>
+  <div class="hist">${bins.map((n, i) => `<div title="${n} blocks" style="height:${top ? 100 * n / top : 0}%;background:${cProb((i + 0.5) / 10)};border:1px solid #c9ced6"></div>`).join("")}</div>
+  <div class="axis"><span>0 Grain</span><span>0.5</span><span>Silage 1</span></div>
+  <p class="sub">Dots are the sampled blocks. Zoom in, or click a block, to see its 90 m outline on the imagery.</p>
+  <button class="btn" id="dlBlocks">Download this county's blocks (CSV)</button>
+  ${limits}`;
+  $("back").onclick = () => selectCounty(null);
+  $("dlBlocks").onclick = () => download("silage_atlas_blocks_" + c.fips + ".csv",
+    [["fips", "block", "lat", "lon", "county_share_model_probability", "maryland_only_model_probability"]]
+      .concat(bl.map((b, i) => [c.fips, i + 1, ((b[0][0][0] + b[0][2][0]) / 2).toFixed(5), ((b[0][0][1] + b[0][2][1]) / 2).toFixed(5), b[1], b[2]])));
+}
+function yearButtons() {
+  return `<div class="seg" id="years">${[0, 2021, 2022, 2023].map(y => `<button data-y="${y}" class="${st.year === y ? "on" : ""}">${y || "All years"}</button>`).join("")}</div>`;
+}
+function bindYears() {
+  $("years").querySelectorAll("button").forEach(b => b.onclick = () => { st.year = +b.dataset.y; drawFields(); panel(); });
+}
+function panelMD() {
+  const fs = D.barc.filter(f => !st.year || f.year === st.year);
+  const miss = fs.filter(f => (fieldP(f) >= 0.5 ? "Silage" : "Grain") !== f.label);
+  $("panel").innerHTML = `<h2>Maryland official test</h2>
+  <p class="sub">${esc(modelName())}. Field labels in training are farm records from 2017-2020 only${st.model === "cs" ? " (plus 2022 Census county shares)" : ""}; these 2021-2023 field-years were never seen. Red outline = miss.</p>
+  ${yearButtons()}
+  <h3>Farm record (rows) against the model's call</h3>
+  ${matrixHtml(matrix(fs.map(f => [f.label === "Silage", fieldP(f)])))}
+  ${legendProb}
+  <h3>Misses (${miss.length})</h3>
+  ${miss.length ? `<table><tr><th>Field</th><th>Year</th><th>Record</th><th>Probability</th></tr>${miss.map(f => `<tr><td>${esc(f.farm)} ${esc(f.field)}</td><td>${f.year}</td><td>${f.label}</td><td>${fieldP(f).toFixed(2)}</td></tr>`).join("")}</table>` : "<p class='sub'>None.</p>"}
+  ${limits}`;
+  bindYears();
+}
+function panelQC() {
+  const qs = D.quebec.filter(q => !st.year || q[2] === st.year), k = st.model === "cs" ? 5 : 4;
+  $("panel").innerHTML = `<h2>Qu&eacute;bec, out of region</h2>
+  <p class="sub">${esc(modelName())}. ${qs.length.toLocaleString()} field-years with crop-insurance declarations. No Qu&eacute;bec label was used to train or tune either model. Switch the model above to compare.</p>
+  ${yearButtons()}
+  <h3>Declaration (rows) against the model's call</h3>
+  ${matrixHtml(matrix(qs.map(q => [q[3] === 1, q[k]])))}
+  ${legendProb}
+  ${limits}`;
+  bindYears();
+}
+function panel() { ({us: st.fips ? panelCounty : panelUS, md: panelMD, qc: panelQC})[st.view](); }
+
+// ---- actions
+function selectCounty(fips) {
+  st.fips = fips;
+  if (fips) {
+    const c = D.counties.find(x => x.fips === fips);
+    if (st.state && c.state !== st.state) { st.state = ""; $("state").value = ""; }
+    map.fitBounds(L.latLngBounds(D.blocks[fips].map(b => b[0][0])).pad(0.15));
+  } else fitUS();
+  wasClose = map.getZoom() >= 14;
+  drawCounties(); drawBlocks(); panel();
+}
+function fitUS() {
+  const cs = D.counties.filter(c => !st.state || c.state === st.state);
+  if (st.state) map.fitBounds(L.latLngBounds(cs.map(c => [c.lat, c.lon])).pad(0.6), {maxZoom: 8});
+  else map.fitBounds([[25, -124], [49.5, -67]]);
+}
+function setView(v) {
+  st.view = v; st.fips = null; st.year = 0;
+  document.querySelectorAll("#views button").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  ["colorWrap", "stateWrap", "findWrap"].forEach(id => $(id).style.display = v === "us" ? "" : "none");
+  layers.counties.clearLayers(); layers.blocks.clearLayers();
+  if (v === "us") { drawCounties(); fitUS(); }
+  drawFields();
+  if (v === "md") map.fitBounds(L.latLngBounds(D.barc.map(f => f.geom[0][0])).pad(0.1));
+  if (v === "qc") map.fitBounds(L.latLngBounds(D.quebec.map(q => [q[0], q[1]])).pad(0.05));
+  panel();
+}
+document.querySelectorAll("#views button").forEach(b => b.onclick = () => setView(b.dataset.v));
+document.querySelectorAll("#models button").forEach(b => b.onclick = () => {
+  st.model = b.dataset.m;
+  document.querySelectorAll("#models button").forEach(x => x.classList.toggle("on", x === b));
+  if (st.view === "us") { drawCounties(); drawBlocks(); } else drawFields();
+  panel();
+});
+document.querySelectorAll("#colors button").forEach(b => b.onclick = () => {
+  st.color = b.dataset.c;
+  document.querySelectorAll("#colors button").forEach(x => x.classList.toggle("on", x === b));
+  drawCounties(); panel();
+});
+[...new Set(D.counties.map(c => c.state))].sort().forEach(s => $("state").add(new Option(s, s)));
+$("state").onchange = e => { st.state = e.target.value; st.fips = null; drawCounties(); drawBlocks(); fitUS(); panel(); };
+$("names").innerHTML = D.counties.map(c => `<option value="${esc(c.name)}, ${esc(c.state)}">`).join("");
+$("find").onchange = e => {
+  const c = D.counties.find(x => (x.name + ", " + x.state).toLowerCase() === e.target.value.trim().toLowerCase());
+  if (c) { selectCounty(c.fips); e.target.value = ""; }
+};
+setView("us");
+background();
+</script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+{
+  "definitions": {
+    "silage_call": "p >= 0.5",
+    "confident_call": "p < 0.2 or p > 0.8",
+    "fast_changing_county": "|2022 Census share - previous Census share| > 0.10",
+    "county_classes": "under 5%, 5-40%, 40% and over (boundaries belong to the upper class)",
+    "county_share_model_on_counties": "out of fold by state (llp_oof_*)"
+  },
+  "A_maryland_44": {
+    "maryland_only": {
+      "n": 44,
+      "n_silage": 12,
+      "n_grain": 32,
+      "correct": 41,
+      "accuracy": 0.9318,
+      "silage_called_silage": 11,
+      "silage_called_grain": 1,
+      "grain_called_silage": 2,
+      "grain_called_grain": 30,
+      "silage_precision": 0.8462,
+      "silage_recall": 0.9167,
+      "grain_precision": 0.9677,
+      "grain_recall": 0.9375,
+      "balanced_accuracy": 0.9271,
+      "kappa": 0.8325,
+      "auc": 0.9688,
+      "per_year_correct": {
+        "2021": "15/18",
+        "2022": "7/7",
+        "2023": "19/19"
+      }
+    },
+    "county_share": {
+      "n": 44,
+      "n_silage": 12,
+      "n_grain": 32,
+      "correct": 41,
+      "accuracy": 0.9318,
+      "silage_called_silage": 11,
+      "silage_called_grain": 1,
+      "grain_called_silage": 2,
+      "grain_called_grain": 30,
+      "silage_precision": 0.8462,
+      "silage_recall": 0.9167,
+      "grain_precision": 0.9677,
+      "grain_recall": 0.9375,
+      "balanced_accuracy": 0.9271,
+      "kappa": 0.8325,
+      "auc": 0.9818,
+      "per_year_correct": {
+        "2021": "15/18",
+        "2022": "7/7",
+        "2023": "19/19"
+      }
+    }
+  },
+  "B_quebec": {
+    "maryland_only": {
+      "n": 2245,
+      "n_silage": 1045,
+      "n_grain": 1200,
+      "correct": 1343,
+      "accuracy": 0.5982,
+      "silage_called_silage": 149,
+      "silage_called_grain": 896,
+      "grain_called_silage": 6,
+      "grain_called_grain": 1194,
+      "silage_precision": 0.9613,
+      "silage_recall": 0.1426,
+      "grain_precision": 0.5713,
+      "grain_recall": 0.995,
+      "balanced_accuracy": 0.5688,
+      "kappa": 0.1456,
+      "auc": 0.7801,
+      "per_year_correct": {
+        "2021": "475/760",
+        "2022": "412/736",
+        "2023": "456/749"
+      }
+    },
+    "county_share": {
+      "n": 2245,
+      "n_silage": 1045,
+      "n_grain": 1200,
+      "correct": 1778,
+      "accuracy": 0.792,
+      "silage_called_silage": 841,
+      "silage_called_grain": 204,
+      "grain_called_silage": 263,
+      "grain_called_grain": 937,
+      "silage_precision": 0.7618,
+      "silage_recall": 0.8048,
+      "grain_precision": 0.8212,
+      "grain_recall": 0.7808,
+      "balanced_accuracy": 0.7928,
+      "kappa": 0.5835,
+      "auc": 0.8649,
+      "per_year_correct": {
+        "2021": "582/760",
+        "2022": "606/736",
+        "2023": "590/749"
+      }
+    },
+    "silage_caught_ratio_county_share_over_maryland_only": 5.64
+  },
+  "C_counties_163": {
+    "n_counties": 163,
+    "n_states": 36,
+    "maryland_only_called": {
+      "n": 163,
+      "mae": 0.2482,
+      "bias": -0.1705,
+      "spearman": 0.2342,
+      "within_0.10": 60,
+      "share_within_0.10": 0.3681,
+      "within_0.20": 92,
+      "share_within_0.20": 0.5644,
+      "class3_right": 53
+    },
+    "county_share_called": {
+      "n": 163,
+      "mae": 0.1388,
+      "bias": 0.0041,
+      "spearman": 0.6605,
+      "within_0.10": 89,
+      "share_within_0.10": 0.546,
+      "within_0.20": 121,
+      "share_within_0.20": 0.7423,
+      "class3_right": 97
+    },
+    "maryland_only_mean_p": {
+      "n": 163,
+      "mae": 0.2314,
+      "bias": -0.147,
+      "spearman": 0.3142,
+      "within_0.10": 64,
+      "share_within_0.10": 0.3926,
+      "within_0.20": 92,
+      "share_within_0.20": 0.5644,
+      "class3_right": 60
+    },
+    "county_share_mean_p": {
+      "n": 163,
+      "mae": 0.1385,
+      "bias": 0.0229,
+      "spearman": 0.681,
+      "within_0.10": 94,
+      "share_within_0.10": 0.5767,
+      "within_0.20": 120,
+      "share_within_0.20": 0.7362,
+      "class3_right": 108
+    },
+    "note": "'called' = share of a county's blocks called silage (the definition metrics.md uses for the gap and the 3-class agreement); 'mean_p' = mean block probability."
+  },
+  "D_test_counties_7": {
+    "n": 7,
+    "mae_maryland_only_called": 0.3386,
+    "mae_county_share_called": 0.1272,
+    "mae_maryland_only_mean_p": 0.3298,
+    "mae_county_share_mean_p": 0.1508,
+    "spearman_county_share_mean_p": 0.9286,
+    "spearman_county_share_mean_p_pvalue": 0.0025,
+    "spearman_maryland_only_mean_p": -0.0357,
+    "class3_right_county_share_called": 5,
+    "class3_right_maryland_only_called": 2
+  },
+  "E_confident_calls": {
+    "computed_after_main_tests": true,
+    "maryland_county_share": {
+      "n": 44,
+      "n_confident": 37,
+      "coverage": 0.8409,
+      "correct_on_confident": 36,
+      "accuracy_on_confident": 0.973,
+      "n_not_confident": 7,
+      "accuracy_on_not_confident": 0.7143
+    },
+    "maryland_maryland_only": {
+      "n": 44,
+      "n_confident": 35,
+      "coverage": 0.7955,
+      "correct_on_confident": 34,
+      "accuracy_on_confident": 0.9714,
+      "n_not_confident": 9,
+      "accuracy_on_not_confident": 0.7778
+    },
+    "quebec_county_share": {
+      "n": 2245,
+      "n_confident": 1098,
+      "coverage": 0.4891,
+      "correct_on_confident": 995,
+      "accuracy_on_confident": 0.9062,
+      "n_not_confident": 1147,
+      "accuracy_on_not_confident": 0.6827
+    },
+    "quebec_maryland_only": {
+      "n": 2245,
+      "n_confident": 1956,
+      "coverage": 0.8713,
+      "correct_on_confident": 1238,
+      "accuracy_on_confident": 0.6329,
+      "n_not_confident": 289,
+      "accuracy_on_not_confident": 0.3633
+    },
+    "national_blocks_county_share_oof": {
+      "n": 16300,
+      "n_confident": 12679,
+      "coverage": 0.7779,
+      "n_confident_grain_side": 9693,
+      "n_confident_silage_side": 2986
+    },
+    "test_county_blocks_county_share": {
+      "n": 1400,
+      "n_confident": 1048,
+      "coverage": 0.7486,
+      "n_confident_grain_side": 672,
+      "n_confident_silage_side": 376
+    }
+  },
+  "F_quebec_calibration_county_share": {
+    "computed_after_main_tests": true,
+    "n": 2245,
+    "bins": [
+      {
+        "bin": "0.0-0.1",
+        "n": 193,
+        "mean_p": 0.0657,
+        "observed_silage_rate": 0.1606
+      },
+      {
+        "bin": "0.1-0.2",
+        "n": 282,
+        "mean_p": 0.1443,
+        "observed_silage_rate": 0.1277
+      },
+      {
+        "bin": "0.2-0.3",
+        "n": 256,
+        "mean_p": 0.2482,
+        "observed_silage_rate": 0.1641
+      },
+      {
+        "bin": "0.3-0.4",
+        "n": 213,
+        "mean_p": 0.3485,
+        "observed_silage_rate": 0.2207
+      },
+      {
+        "bin": "0.4-0.5",
+        "n": 197,
+        "mean_p": 0.4494,
+        "observed_silage_rate": 0.2437
+      },
+      {
+        "bin": "0.5-0.6",
+        "n": 172,
+        "mean_p": 0.5483,
+        "observed_silage_rate": 0.3372
+      },
+      {
+        "bin": "0.6-0.7",
+        "n": 140,
+        "mean_p": 0.6497,
+        "observed_silage_rate": 0.55
+      },
+      {
+        "bin": "0.7-0.8",
+        "n": 169,
+        "mean_p": 0.7524,
+        "observed_silage_rate": 0.7041
+      },
+      {
+        "bin": "0.8-0.9",
+        "n": 234,
+        "mean_p": 0.8549,
+        "observed_silage_rate": 0.9103
+      },
+      {
+        "bin": "0.9-1.0",
+        "n": 389,
+        "mean_p": 0.9529,
+        "observed_silage_rate": 0.9614
+      }
+    ],
+    "expected_calibration_error": 0.0833,
+    "mean_p": 0.518,
+    "observed_silage_rate": 0.4655
+  },
+  "G_fast_changing_counties": {
+    "computed_after_main_tests": true,
+    "grouping_defined_after_results_seen": true,
+    "satellite_column": "county-share model, out of fold, mean block probability",
+    "fast_changing": {
+      "n": 46,
+      "mae_last_census": 0.2055,
+      "mae_satellite": 0.1534,
+      "mae_census_plus_satellite": 0.1671,
+      "counties_satellite_closer": 30
+    },
+    "stable": {
+      "n": 117,
+      "mae_last_census": 0.0335,
+      "mae_satellite": 0.1326,
+      "mae_census_plus_satellite": 0.0459,
+      "counties_satellite_closer": 17
+    },
+    "overall": {
+      "n": 163,
+      "mae_last_census": 0.082,
+      "mae_satellite": 0.1385,
+      "mae_census_plus_satellite": 0.0801,
+      "counties_satellite_closer": 47
+    },
+    "prior_source_counts": {
+      "2017": 156,
+      "2012": 4,
+      "state 5-yr": 3
+    }
+  },
+  "H_in_season_jan_oct": {
+    "maryland_44": {
+      "maryland_only": {
+        "n": 44,
+        "n_silage": 12,
+        "n_grain": 32,
+        "correct": 40,
+        "accuracy": 0.9091,
+        "silage_called_silage": 8,
+        "silage_called_grain": 4,
+        "grain_called_silage": 0,
+        "grain_called_grain": 32,
+        "silage_precision": 1.0,
+        "silage_recall": 0.6667,
+        "grain_precision": 0.8889,
+        "grain_recall": 1.0,
+        "balanced_accuracy": 0.8333,
+        "kappa": 0.7442,
+        "auc": 0.9583,
+        "per_year_correct": {
+          "2021": "16/18",
+          "2022": "6/7",
+          "2023": "18/19"
+        }
+      },
+      "county_share": {
+        "n": 44,
+        "n_silage": 12,
+        "n_grain": 32,
+        "correct": 38,
+        "accuracy": 0.8636,
+        "silage_called_silage": 7,
+        "silage_called_grain": 5,
+        "grain_called_silage": 1,
+        "grain_called_grain": 31,
+        "silage_precision": 0.875,
+        "silage_recall": 0.5833,
+        "grain_precision": 0.8611,
+        "grain_recall": 0.9688,
+        "balanced_accuracy": 0.776,
+        "kappa": 0.6163,
+        "auc": 0.8698,
+        "per_year_correct": {
+          "2021": "16/18",
+          "2022": "6/7",
+          "2023": "16/19"
+        }
+      }
+    },
+    "quebec": {
+      "maryland_only": {
+        "n": 2245,
+        "n_silage": 1045,
+        "n_grain": 1200,
+        "correct": 1464,
+        "accuracy": 0.6521,
+        "silage_called_silage": 422,
+        "silage_called_grain": 623,
+        "grain_called_silage": 158,
+        "grain_called_grain": 1042,
+        "silage_precision": 0.7276,
+        "silage_recall": 0.4038,
+        "grain_precision": 0.6258,
+        "grain_recall": 0.8683,
+        "balanced_accuracy": 0.6361,
+        "kappa": 0.2802,
+        "auc": 0.7108,
+        "per_year_correct": {
+          "2021": "517/760",
+          "2022": "439/736",
+          "2023": "508/749"
+        }
+      },
+      "county_share": {
+        "n": 2245,
+        "n_silage": 1045,
+        "n_grain": 1200,
+        "correct": 1811,
+        "accuracy": 0.8067,
+        "silage_called_silage": 744,
+        "silage_called_grain": 301,
+        "grain_called_silage": 133,
+        "grain_called_grain": 1067,
+        "silage_precision": 0.8483,
+        "silage_recall": 0.712,
+        "grain_precision": 0.78,
+        "grain_recall": 0.8892,
+        "balanced_accuracy": 0.8006,
+        "kappa": 0.6074,
+        "auc": 0.864,
+        "per_year_correct": {
+          "2021": "610/760",
+          "2022": "597/736",
+          "2023": "604/749"
+        }
+      }
+    }
+  },
+  "I_scale": {
+    "counties_scored": 163,
+    "states": 36,
+    "national_blocks": 16300,
+    "blocks_per_county": 100.0,
+    "test_counties": 7,
+    "test_county_blocks": 1400,
+    "test_county_states": 4,
+    "blocks_total": 17700,
+    "quebec_field_years": 2245,
+    "quebec_silage_field_years": 1045,
+    "maryland_test_field_years": 44,
+    "years_field_tests": [
+      2021,
+      2022,
+      2023
+    ],
+    "block_year": [
+      2022
+    ]
+  },
+  "quoted_not_recomputed": {
+    "five_feature_baseline_maryland_correct": "39/44",
+    "mcnemar_vs_baseline": "4 vs 2, p = 0.69",
+    "source": "VALIDATION.md"
+  }
+}
