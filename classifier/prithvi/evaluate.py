@@ -41,9 +41,21 @@ CS = [0.05, 0.5]
 KEYS = ["field_id", "farm", "field", "year", "label"]
 
 
+class CappedPCA(PCA):
+    """PCA capped at the size the training fold allows (plain PCA fails when k is larger than the fold)."""
+
+    def fit(self, X, y=None):
+        self.n_components = min(self.n_components, *X.shape)
+        return super().fit(X, y)
+
+    def fit_transform(self, X, y=None):
+        self.n_components = min(self.n_components, *X.shape)
+        return super().fit_transform(X, y)
+
+
 def head(emb, hand, k, c):
     """Impute + standardize; PCA(k) on the embedding columns only; logistic regression."""
-    e = [SimpleImputer(strategy="median"), StandardScaler()] + ([PCA(k, svd_solver="full")] if k else [])
+    e = [SimpleImputer(strategy="median"), StandardScaler()] + ([CappedPCA(k, svd_solver="full")] if k else [])
     parts = [("emb", make_pipeline(*e), emb)]
     if hand:
         parts.append(("hand", make_pipeline(SimpleImputer(strategy="median"), StandardScaler()), hand))

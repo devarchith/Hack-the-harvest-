@@ -11,6 +11,7 @@ field-years to tell silage corn from grain corn, scored against the 5-feature lo
 | 1. Labeled field-years with polygons | `prithvi_field_years.py` | any machine with the repo `data/` folder | `field_years.csv` (127 rows) |
 | 2. 30 m six-band image stacks, June-November, 2017-2023 | `prithvi_chips.py` | CPU, network | `<chips>/<year>.npz`, `<chips>/<year>.provenance.json` |
 | 3. Split, train, choose on validation, test once | `prithvi_train.py` | NVIDIA GPU | `results/prithvi/` |
+| 4. Frozen embeddings scored with the team's shared evaluator | `prithvi_evaluate.sh` (runs `prithvi_embed.py`, `evaluate.py`, `prithvi_select.py`) | NVIDIA GPU, then CPU | `results/evaluate/` |
 
 ```bash
 PY=/home/keeboh/venvs/prithvi/bin/python
@@ -53,6 +54,22 @@ It downloads the Prithvi checkpoints from Hugging Face (`ibm-nasa-geospatial/Pri
   polygon, then the four frame vectors are concatenated.
 - **Choice and test:** each seed picks the candidate with the lowest validation log loss. The test part is scored once
   for that candidate and for the baseline (5 hand features, logistic regression, fitted on the same training part).
+
+## Shared evaluator (step 4)
+
+`prithvi_evaluate.sh` scores frozen Prithvi embeddings the same way the Presto, AlphaEarth and TESSERA embeddings were
+scored: the 5-feature baseline must first reproduce its six published numbers; the head (embedding alone or with the
+5 hand features, PCA size, C) is chosen on the 2017-2020 hold-out-one-year split only; the chosen head is then run once
+on every split, including train 2017-2020, test on the 44 official 2021-2023 labels.
+
+- Four embedding tables: the 300M model, chip at 30 m or upsampled to 15 m, and either the 4 frames above or 8
+  two-week frames from Aug 1 to Nov 20 (a pixel with no clear reading in a frame takes the nearest frame's value).
+- `prithvi_select.py` picks one table, also on the 2017-2020 split only; the others are listed for reference.
+- `evaluate.py` is the shared evaluator with one change: the PCA size is capped at what the training fold allows.
+  Plain PCA fails when the chosen size (32) exceeds the 26 field-years of the other-farms split; nothing changes
+  where it ran before.
+- It needs `research/grain_vs_silage/model_comparison.py` and `results/aef_embeddings.csv` from `main`, so the script
+  runs it inside a fresh copy of `main`.
 
 ## Outputs (`results/prithvi/`)
 

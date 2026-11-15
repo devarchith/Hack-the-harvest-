@@ -32,8 +32,25 @@ scored once:
 - Prithvi misses more silage. It calls fewer fields silage overall, so it also makes fewer false silage calls.
 - Validation parts are small (19-21 field-years) and many versions score perfectly on them (seed 0: the top 5 all
   21 of 21), so the choice between versions is weakly informed.
-- For reference, on the standard test (train on 2017-2020, score the 44 official 2021-2023 labels) the 5-feature model
-  gets 39 of 44 (`research/grain_vs_silage/results/model_comparison.md`). Prithvi has not been scored on that test.
+
+**Through the team's shared evaluator** (`prithvi/prithvi_evaluate.sh`; same protocol as Presto, AlphaEarth and
+TESSERA: the head and the Prithvi version are chosen on 2017-2020 only, then every test is run once):
+
+| Test | 5-feature baseline | Prithvi, chosen (300M, 30 m, 4 frames) |
+|---|---|---|
+| Train 2017-2020, test the 44 official 2021-2023 labels | 39 of 44 | 38 of 44 |
+| Hold out one year, 2017-2023 | 113 of 127 | 115 of 127 |
+| Hold out one year, 2021-2023 | 42 of 44 | 40 of 44 |
+| Train on other farms, test Central Farm 2021-2023 | 24 of 25 | 16 of 25 |
+| Train on fields never in 2021-2023, test 2021-2023 | 40 of 44 | 36 of 44 |
+| Choice split: hold out one year, 2017-2020 | 68 of 83 | 76 of 83 |
+
+- The chosen version adds the 5 hand features to 32 principal components of the embedding.
+- The two versions with 8 two-week frames (Aug 1 to Nov 20) lost the choice by 2 field-years (74 vs 76 of 83) but
+  matched or beat the chosen one on every test: 42 and 41 of 44 on the official test, 122 and 119 of 127 holding out
+  one year, 24 and 23 of 25 on Central Farm. Because they were not chosen on 2017-2020, these are not results to claim;
+  they point to the next version to test.
+- For comparison, Presto plus the 5 hand features, chosen the same way, scored 42 of 44 on the official test.
 
 **The extra labels hold up where they are backed by a harvest record.** The farm's public records never contradict
 the official labels where both exist. A model fitted only on the official labels agrees with 27 of 27 harvest-backed
