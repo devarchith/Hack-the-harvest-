@@ -8,6 +8,8 @@ Labels never pass through fetch or load; barc_labels() is for validation only.
 
 Usage (from the repository root):
     python preprocessing/loader.py --gpkg PATH/BARC_Corn.2021-2023.gpkg --years 2021 2022 2023
+    python preprocessing/loader.py --fields data/fields_kraatz_2017_2020.gpkg --years 2017 2018 2019 2020 \
+        --tag kraatz_2017_2020 --cell-m 50000 --weather
 """
 
 from __future__ import annotations
@@ -37,7 +39,7 @@ from shapely.geometry import box
 PC_STAC = "https://planetarycomputer.microsoft.com/api/stac/v1"
 BARC_LAYER = "barc_silage_grain_corn20212023"
 BARC_LABEL_COLUMNS = {"Corn_2021": 2021, "Corn_2022": 2022, "Corn_2023": 2023}
-LOADER_VERSION = "0.1.2"
+LOADER_VERSION = "0.1.3"
 
 # Per sensor: collection, asset keys mapped to common names, resolution and cloud rule.
 SENSORS = {
@@ -199,8 +201,17 @@ def _process_day(sensor, items, gbox, pixels, lon, retries=3):
 
 def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2", "landsat"),
                  out_dir="data", tag="barc", id_col="field_id", buffer_m=10.0, cell_m=20000,
-                 max_scene_cloud=95, workers=32, usable_frac=0.6, crs="auto") -> pd.DataFrame:
-    """Build the per-field time series and write data/series_<tag>.parquet plus provenance JSON."""
+                 max_scene_cloud=95, workers=32, usable_frac=0.6, crs="auto",
+                 retry_failed=False) -> pd.DataFrame:
+    """Build the per-field time series and write data/series_<tag>.parquet plus provenance JSON.
+
+    retry_failed=True re-reads only the scene-days listed as failures in an earlier run with the same tag and
+    the same arguments, and merges them into that run's parquet (Planetary Computer throttles bursts)."""
+    out = Path(out_dir)
+    prev = None
+    if retry_failed:
+        prev = json.loads((out / f"series_{tag}.provenance.json").read_text())
+        failed_ids = {tuple(f["items"]) for f in prev["failures"]}
     # Without a timeout a stalled blob read blocks its thread forever and the run never finishes.
     configure_rio(cloud_defaults=True, GDAL_HTTP_TIMEOUT=60, GDAL_HTTP_MAX_RETRY=3, GDAL_HTTP_RETRY_DELAY=2)
     fields = fields.to_crs(4326)
@@ -241,6 +252,10 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
                     by_day.setdefault(_solar_day(it, lon), []).append(it)
                 tasks += [(sensor, grp, gbox, pixels) for grp in by_day.values()]
 
+    if prev is not None:
+        tasks = [t for t in tasks if tuple(i.id for i in t[1]) in failed_ids]
+        print(f"retrying {len(tasks)} of {len(failed_ids)} failed scene-days", flush=True)
+
     rows, failures = [], []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = {pool.submit(_process_day, s, g, gb, px, lon): (s, g) for s, g, gb, px in tasks}
@@ -253,9 +268,10 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
             if n % 50 == 0 or n == len(futs):
                 print(f"  {n}/{len(futs)} scene-days done, {len(failures)} failed", flush=True)
 
-    if not rows:
+    if not rows and prev is None:
         raise RuntimeError(f"no rows produced; first failure: {failures[:1]}")
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows) if rows else pd.DataFrame(
+        columns=["field_id", "date", "sensor", "platform", "items", "baseline", "n_pix", "n_valid"])
     for col in REFLECTANCE + INDICES:
         if col not in df:
             df[col] = np.nan
@@ -265,9 +281,12 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
     df["usable"] = df["valid_frac"] >= usable_frac
     front = ["field_id", "year", "date", "sensor", "platform", "items", "baseline",
              "n_pix", "n_valid", "valid_frac", "usable"]
-    df = df[front + REFLECTANCE + INDICES].sort_values(["field_id", "date", "sensor"]).reset_index(drop=True)
+    df = df[front + REFLECTANCE + INDICES]
+    if prev is not None:
+        old = pd.read_parquet(out / f"series_{tag}.parquet")
+        df = pd.concat([old, df]).drop_duplicates(["field_id", "date", "sensor"], keep="last")
+    df = df.sort_values(["field_id", "date", "sensor"]).reset_index(drop=True)
 
-    out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     df.to_parquet(out / f"series_{tag}.parquet", index=False)
     prov = {
@@ -284,6 +303,12 @@ def fetch_series(fields: gpd.GeoDataFrame, years, months=(3, 12), sensors=("s2",
         "fields_without_inward_buffer": fallback_total, "queries": prov_queries,
         "scene_days": len(tasks), "failures": failures, "rows": int(len(df)),
     }
+    if prev is not None:
+        prov["scene_days"] = prev["scene_days"]
+        prov["retries"] = prev.get("retries", []) + [{
+            "created_utc": prov["created_utc"], "retried": len(tasks),
+            "recovered": len(tasks) - len(failures), "still_failed": len(failures)}]
+        prov["created_utc"] = prev["created_utc"]
     (out / f"series_{tag}.provenance.json").write_text(json.dumps(prov, indent=1, default=str))
     return df
 
@@ -345,7 +370,12 @@ def load_series(path="data/series_barc.parquet", years=None, field_ids=None, sen
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--gpkg", required=True, help="BARC GeoPackage from the starter kit")
+    src = p.add_mutually_exclusive_group(required=True)
+    src.add_argument("--gpkg", help="BARC GeoPackage from the starter kit")
+    src.add_argument("--fields", help="any polygon file with an integer id column (e.g. from kraatz_fields.py)")
+    p.add_argument("--id-col", default="field_id", help="id column in --fields")
+    p.add_argument("--cell-m", type=int, default=20000,
+                   help="field grouping cell; 50000 reads BARC once per scene instead of four times")
     p.add_argument("--years", type=int, nargs="+", default=[2021, 2022, 2023])
     p.add_argument("--months", type=int, nargs=2, default=[3, 12])
     p.add_argument("--sensors", nargs="+", default=["s2", "landsat"], choices=list(SENSORS))
@@ -353,15 +383,20 @@ def main(argv=None):
     p.add_argument("--tag", default="barc")
     p.add_argument("--workers", type=int, default=32)
     p.add_argument("--weather", action="store_true", help="also fetch Daymet daily weather")
+    p.add_argument("--retry-failed", action="store_true",
+                   help="re-read only the scene-days that failed in the earlier run with this --tag and merge them")
     a = p.parse_args(argv)
-    fields = barc_fields(a.gpkg)
+    if a.gpkg:
+        fields, id_col = barc_fields(a.gpkg), "field_id"
+    else:
+        fields, id_col = gpd.read_file(a.fields), a.id_col
     t0 = time.time()
     df = fetch_series(fields, a.years, months=tuple(a.months), sensors=a.sensors, out_dir=a.out,
-                      tag=a.tag, workers=a.workers)
+                      tag=a.tag, id_col=id_col, cell_m=a.cell_m, workers=a.workers, retry_failed=a.retry_failed)
     print(f"{len(df)} rows, {df['field_id'].nunique()} fields, {df['usable'].mean():.0%} usable, "
           f"{time.time() - t0:.0f} s -> {a.out}/series_{a.tag}.parquet")
     if a.weather:
-        w = fetch_daymet(fields, a.years, out_dir=a.out, tag=a.tag)
+        w = fetch_daymet(fields, a.years, id_col=id_col, out_dir=a.out, tag=a.tag)
         print(f"weather: {len(w)} rows -> {a.out}/weather_{a.tag}.parquet")
 
 

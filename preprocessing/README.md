@@ -55,6 +55,24 @@ series = load_series("data/series_barc.parquet")  # usable readings only by defa
 series = add_rain_flag(series, pd.read_parquet("data/weather_barc.parquet"))
 ```
 
+### Extra training years (2017 to 2020)
+
+The Kraatz farm records (Zenodo 8087301: `farmdb.zip`, `outlines.zip`) give Grain or Silage for BARC fields
+before 2021. `research/grain_vs_silage/kraatz_fields.py` turns them into field-years with polygons, then
+`--fields` points the loader at them (`research/grain_vs_silage/reproduce.py` runs both):
+
+```bash
+python research/grain_vs_silage/kraatz_fields.py --kraatz-dir data/kraatz_zenodo_8087301
+python preprocessing/loader.py --fields data/fields_kraatz_2017_2020.gpkg --years 2017 2018 2019 2020 --tag kraatz_2017_2020 --cell-m 50000 --weather
+```
+
+- Label: the harvest-record class when there is one (2019 to 2020), otherwise the planting-record class (all of
+  2017 and 2018). Whole-field rows only.
+- Polygon: the evaluation polygon when the field name matches, keeping its `OBJECTID` as `field_id`; otherwise
+  the Kraatz outline (`field_id` 1000 and up). Field-years whose sub-field (for example 1-7A to 1-7F) has no
+  polygon are dropped: 52 of 135.
+- Result: 83 field-years (64 Grain, 19 Silage) on 54 polygons.
+
 Run cost, all 83 fields, March to December 2021 to 2023, 32 threads on a 12-core laptop:
 
 - Default `cell_m=20000`: the fields straddle a cell corner, so each scene is read 4 times. 1,136 scene-days,
