@@ -18,9 +18,14 @@ and against the Prithvi classifier in `../prithvi/`.
 - **Outside Maryland it mostly says Grain.** Trained on BARC only and scored once on 2,245 Québec field-years, Presto
   ranks silage above grain better than chance (AUC 0.78) but catches 149 of 1,045 silage fields at the 0.5 cut. At the
   silage share of the sampled area, its accuracy (0.83) is barely above calling every field Grain (0.81).
+- **County totals say the same for the official model.** In 7 US counties whose 2022 Census silage share runs from 1%
+  to 92%, the share of corn it calls silage does not follow the Census (Spearman −0.04, exact one-sided p 0.55). The
+  January-October model leans the right way but is not significant with 7 counties (0.64, p 0.069). Both call about
+  10% silage in two New York dairy counties where the Census has 53-76%.
 - **Where to read the numbers:** `results/standard_test_fixed_labels/summary.md` (official test),
   `results/standard_test_fixed_labels_jan_oct/summary.md` (January-October), `results/quebec_test*/summary.md`
-  (Québec). Each BARC run folder's `metrics.md` has every metric with its interval.
+  (Québec), `results/county_test*/summary.md` (US counties). Each BARC run folder's `metrics.md` has every metric
+  with its interval.
 - **To rerun:** the commands under Pipeline. Each run takes a few minutes on one GPU once the pixels are pulled.
 
 ## Hypothesis
@@ -119,6 +124,31 @@ What BARC teaches does not carry over at the BARC cut: the full-year model calls
 where 19% are. Hiding November and December lowers the ranking (AUC 0.71) and does not fix the calls. The Québec labels
 are crop-insurance declarations, not harvest records.
 
+**On county totals:** the same two models score 200 random 90 m corn blocks (2022 Cropland Data Layer) in each of 7
+counties in UTM zone 18N, and the share they call silage is compared with the county's 2022 Census silage share of
+harvested corn acres (`../counties/README.md`, `results/county_test/`, `results/county_test_jan_oct/`). No county number
+is used to train or choose anything. The main result, fixed before any prediction, is the Spearman correlation of the
+county's mean probability with the Census share.
+
+| County | Census 2022 silage share | Jan-Dec: mean probability | Jan-Dec: called silage | Jan-Oct: mean probability | Jan-Oct: called silage |
+|---|---|---|---|---|---|
+| Queen Anne's, MD | 0.013 | 0.250 | 0.220 | 0.120 | 0.080 |
+| Carroll, MD | 0.089 | 0.229 | 0.200 | 0.162 | 0.140 |
+| York, PA | 0.078 | 0.128 | 0.110 | 0.107 | 0.080 |
+| Lancaster, PA | 0.274 | 0.485 | 0.515 | 0.303 | 0.290 |
+| Cayuga, NY | 0.525 | 0.142 | 0.100 | 0.153 | 0.095 |
+| Washington, NY | 0.759 | 0.155 | 0.115 | 0.140 | 0.105 |
+| Addison, VT | 0.921 | 0.236 | 0.210 | 0.385 | 0.350 |
+| Spearman with the Census share (exact one-sided p) | | −0.04 (0.55) | −0.14 | 0.64 (0.069) | 0.70 |
+| Mean absolute gap from the Census share (every block Grain: 0.380) | | | 0.339 | | 0.256 |
+
+With all months the county shares do not follow the Census. With January-October they lean the right way but are not
+significant with 7 counties: false silage calls in the two Maryland counties drop (from 22% and 20% to 8% and 14%) and
+Addison rises (21% to 35%), but Cayuga and Washington NY stay near 10% against 53-76%. Intervals per county (resampling
+1 km cells) are in each `summary.md`. The Census share covers the whole county; the blocks come from one 20 km square
+of it. The Census shares were corrected after the first scoring, which had added 2022 county SURVEY estimates to the
+Census acres; the predictions did not change, and the January-October Spearman rose from 0.50 to 0.64.
+
 ## Pipeline
 
 | Step | Script | Runs on | Output |
@@ -127,6 +157,7 @@ are crop-insurance declarations, not harvest records.
 | 2a. Mixed-year splits: split, train, choose on validation, test once | `presto_train.py` | NVIDIA GPU (CPU works, slowly) | `results/presto*/` |
 | 2b. Standard test: choose on 2017-2020, test 2021-2023 once | `presto_standard_test.py` | NVIDIA GPU | `results/standard_test*/` |
 | 2c. Québec test: the model chosen in 2b, trained on BARC only, scores Québec once | `presto_quebec_test.py` | NVIDIA GPU | `results/quebec_test*/` |
+| 2d. County test: the same model scores 200 corn blocks in each of 7 US counties against the 2022 Census | `presto_county_test.py` | NVIDIA GPU | `results/county_test*/` |
 | 3. Metrics with confidence intervals | `../metrics/report.py` | CPU | `results/*/metrics.md`, `metrics.csv` |
 | Optional: frozen field embeddings for `../prithvi/evaluate.py` | `presto_embed.py` | NVIDIA GPU | one CSV |
 
@@ -153,6 +184,10 @@ QT="--pixels /home/keeboh/work/presto/pixels --quebec-pixels /home/keeboh/work/q
 $PY classifier/presto/presto_quebec_test.py $QT --setting-from $R/standard_test_fixed_labels --out $R/quebec_test
 $PY classifier/presto/presto_quebec_test.py $QT --setting-from $R/standard_test_fixed_labels_jan_oct \
   --out $R/quebec_test_jan_oct
+CT="--pixels /home/keeboh/work/presto/pixels --county-pixels /home/keeboh/work/counties/pixels --presto-dir /home/keeboh/ext/presto"
+$PY classifier/presto/presto_county_test.py $CT --setting-from $R/standard_test_fixed_labels --out $R/county_test
+$PY classifier/presto/presto_county_test.py $CT --setting-from $R/standard_test_fixed_labels_jan_oct \
+  --out $R/county_test_jan_oct
 $PY classifier/metrics/report.py --predictions $R/standard_test_fixed_labels/test_predictions.csv \
   --models p_finetune="Presto fine-tuned" p_frozen="Presto frozen" p_baseline="5-feature baseline" \
   --baseline p_baseline --out $R/standard_test_fixed_labels/metrics.md
@@ -164,7 +199,8 @@ use `field_years.csv`, the original 127-row table (the `results/presto`, `presto
 `standard_test_jan_oct` runs). Step 1 took 6-7 minutes per BARC year with the years in parallel (1,342 scene-days,
 none failed). On one NVIDIA B200, a mixed-year run took 2-5 minutes and a standard-test run 7-20 minutes, depending on
 how many runs shared the GPU. The scripts need `torch`, `einops` and the packages in
-`research/grain_vs_silage/requirements.txt`.
+`research/grain_vs_silage/requirements.txt`. The county pixels come from `presto_pixels.py` too, one run per county
+(`../counties/README.md`).
 
 ## Inputs
 
