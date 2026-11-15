@@ -11,20 +11,22 @@ Agricultural Research Center (BARC), using only public satellite data:
 ## Status: Prithvi stops here
 
 Prithvi-EO-2.0 does not beat the 5-feature model on any test, and its best-looking version (8 frames) did not hold
-up on years no model had seen (below). Presto is the stronger pretrained model wherever the two were scored the same
-way:
+up on years no model had seen (below). Fine-tuned Presto does better than Prithvi on the same seeded splits; frozen
+Presto embeddings do worse than Prithvi's through the shared evaluator on two of the three tests below (original
+127-row labels):
 
 | Test (correct field-years) | 5-feature model | Prithvi | Presto |
 |---|---|---|---|
-| Same 5 seeded splits, 101 test field-years, version chosen on validation | 90 | 87 | 95 |
-| Shared evaluator: train 2017-2020, test the 44 official labels | 39 | 38 | 42 |
-| Shared evaluator: hold out one year, 2017-2023 (127) | 113 | 115 | 117 |
-| Shared evaluator: train on other farms, test Central Farm (25) | 24 | 16 | 19 |
+| Same 5 seeded splits, 101 test field-years, version chosen on validation | 90 | 87 | 95 (fine-tuned) |
+| Shared evaluator: train 2017-2020, test the 44 official labels | 39 | 38 | 34 (frozen) |
+| Shared evaluator: hold out one year, 2017-2023 (127) | 113 | 115 | 109 (frozen) |
+| Shared evaluator: train on other farms, test Central Farm (25) | 24 | 16 | 18 (frozen) |
 
-Neither pretrained model beats the 5-feature model significantly (Presto on the official test: right where it is
-wrong 4 times, the reverse once, McNemar p = 0.38), and both do worse than it on Central Farm when trained on the
-other farms. The Presto numbers come from its own runs: the fine-tuned classifier on the same seeded splits
-(`classifier/presto/`, branch `presto-classifier`) and its field embeddings scored by `evaluate.py`.
+Neither pretrained model beats the 5-feature model significantly. Fine-tuned Presto, chosen on 2017-2020 only, gets 41
+of 44 on the official test (right where the 5-feature model is wrong 4 times, the reverse twice, McNemar p = 0.69).
+Both do worse than the 5-feature model on Central Farm when trained on the other farms. The Presto numbers are in
+`classifier/presto/results/` (branch `presto-classifier`): `presto/` and `standard_test/` for the fine-tuned model,
+`shared_evaluator_frozen/` for its frozen embeddings through `evaluate.py`.
 
 ## Results so far
 
@@ -68,7 +70,8 @@ TESSERA: the head and the Prithvi version are chosen on 2017-2020 only, then eve
   matched or beat the chosen one on every test: 42 and 41 of 44 on the official test, 122 and 119 of 127 holding out
   one year, 24 and 23 of 25 on Central Farm. Because they were not chosen on 2017-2020, these are not results to claim;
   they were tested once on new years (below).
-- For comparison, Presto plus the 5 hand features, chosen the same way, scored 42 of 44 on the official test.
+- For comparison, frozen Presto embeddings plus the 5 hand features scored 39 of 44 on the official test (also not
+  the evaluator's choice for Presto, which kept the embedding alone: 34 of 44).
 
 **On years no model has seen, the 8-frame version does not hold up** (`prithvi/prithvi_fresh.sh`). 45 field-years
 from the farm reports in 2014, 2015, 2016 and 2024 (35 Grain, 10 Silage), never used for training or any choice.
