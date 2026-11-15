@@ -5,7 +5,7 @@ and a bare, low-residue field; grain corn dries down slowly and leaves residue. 
 from Sentinel-2 + Landsat capture this and separate the two classes on held-out years.
 
 Everything here reproduces with one command (see [Reproduce](#reproduce)). Full numbers:
-[`results/report.md`](results/report.md). Notes for an AI assistant picking this up: [`CLAUDE.md`](CLAUDE.md).
+[`results/report.md`](results/report.md).
 
 ## Results at a glance
 

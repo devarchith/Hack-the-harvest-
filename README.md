@@ -10,6 +10,22 @@ work, Quick Stats context, and labeled BARC evaluation data for the UC Davis
 Hackathon. Teams may choose their own sensors, data sources, features, and
 models. The included notebooks are starting points, not a required solution.
 
+## Team Work
+
+- [`preprocessing/`](preprocessing/README.md): loader that builds one row per
+  field, date and satellite (Sentinel-2, Landsat 8/9) from Microsoft Planetary
+  Computer imagery.
+- [`research/grain_vs_silage/`](research/grain_vs_silage/README.md): the
+  5-feature harvest-timing model, trained on 2017-2020 farm records and tested
+  on the 44 labeled 2021-2023 field-years, with a model comparison.
+- [`classifier/`](classifier/README.md): pretrained models (Presto, Prithvi)
+  fine-tuned on the BARC labels, label checks, shared test metrics and Québec
+  training rows.
+- [`02_QuickStats/state_silage_ratios.ipynb`](02_QuickStats/state_silage_ratios.ipynb):
+  expected silage and grain shares by state and year, to check predicted totals.
+- [`unlabeled_data/`](unlabeled_data/): the 83 BARC field outlines with the crop
+  labels removed.
+
 ## Repository Guide
 
 ### `01_Challenge`
@@ -43,7 +59,7 @@ python .\02_QuickStats\download_corn_acres.py
 
 - [data_sources.md](03_Geospatial_References/data_sources.md): multiple open
   geospatial data pathways, source-validation guidance, and feature ideas.
-- [starter_notebook.ipynb](03_Geospatial_References/starter_notebook.ipynb):
+- [sentinel-2_starter_notebook.ipynb](03_Geospatial_References/sentinel-2_starter_notebook.ipynb):
   one optional Sentinel-2 workflow using a field GeoJSON AOI, cloud masking,
   NDVI, and harvest-timing features.
 
