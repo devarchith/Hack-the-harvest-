@@ -1,0 +1,102 @@
+field_id,farm,field,year,label,label_source,seed,chosen,p_presto,p_baseline,scratch_chosen,p_scratch
+238,CentralFarm,1-15,2017,Silage,farm records 2017-2020,0,finetune lr=0.0003,0.9887,0.5379,scratch lr=0.0001,0.3756
+382,EastFarm,5-2A,2017,Silage,farm records 2017-2020,0,finetune lr=0.0003,0.9995,0.8407,scratch lr=0.0001,0.3832
+397,EastFarm,5-3F,2017,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.0023,0.1939,scratch lr=0.0001,0.3838
+1032,EastFarm,5-3H,2017,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.001,0.1109,scratch lr=0.0001,0.3836
+286,CentralFarm,2-51,2018,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.0079,0.1442,scratch lr=0.0001,0.3849
+382,EastFarm,5-2A,2019,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.4683,0.4889,scratch lr=0.0001,0.3848
+397,EastFarm,5-3F,2019,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.0007,0.1534,scratch lr=0.0001,0.3853
+1032,EastFarm,5-3H,2019,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.0005,0.105,scratch lr=0.0001,0.3853
+231,CentralFarm,1-11,2020,Silage,farm records 2017-2020,0,finetune lr=0.0003,0.9996,0.9869,scratch lr=0.0001,0.3853
+1032,EastFarm,5-3H,2020,Grain,farm records 2017-2020,0,finetune lr=0.0003,0.003,0.096,scratch lr=0.0001,0.3792
+238,Central Farm,1-15,2021,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.0939,0.1831,scratch lr=0.0001,0.385
+286,Central Farm,2-51,2021,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.3961,0.1041,scratch lr=0.0001,0.3848
+231,Central Farm,1-11,2022,Silage,evaluation labels 2021-2023,0,finetune lr=0.0003,0.9873,0.9844,scratch lr=0.0001,0.3854
+286,Central Farm,2-51,2022,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.0005,0.0251,scratch lr=0.0001,0.3781
+231,Central Farm,1-11,2023,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.2763,0.1948,scratch lr=0.0001,0.3847
+238,Central Farm,1-15,2023,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.1307,0.0461,scratch lr=0.0001,0.3848
+286,Central Farm,2-51,2023,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.0121,0.0776,scratch lr=0.0001,0.385
+382,East Farm,5-2A,2023,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.0172,0.1677,scratch lr=0.0001,0.3841
+397,East Farm,5-3F,2023,Grain,evaluation labels 2021-2023,0,finetune lr=0.0003,0.0018,0.026,scratch lr=0.0001,0.3854
+317,CentralFarm,4-16,2017,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0073,0.0447,scratch lr=0.0003,0.4449
+394,EastFarm,5-3C,2017,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0121,0.0895,scratch lr=0.0003,0.4447
+416,EastFarm,5-45A,2017,Silage,farm records 2017-2020,1,finetune lr=0.0003,0.9907,0.9541,scratch lr=0.0003,0.4593
+1035,EastFarm,6-59,2017,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0054,0.0228,scratch lr=0.0003,0.4591
+1044,NorthFarm,NG-1-6,2017,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0627,0.0009,scratch lr=0.0003,0.4449
+5,APU,1-98,2018,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0708,0.2378,scratch lr=0.0003,0.4389
+419,EastFarm,5-45D,2018,Silage,farm records 2017-2020,1,finetune lr=0.0003,0.7015,0.9469,scratch lr=0.0003,0.4321
+1027,EastFarm,5-11,2018,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.172,0.1012,scratch lr=0.0003,0.4448
+1035,EastFarm,6-59,2018,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0269,0.0625,scratch lr=0.0003,0.4447
+394,EastFarm,5-3C,2019,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0244,0.058,scratch lr=0.0003,0.4388
+416,EastFarm,5-45A,2019,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0207,0.1393,scratch lr=0.0003,0.439
+1035,EastFarm,6-59,2019,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0037,0.1484,scratch lr=0.0003,0.439
+5,APU,1-98,2020,Silage,farm records 2017-2020,1,finetune lr=0.0003,0.0231,0.0606,scratch lr=0.0003,0.4391
+317,CentralFarm,4-16,2020,Silage,farm records 2017-2020,1,finetune lr=0.0003,0.9534,0.7201,scratch lr=0.0003,0.439
+347,EastFarm,5-21,2020,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0069,0.0147,scratch lr=0.0003,0.4496
+1009,CentralFarm,1-21,2020,Silage,farm records 2017-2020,1,finetune lr=0.0003,0.995,0.9734,scratch lr=0.0003,0.439
+1035,EastFarm,6-59,2020,Grain,farm records 2017-2020,1,finetune lr=0.0003,0.0055,0.0494,scratch lr=0.0003,0.4496
+347,East Farm,5-21,2021,Grain,evaluation labels 2021-2023,1,finetune lr=0.0003,0.0052,0.3545,scratch lr=0.0003,0.4388
+429,East Farm,5-8,2022,Silage,evaluation labels 2021-2023,1,finetune lr=0.0003,0.1072,0.9779,scratch lr=0.0003,0.4512
+347,East Farm,5-21,2023,Grain,evaluation labels 2021-2023,1,finetune lr=0.0003,0.0332,0.5116,scratch lr=0.0003,0.4388
+394,East Farm,5-3C,2023,Grain,evaluation labels 2021-2023,1,finetune lr=0.0003,0.0088,0.1278,scratch lr=0.0003,0.439
+382,EastFarm,5-2A,2017,Silage,farm records 2017-2020,2,finetune lr=0.0003,0.9987,0.7867,scratch lr=0.0003,0.3223
+383,EastFarm,5-2B,2017,Silage,farm records 2017-2020,2,finetune lr=0.0003,0.9982,0.8,scratch lr=0.0003,0.3227
+286,CentralFarm,2-51,2018,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0089,0.1395,scratch lr=0.0003,0.3395
+291,CentralFarm,2-68B,2018,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.3939,0.4402,scratch lr=0.0003,0.3272
+419,EastFarm,5-45D,2018,Silage,farm records 2017-2020,2,finetune lr=0.0003,0.2232,0.9242,scratch lr=0.0003,0.3307
+240,CentralFarm,1-20B,2019,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0133,0.2774,scratch lr=0.0003,0.3392
+348,EastFarm,5-23,2019,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0152,0.1651,scratch lr=0.0003,0.3401
+382,EastFarm,5-2A,2019,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0668,0.3403,scratch lr=0.0003,0.3403
+383,EastFarm,5-2B,2019,Silage,farm records 2017-2020,2,finetune lr=0.0003,0.0601,0.4221,scratch lr=0.0003,0.3415
+1008,CentralFarm,1-20C,2019,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0038,0.2797,scratch lr=0.0003,0.3402
+347,EastFarm,5-21,2020,Grain,farm records 2017-2020,2,finetune lr=0.0003,0.0039,0.0503,scratch lr=0.0003,0.3475
+286,Central Farm,2-51,2021,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.1226,0.0844,scratch lr=0.0003,0.3394
+291,Central Farm,2-68B,2021,Silage,evaluation labels 2021-2023,2,finetune lr=0.0003,0.993,0.9794,scratch lr=0.0003,0.34
+347,East Farm,5-21,2021,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.0038,0.2625,scratch lr=0.0003,0.3401
+348,East Farm,5-23,2021,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.0665,0.0521,scratch lr=0.0003,0.3397
+286,Central Farm,2-51,2022,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.0008,0.0214,scratch lr=0.0003,0.683
+286,Central Farm,2-51,2023,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.0813,0.0692,scratch lr=0.0003,0.3396
+347,East Farm,5-21,2023,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.0462,0.4616,scratch lr=0.0003,0.3392
+348,East Farm,5-23,2023,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.1278,0.1549,scratch lr=0.0003,0.3398
+382,East Farm,5-2A,2023,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.6808,0.1855,scratch lr=0.0003,0.342
+383,East Farm,5-2B,2023,Grain,evaluation labels 2021-2023,2,finetune lr=0.0003,0.4272,0.2084,scratch lr=0.0003,0.3412
+317,CentralFarm,4-16,2017,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0881,0.0799,scratch lr=0.0001,0.384
+327,CentralFarm,4-7,2017,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0304,0.02,scratch lr=0.0001,0.4333
+422,EastFarm,5-5,2017,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0008,0.0062,scratch lr=0.0001,0.3832
+14,APU,18,2018,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0035,0.0015,scratch lr=0.0001,0.3811
+286,CentralFarm,2-51,2018,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.001,0.1288,scratch lr=0.0001,0.3804
+291,CentralFarm,2-68B,2018,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.1372,0.4056,scratch lr=0.0001,0.3842
+422,EastFarm,5-5,2019,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0023,0.0832,scratch lr=0.0001,0.3804
+317,CentralFarm,4-16,2020,Silage,farm records 2017-2020,3,finetune lr=0.0003,0.9961,0.6902,scratch lr=0.0001,0.3806
+327,CentralFarm,4-7,2020,Silage,farm records 2017-2020,3,finetune lr=0.0003,0.9779,0.901,scratch lr=0.0001,0.3809
+347,EastFarm,5-21,2020,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0308,0.0289,scratch lr=0.0001,0.4071
+422,EastFarm,5-5,2020,Grain,farm records 2017-2020,3,finetune lr=0.0003,0.0019,0.1228,scratch lr=0.0001,0.4065
+1009,CentralFarm,1-21,2020,Silage,farm records 2017-2020,3,finetune lr=0.0003,0.9993,0.9562,scratch lr=0.0001,0.3807
+286,Central Farm,2-51,2021,Grain,evaluation labels 2021-2023,3,finetune lr=0.0003,0.306,0.0518,scratch lr=0.0001,0.3803
+291,Central Farm,2-68B,2021,Silage,evaluation labels 2021-2023,3,finetune lr=0.0003,0.9963,0.9835,scratch lr=0.0001,0.3811
+327,Central Farm,4-7,2021,Silage,evaluation labels 2021-2023,3,finetune lr=0.0003,0.0038,0.3146,scratch lr=0.0001,0.3813
+328,Central Farm,4-8,2021,Silage,evaluation labels 2021-2023,3,finetune lr=0.0003,0.1692,0.9895,scratch lr=0.0001,0.3816
+347,East Farm,5-21,2021,Grain,evaluation labels 2021-2023,3,finetune lr=0.0003,0.0033,0.3289,scratch lr=0.0001,0.3812
+286,Central Farm,2-51,2022,Grain,evaluation labels 2021-2023,3,finetune lr=0.0003,0.0006,0.0175,scratch lr=0.0001,0.4248
+286,Central Farm,2-51,2023,Grain,evaluation labels 2021-2023,3,finetune lr=0.0003,0.0095,0.0631,scratch lr=0.0001,0.3807
+347,East Farm,5-21,2023,Grain,evaluation labels 2021-2023,3,finetune lr=0.0003,0.0518,0.5597,scratch lr=0.0001,0.3807
+292,CentralFarm,2-71A,2017,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.1606,0.0254,scratch lr=0.0001,0.399
+422,EastFarm,5-5,2017,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0029,0.0053,scratch lr=0.0001,0.4069
+1035,EastFarm,6-59,2017,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0036,0.0537,scratch lr=0.0001,0.421
+271,CentralFarm,2-13,2018,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.2292,0.018,scratch lr=0.0001,0.3989
+288,CentralFarm,2-66,2018,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0094,0.0817,scratch lr=0.0001,0.3985
+419,EastFarm,5-45D,2018,Silage,farm records 2017-2020,4,finetune lr=0.0003,0.2975,0.9295,scratch lr=0.0001,0.4018
+1035,EastFarm,6-59,2018,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0088,0.0402,scratch lr=0.0001,0.4067
+271,CentralFarm,2-13,2019,Silage,farm records 2017-2020,4,finetune lr=0.0003,0.4675,0.9959,scratch lr=0.0001,0.3989
+422,EastFarm,5-5,2019,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0039,0.1443,scratch lr=0.0001,0.3982
+1035,EastFarm,6-59,2019,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0033,0.1439,scratch lr=0.0001,0.3986
+231,CentralFarm,1-11,2020,Silage,farm records 2017-2020,4,finetune lr=0.0003,0.9926,0.9898,scratch lr=0.0001,0.3989
+422,EastFarm,5-5,2020,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0044,0.1524,scratch lr=0.0001,0.4104
+1035,EastFarm,6-59,2020,Grain,farm records 2017-2020,4,finetune lr=0.0003,0.0035,0.0323,scratch lr=0.0001,0.4104
+288,Central Farm,2-66,2021,Grain,evaluation labels 2021-2023,4,finetune lr=0.0003,0.0513,0.1337,scratch lr=0.0001,0.3987
+548,North Farm,ND-5-A,2021,Grain,evaluation labels 2021-2023,4,finetune lr=0.0003,0.0082,0.0524,scratch lr=0.0001,0.3989
+231,Central Farm,1-11,2022,Silage,evaluation labels 2021-2023,4,finetune lr=0.0003,0.772,0.9856,scratch lr=0.0001,0.3989
+429,East Farm,5-8,2022,Silage,evaluation labels 2021-2023,4,finetune lr=0.0003,0.1106,0.9719,scratch lr=0.0001,0.4108
+231,Central Farm,1-11,2023,Grain,evaluation labels 2021-2023,4,finetune lr=0.0003,0.2654,0.1712,scratch lr=0.0001,0.3992
+288,Central Farm,2-66,2023,Grain,evaluation labels 2021-2023,4,finetune lr=0.0003,0.0096,0.0535,scratch lr=0.0001,0.3989
+292,Central Farm,2-71A,2023,Silage,evaluation labels 2021-2023,4,finetune lr=0.0003,0.4333,0.9854,scratch lr=0.0001,0.3991

@@ -1,0 +1,62 @@
+{
+ "finished_utc": "2026-11-15T06:41:07+00:00",
+ "runtime_s": 274,
+ "args": {
+  "field_years": "classifier/labels/results/field_years_fixed.csv",
+  "pixels": "/home/keeboh/work/presto/pixels",
+  "presto_dir": "/home/keeboh/ext/presto",
+  "out": "classifier/presto/results/presto_fixed_labels",
+  "prithvi_results": "/workspace/Hack-the-harvest-/classifier/prithvi/results/prithvi",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "lrs": [
+   0.0001,
+   0.0003
+  ],
+  "epochs": 100,
+  "patience": 10,
+  "last_month": 12,
+  "extra_train": null,
+  "extra_pixels": null,
+  "extra_ratio": 1.0
+ },
+ "min_month_frac": 0.5,
+ "c_grid": [
+  0.001,
+  0.01,
+  0.1,
+  1.0
+ ],
+ "presto": {
+  "repo": "https://github.com/nasaharvest/presto",
+  "license": "MIT",
+  "commit": "11e207a668a34336ced1d8e492a1bd5849b96c4a",
+  "weights_sha256": "559c9d76f525bdf2dd3774da8b1e7f1510769b73baacac12e9e4d8d5c67fbe65",
+  "single_file_presto_sha256": "fb487a3a9ceb6040eaa8e97b9cd2dd9df8cb6c650ab889ac0868944ed55700df"
+ },
+ "inputs": {
+  "field_years.csv": "d9e9b4842730ec035c1a15c8ad4e7056537626e3facf61cb2e0f11e9523ada58",
+  "pixels_2017.npz": "3cd868af86a8359d4e20daae1fdee0544c47ef362128f35ee985c2399d60cdf0",
+  "pixels_2018.npz": "860a604c9d27b5f5360fc80209159832e3f01d663f9942c261b4171130e0daa1",
+  "pixels_2019.npz": "6d9266a197f92a13fa8bda6376722fd4c104ba88480a909807d0a1b4a26c7d00",
+  "pixels_2020.npz": "17c4865a1f9e16478134739e5983669b651401ff58d6de94a6035a8e4f349612",
+  "pixels_2021.npz": "9d7dc7e8526784e459364c81c084ef5a9d83f591bccea5a252619e0d1b716abf",
+  "pixels_2022.npz": "01339de48a70b55e62dfb2fb937d1a5e87b99a920e2e79df67573ec2ccf253ad",
+  "pixels_2023.npz": "eb6dc1aba35bf6076923d6e216a34c664f85a62c75a2319e6335b118f8f067f9"
+ },
+ "extra_train": null,
+ "extra_max_pix": 256,
+ "prithvi_comparison": "Prithvi run used different splits",
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.15.0+cu132",
+  "cuda": "13.2",
+  "gpu": "NVIDIA B200",
+  "sklearn": "1.9.1"
+ }
+}

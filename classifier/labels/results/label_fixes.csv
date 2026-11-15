@@ -1,0 +1,9 @@
+table,field_id,idn,year,label,action,new_label,evidence
+training,235,CentralFarm_1-14C,2020,Grain,drop,,"Soybeans on this outline: the combine soybean file the farm calls 1-14B (harvested 2020-10-09) covers 84-99% of it; corn files cover 3-8% at the edge. The farm redrew the 1-14 sub-fields in 2020, so its grain '1-14C' (11.53 ac) is other ground."
+training,278,CentralFarm_2-32A,2017,Grain,drop,,"Not corn at harvest: corn planted 2017-05-04, the whole field redrilled to sorghum-sudangrass 2017-06-22 (farm report); combine sorghum file 2017-10-28 and 11-03 covers 87-100% of the outline."
+extra labels,,CentralFarm_4-7,2014,Silage,relabel,Grain,"Silage planting record only. Combined 2014-11-04 over 83-89% of the outline, 16.4% grain moisture, median 87 bu/ac; rye drilled 11-15."
+extra labels,,EastFarm_5-12,2014,Silage,relabel,Grain,"Silage planting record only. Combined 2014-10-30/31 over 97-99%, median 164 bu/ac; rye drilled 11-09."
+extra labels,,CentralFarm_1-37,2016,Silage,relabel,Grain,"Silage planting record only. Combined 2016-10-19, 11-02 and 11-03 over 100%, median 202 bu/ac."
+extra labels,,CentralFarm_2-32B,2014,Silage,drop,,"Silage planting record only. One 4.9 ac block (30-33% of the outline) combined 2014-10-10 at 22.9% moisture; the rest is unknown, so the field-year is mixed."
+evaluation,327,CentralFarm_4-7,2021,Silage,flag,,"Official label kept. Combined 2021-11-04 over 90-93% of the outline with a corn head, 19.6% moisture, median 80 bu/ac; the farm report also has a combine harvest that day with crop code CSIL. The label follows the silage planting code; as a harvest, and to a satellite, it is grain. Report scores with and without it."
+training,,CentralFarm_1-14B/C/D,,,flag,,"Rows for field_id 234, 235, 236 in 2017-2019 are matched by sub-field name. No combine data for them; the gpkg acreages equal the farm's pre-2020 acreages, so the old letters probably match. Kept."

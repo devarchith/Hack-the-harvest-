@@ -1,0 +1,23 @@
+{
+ "git_commit": null,
+ "git_dirty": false,
+ "python": "3.12.3",
+ "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+ "numpy": "2.5.4",
+ "pandas": "3.1.1",
+ "sklearn": "1.9.1",
+ "scipy": "1.18.1",
+ "runtime_s": 3.1,
+ "finished_utc": "2026-11-15T06:17:14+00:00",
+ "inputs_sha256": {
+  "research/pretrained_classifier/results/presto_emb/presto_frozen.csv": "a2ab87c442cba0cb7864f5d1b29ad131e2f7bf86205d502c49304d024df4dc5c",
+  "research/grain_vs_silage/results/features_all_field_years.csv": "732a50b5f52bc8f253c06566723f20b1cfdaff8395d4360673d5476d1cd75149",
+  "research/grain_vs_silage/results/features_2017_2020.csv": "4724df47dd8d4da7384966ef56dd68bcfc3abce6aad24236cd643723877abdbb"
+ },
+ "command": "evaluate.py --features /home/keeboh/work/eval/Hack-the-harvest--main/research/pretrained_classifier/results/presto_emb/presto_frozen.csv --prefix Q --name presto_frozen --title Presto, frozen, monthly 10 m pixel series",
+ "chosen": {
+  "family": "emb",
+  "k": 16,
+  "C": 0.5
+ }
+}
